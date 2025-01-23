@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://bdgmtlxnl4qhx"]
+
+[ext_resource type="PackedScene" uid="uid://bthni1oqodncp" path="res://entities/bullet/bullet.tscn" id="1_knq15"]
+
+[node name="Playground" type="Node2D"]
+
+[node name="Bullet" parent="." instance=ExtResource("1_knq15")]
+position = Vector2(423, 261)
