@@ -1,6 +1,12 @@
 class_name Enemy
 extends CharacterBody2D
 
+## Represents the number of points that should be acquired when this enemy dies.
+@export var points_on_kill: int = 100
+
+# Private members
+var _is_dead: bool = false
+
 ## Signal emitted when the enemy has died.
 ##
 ## Signal emitted when the enemy has died. This signal is being emitted
@@ -13,7 +19,11 @@ signal died(enemy: Enemy)
 ## Kills this enemy. This function is meant to be called
 ## externally by other scripts.
 func kill() -> void:
+	if _is_dead:
+		return
+	
 	died.emit(self)
+	_is_dead = true
 	_on_death()
 
 ## Logic to execute when this enemy dies.

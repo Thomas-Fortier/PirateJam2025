@@ -1,5 +1,7 @@
-[gd_scene load_steps=6 format=4 uid="uid://bdgmtlxnl4qhx"]
+[gd_scene load_steps=8 format=4 uid="uid://bdgmtlxnl4qhx"]
 
+[ext_resource type="Script" path="res://scripts/globals/game_manager.gd" id="1_3ethf"]
+[ext_resource type="PackedScene" uid="uid://bdqn7gj1xmqay" path="res://ui/overlay/overlay.tscn" id="1_464ud"]
 [ext_resource type="PackedScene" uid="uid://bthni1oqodncp" path="res://entities/bullet/bullet.tscn" id="1_knq15"]
 [ext_resource type="Texture2D" uid="uid://ddduis4ta8v5w" path="res://levels/Solaria Demo Tiles.png" id="2_o611g"]
 [ext_resource type="PackedScene" uid="uid://dvvs8ou2s3603" path="res://entities/enemies/stationary/stationary_enemy.tscn" id="3_ixstw"]
@@ -387,6 +389,14 @@ sources/0 = SubResource("TileSetAtlasSource_a1bv1")
 
 [node name="Playground" type="Node2D"]
 
+[node name="Overlay" parent="." node_paths=PackedStringArray("game_manager") instance=ExtResource("1_464ud")]
+offset_right = 640.0
+offset_bottom = 360.0
+game_manager = NodePath("../GameManager")
+
+[node name="GameManager" type="Node" parent="."]
+script = ExtResource("1_3ethf")
+
 [node name="Bullet" parent="." instance=ExtResource("1_knq15")]
 z_index = 1
 position = Vector2(308, 240)
@@ -404,3 +414,8 @@ tile_set = SubResource("TileSet_dap5l")
 
 [node name="StationaryEnemy" parent="." instance=ExtResource("3_ixstw")]
 position = Vector2(215, 239)
+points_on_kill = 250
+
+[node name="StationaryEnemy2" parent="." instance=ExtResource("3_ixstw")]
+z_index = 2
+position = Vector2(357, 166)
