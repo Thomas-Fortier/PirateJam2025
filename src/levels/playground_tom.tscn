@@ -394,8 +394,9 @@ offset_right = 640.0
 offset_bottom = 360.0
 game_manager = NodePath("../GameManager")
 
-[node name="GameManager" type="Node" parent="."]
+[node name="GameManager" type="Node" parent="." node_paths=PackedStringArray("bullet")]
 script = ExtResource("1_3ethf")
+bullet = NodePath("../Bullet")
 
 [node name="Bullet" parent="." instance=ExtResource("1_knq15")]
 z_index = 1
