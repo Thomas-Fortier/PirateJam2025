@@ -6,10 +6,10 @@
 [node name="Bullet" type="CharacterBody2D"]
 script = ExtResource("1_eus8a")
 
-[node name="Bullet" type="Sprite2D" parent="."]
+[node name="Collider" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(0, -3, 3, -3, 3, -2, 5, -2, 5, -1, 6, -1, 6, 0, 7, 0, 7, 1, 6, 1, 6, 2, 5, 2, 5, 3, 3, 3, 3, 4, 0, 4)
+
+[node name="Sprite" type="Sprite2D" parent="Collider"]
 texture_filter = 1
 position = Vector2(-1, 0)
 texture = ExtResource("1_fsukr")
-
-[node name="Collider" type="CollisionPolygon2D" parent="."]
-polygon = PackedVector2Array(0, -3, 3, -3, 3, -2, 5, -2, 5, -1, 6, -1, 6, 0, 7, 0, 7, 1, 6, 1, 6, 2, 5, 2, 5, 3, 3, 3, 3, 4, 0, 4)

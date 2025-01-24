@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://bthni1oqodncp" path="res://entities/bullet/bullet.tscn" id="1_nb5cp"]
 [ext_resource type="Texture2D" uid="uid://ddduis4ta8v5w" path="res://levels/Solaria Demo Tiles.png" id="2_ibj78"]
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ea75h"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_xi268"]
 texture = ExtResource("2_ibj78")
 0:0/0 = 0
 1:0/0 = 0
@@ -382,7 +382,7 @@ texture = ExtResource("2_ibj78")
 
 [sub_resource type="TileSet" id="TileSet_rt6po"]
 physics_layer_0/collision_layer = 1
-sources/0 = SubResource("TileSetAtlasSource_ea75h")
+sources/0 = SubResource("TileSetAtlasSource_xi268")
 
 [node name="PlaygroundJon" type="Node2D"]
 
