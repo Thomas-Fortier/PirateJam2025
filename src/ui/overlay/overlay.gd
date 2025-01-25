@@ -15,3 +15,7 @@ func _ready() -> void:
 func _initialize() -> void:
 	_points.initialize(game_manager)
 	_ricochets.initialize(game_manager)
+
+
+func _on_timer_timeout() -> void:
+	pass # Replace with function body.

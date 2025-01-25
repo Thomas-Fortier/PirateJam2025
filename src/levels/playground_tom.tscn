@@ -6,7 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://ddduis4ta8v5w" path="res://levels/Solaria Demo Tiles.png" id="2_o611g"]
 [ext_resource type="PackedScene" uid="uid://dvvs8ou2s3603" path="res://entities/enemies/stationary/stationary_enemy.tscn" id="3_ixstw"]
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_a1bv1"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_6jk07"]
 texture = ExtResource("2_o611g")
 0:0/0 = 0
 1:0/0 = 0
@@ -385,7 +385,7 @@ texture = ExtResource("2_o611g")
 
 [sub_resource type="TileSet" id="TileSet_dap5l"]
 physics_layer_0/collision_layer = 1
-sources/0 = SubResource("TileSetAtlasSource_a1bv1")
+sources/0 = SubResource("TileSetAtlasSource_6jk07")
 
 [node name="Playground" type="Node2D"]
 
