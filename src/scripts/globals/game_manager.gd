@@ -5,12 +5,16 @@ extends Node
 signal points_changed(points: int)
 ## Signal called when the number of ricochets remaining has been changed.
 signal ricochets_changed(ricochets_remaining: int)
+## Signal called when the number of turns has changed.
+signal turns_changed(turns: int, max_turns: int)
 
 @export_category("Dependencies")
 ## The main bullet that the player controls.
 @export var bullet: Bullet = null
 
 @export_category("Stats")
+## The number of max turns the bullet has.
+@export var max_turns: int = 3
 ## The number of max ricochets the bullet has.
 @export var max_ricochets: int = 6
 ## The total points that the player has.
@@ -28,6 +32,13 @@ var ricochets_remaining: int:
 			return
 		ricochets_remaining = value
 		ricochets_changed.emit(value)
+## The number of turns the bullet has.
+var remaining_turns: int:
+	set(value):
+		if remaining_turns == value:
+			return
+		remaining_turns = value
+		turns_changed.emit(value, max_turns)
 ## Represents all enemies in the current level.
 var enemies: Array[Enemy] = []
 
@@ -36,6 +47,7 @@ func _ready() -> void:
 	bullet.bounced_off_wall.connect(_on_bullet_bounce)
 	
 	ricochets_remaining = max_ricochets
+	remaining_turns = max_turns
 	
 	call_deferred("_initialize_enemies")
 
@@ -54,6 +66,17 @@ func _on_bullet_bounce() -> void:
 	if ricochets_remaining != 0:
 		ricochets_remaining -= 1
 		return
-		
+	
+	if remaining_turns > 1:
+		remaining_turns -= 1
+	else:
+		_handle_game_over()
+		return # TODO: Game over logic.
+	
 	bullet.select_direction()
 	ricochets_remaining = max_ricochets
+
+func _handle_game_over() -> void:
+	remaining_turns -= 1
+	print("Game over.")
+	bullet.toggle_pause()

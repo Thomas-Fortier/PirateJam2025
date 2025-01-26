@@ -9,8 +9,12 @@ signal bounced_off_wall()
 
 # Private members
 var _is_selecting_direction: bool = true
+var _is_paused: bool = false
 
 func _physics_process(delta: float) -> void:
+	if _is_paused:
+		return
+	
 	if _is_selecting_direction:
 		_follow_cursor()
 		return
@@ -32,6 +36,10 @@ func _physics_process(delta: float) -> void:
 ## that the bullet is facing.
 func select_direction() -> void:
 	_is_selecting_direction = true
+
+## Pauses the bullet movement.
+func toggle_pause() -> void:
+	_is_paused = !_is_paused
 
 ## Bonces the bullet off of a given collision object.
 func _bounce_off_wall(collision: KinematicCollision2D) -> void:

@@ -1,13 +1,14 @@
 class_name MovingEnemy
 extends Enemy
 
-const speed = 30
+const speed = 3000
 var dir: Vector2
 
 func _ready() -> void:
 	add_to_group("enemies")
 
-func _process(delta):
+func _physics_process(delta):
+	print(Engine.get_frames_per_second())
 	move(delta)
 
 func _on_death() -> void:
@@ -17,7 +18,7 @@ func _on_death() -> void:
 ## Make the enemy move in a random direction
 func move(delta):
 	# TODO: Implement logic to prevent enemy from gaining speed if the same direction is chosen twice in a row
-	velocity += dir * speed * delta
+	velocity = dir * speed * delta
 	move_and_slide()
 
 ## Function to choose random wait time and direction to move
