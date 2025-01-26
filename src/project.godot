@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="PirateJam 2025"
-run/main_scene="res://levels/playground_tom.tscn"
+run/main_scene="res://levels/playground_jon.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
 config/icon="res://icon.svg"
 
