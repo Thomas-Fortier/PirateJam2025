@@ -11,6 +11,8 @@ signal turns_changed(turns: int, max_turns: int)
 @export_category("Dependencies")
 ## The main bullet that the player controls.
 @export var bullet: Bullet = null
+## The reference to the game over panel scene.
+@export var game_over_scene: PackedScene = preload("res://ui/popups/game_over_panel/game_over_panel.tscn")
 
 @export_category("Stats")
 ## The number of max turns the bullet has.
@@ -86,4 +88,5 @@ func _handle_game_over(did_win: bool) -> void:
 	if did_win:
 		print("You won!")
 	else:
-		print("You lost.")
+		var instance: Panel = game_over_scene.instantiate()
+		add_child(instance)
