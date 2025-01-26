@@ -60,6 +60,9 @@ func _initialize_enemies() -> void:
 func _on_enemy_death(enemy: Enemy) -> void:
 	enemies.erase(enemy)
 	points += enemy.points_on_kill
+	
+	if enemies.size() == 0:
+		_handle_game_over(true)
 
 ## The functionality to execute when the bullet has bounced off a wall.
 func _on_bullet_bounce() -> void:
@@ -67,16 +70,20 @@ func _on_bullet_bounce() -> void:
 		ricochets_remaining -= 1
 		return
 	
-	if remaining_turns > 1:
-		remaining_turns -= 1
-	else:
-		_handle_game_over()
+	remaining_turns -= 1
+	
+	if remaining_turns == 0:
+		_handle_game_over(false)
 		return # TODO: Game over logic.
 	
 	bullet.select_direction()
 	ricochets_remaining = max_ricochets
 
-func _handle_game_over() -> void:
-	remaining_turns -= 1
+func _handle_game_over(did_win: bool) -> void:
 	print("Game over.")
 	bullet.toggle_pause()
+	
+	if did_win:
+		print("You won!")
+	else:
+		print("You lost.")
