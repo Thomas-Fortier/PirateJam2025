@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://bthni1oqodncp"]
 
 [ext_resource type="Script" path="res://entities/bullet/bullet.gd" id="1_eus8a"]
-[ext_resource type="Texture2D" uid="uid://drxsmpe1ljdu" path="res://entities/bullet/bullet.png" id="1_fsukr"]
+[ext_resource type="Texture2D" uid="uid://drxsmpe1ljdu" path="res://entities/bullet/bullet.png" id="2_bltfy"]
 
 [node name="Bullet" type="CharacterBody2D"]
 script = ExtResource("1_eus8a")
@@ -10,6 +10,7 @@ script = ExtResource("1_eus8a")
 polygon = PackedVector2Array(0, -3, 3, -3, 3, -2, 5, -2, 5, -1, 6, -1, 6, 0, 7, 0, 7, 1, 6, 1, 6, 2, 5, 2, 5, 3, 3, 3, 3, 4, 0, 4)
 
 [node name="Sprite" type="Sprite2D" parent="Collider"]
+modulate = Color(0.94301, 0.957642, 0.999168, 1)
 texture_filter = 1
 position = Vector2(-1, 0)
-texture = ExtResource("1_fsukr")
+texture = ExtResource("2_bltfy")
