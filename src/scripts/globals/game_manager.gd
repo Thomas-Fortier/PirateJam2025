@@ -88,5 +88,15 @@ func _handle_game_over(did_win: bool) -> void:
 	if did_win:
 		print("You won!")
 	else:
-		var instance: Panel = game_over_scene.instantiate()
+		var instance: GameOverPanel = game_over_scene.instantiate()
+		instance.initialize(self)
 		add_child(instance)
+
+func load_level(level: PackedScene) -> void:
+	get_tree().change_scene_to_packed(level)
+
+## Resets the state of the game manager back to default values.
+func reset() -> void:
+	points = 0
+	ricochets_remaining = max_ricochets
+	remaining_turns = max_turns
