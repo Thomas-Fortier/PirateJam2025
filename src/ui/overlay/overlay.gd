@@ -7,7 +7,7 @@ extends Control
 @onready var _turns_label: Label = %TurnsLabel
 
 const CRITICAL_COLOR = Color.RED
-const NORMAL_COLOR = Color.WHITE
+const NORMAL_COLOR = Color("bffff1")
 
 func _ready() -> void:
 	_points_label.text = str(GameManager.points)

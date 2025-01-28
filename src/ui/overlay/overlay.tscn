@@ -5,12 +5,15 @@
 
 [sub_resource type="LabelSettings" id="LabelSettings_buvxj"]
 font = ExtResource("1_2blrg")
+font_color = Color(0.74902, 1, 0.945098, 1)
 
-[sub_resource type="LabelSettings" id="LabelSettings_5g3tt"]
+[sub_resource type="LabelSettings" id="LabelSettings_gpj2j"]
 font = ExtResource("1_2blrg")
+font_color = Color(0.74902, 1, 0.945098, 1)
 
-[sub_resource type="LabelSettings" id="LabelSettings_71duj"]
+[sub_resource type="LabelSettings" id="LabelSettings_ujkc5"]
 font = ExtResource("1_2blrg")
+font_color = Color(0.74902, 1, 0.945098, 1)
 
 [node name="Overlay" type="Control"]
 z_index = 99
@@ -75,7 +78,7 @@ layout_mode = 0
 offset_right = 40.0
 offset_bottom = 23.0
 text = "0 / 0"
-label_settings = SubResource("LabelSettings_5g3tt")
+label_settings = SubResource("LabelSettings_gpj2j")
 
 [node name="Ricochets" type="Control" parent="Margin/Viewport/Stats"]
 layout_mode = 1
@@ -92,5 +95,5 @@ layout_mode = 1
 offset_right = 40.0
 offset_bottom = 16.0
 text = "0"
-label_settings = SubResource("LabelSettings_71duj")
+label_settings = SubResource("LabelSettings_ujkc5")
 horizontal_alignment = 2

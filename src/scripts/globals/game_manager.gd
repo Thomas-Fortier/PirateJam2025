@@ -16,6 +16,15 @@ signal turns_changed(turns: int, max_turns: int)
 ## The level within the scene.
 @onready var level: Node2D = $"../GameRoot/Level"
 
+## The number of levels completed this run.
+var levels_completed: int = 0
+## The total number of ricochets.
+var total_ricochets: int = 0
+## The total poitns accumulated this run.
+var total_points: int = 0
+## The total enemies killed.
+var total_enemies_killed: int = 0
+
 ## The total points that the player has.
 var points: int:
 	set(value):
@@ -67,12 +76,16 @@ func _initialize_enemies() -> void:
 func _on_enemy_death(enemy: Enemy) -> void:
 	enemies.erase(enemy)
 	points += enemy.points_on_kill
+	total_points += enemy.points_on_kill
+	total_enemies_killed += 1
 	
 	if enemies.size() == 0:
 		_handle_game_over(true)
 
 ## The functionality to execute when the bullet has bounced off a wall.
 func _on_bullet_bounce() -> void:
+	total_ricochets += 1
+	
 	if ricochets_remaining != 0:
 		ricochets_remaining -= 1
 		return
@@ -93,6 +106,7 @@ func _handle_game_over(did_win: bool) -> void:
 	
 	if did_win:
 		print("You won!")
+		levels_completed += 1
 	else:
 		var instance: GameOverPanel = _game_over_scene.instantiate()
 		get_tree().root.add_child(instance)
@@ -109,6 +123,10 @@ func reset_run() -> void:
 	var level_to_load: PackedScene = config.levels.pick_random()
 	switch_to_level(level_to_load)
 	reset()
+	levels_completed = 0
+	total_ricochets = 0
+	total_enemies_killed = 0
+	total_points = 0
 
 ## Resets the state of the game manager back to default values.
 func reset() -> void:
