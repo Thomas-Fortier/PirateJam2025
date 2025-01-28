@@ -17,3 +17,8 @@ shape = SubResource("RectangleShape2D_5r20h")
 [node name="Sprite" type="Sprite2D" parent="Collider"]
 scale = Vector2(0.125, 0.125)
 texture = ExtResource("2_txacc")
+
+[node name="Timer" type="Timer" parent="."]
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
