@@ -15,9 +15,10 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
 	pass
-	
+
+## This function handles the interaction between the shrapnel and colliding enemies or walls
 func _on_body_entered(body):
-	print("Collided with:", body)
+	## If the colliding object is an enemy, kill the enemy and despawn the shrapnel piece
 	if body is CharacterBody2D:
 		if body.has_method("kill"):
 			body.kill()
