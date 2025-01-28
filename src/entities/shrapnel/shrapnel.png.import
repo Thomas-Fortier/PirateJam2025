@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://plxwejagx8fa"
-path="res://.godot/imported/Barrel_MonochromeV1.png-2b0bd1c96ec6b57e550817b414d178fd.ctex"
+uid="uid://ccp2jbb4fw1c7"
+path="res://.godot/imported/shrapnel.png-273b82702fe68625970d8dc71cba4a4b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://entities/exploding_barrel/Barrel_MonochromeV1.png"
-dest_files=["res://.godot/imported/Barrel_MonochromeV1.png-2b0bd1c96ec6b57e550817b414d178fd.ctex"]
+source_file="res://entities/shrapnel/shrapnel.png"
+dest_files=["res://.godot/imported/shrapnel.png-273b82702fe68625970d8dc71cba4a4b.ctex"]
 
 [params]
 

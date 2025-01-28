@@ -1,9 +1,11 @@
 [gd_scene load_steps=3 format=3 uid="uid://d07o2ymbkswk0"]
 
-[ext_resource type="Texture2D" uid="uid://ccp2jbb4fw1c7" path="res://entities/shrapnel/Shrapnelv1.png" id="1_qbs13"]
+[ext_resource type="Texture2D" uid="uid://ccp2jbb4fw1c7" path="res://entities/shrapnel/shrapnel.png" id="1_qbs13"]
 [ext_resource type="Script" path="res://entities/shrapnel/shrapnel.gd" id="1_vnj2v"]
 
 [node name="Shrapnel" type="RigidBody2D"]
+collision_layer = 8
+collision_mask = 6
 gravity_scale = 0.0
 script = ExtResource("1_vnj2v")
 

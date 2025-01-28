@@ -13,7 +13,7 @@ func _ready() -> void:
 	queue_free()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	pass
 	
 func _on_body_entered(body):
@@ -21,6 +21,6 @@ func _on_body_entered(body):
 	if body is CharacterBody2D:
 		if body.has_method("kill"):
 			body.kill()
-		queue_free()
+			queue_free()
 	elif body is StaticBody2D or body is TileMapLayer:
 		queue_free()

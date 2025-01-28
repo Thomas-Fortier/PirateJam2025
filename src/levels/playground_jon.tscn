@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=4 uid="uid://ybie2gy70470"]
+[gd_scene load_steps=12 format=4 uid="uid://ybie2gy70470"]
 
 [ext_resource type="PackedScene" uid="uid://bdqn7gj1xmqay" path="res://ui/overlay/overlay.tscn" id="1_2hukh"]
 [ext_resource type="PackedScene" uid="uid://bthni1oqodncp" path="res://entities/bullet/bullet.tscn" id="1_nb5cp"]
@@ -7,6 +7,8 @@
 [ext_resource type="PackedScene" uid="uid://dvvs8ou2s3603" path="res://entities/enemies/stationary/stationary_enemy.tscn" id="5_wt6bq"]
 [ext_resource type="Script" path="res://entities/enemies/moving/moving_enemy.gd" id="6_wlcvq"]
 [ext_resource type="PackedScene" uid="uid://cvts5e1hrop0n" path="res://entities/exploding_barrel/exploding_barrel.tscn" id="7_hssgc"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_rd1pp"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4apkj"]
 texture = ExtResource("2_ibj78")
@@ -385,9 +387,14 @@ texture = ExtResource("2_ibj78")
 11:14/0 = 0
 12:14/0 = 0
 
+[sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_dke6k"]
+
 [sub_resource type="TileSet" id="TileSet_4c14s"]
-physics_layer_0/collision_layer = 1
+physics_layer_0/collision_layer = 4
+physics_layer_0/collision_mask = 11
+physics_layer_0/physics_material = SubResource("PhysicsMaterial_rd1pp")
 sources/0 = SubResource("TileSetAtlasSource_4apkj")
+sources/1 = SubResource("TileSetScenesCollectionSource_dke6k")
 
 [node name="PlaygroundJon" type="Node2D"]
 
@@ -420,6 +427,8 @@ tile_set = SubResource("TileSet_4c14s")
 
 [node name="MovingEnemy" parent="." instance=ExtResource("5_wt6bq")]
 position = Vector2(215, 239)
+collision_layer = 3
+collision_mask = 3
 floor_constant_speed = true
 script = ExtResource("6_wlcvq")
 speed = 3000.0
@@ -432,6 +441,8 @@ autostart = true
 [node name="StationaryEnemy2" parent="." instance=ExtResource("5_wt6bq")]
 z_index = 2
 position = Vector2(357, 166)
+collision_layer = 3
+collision_mask = 3
 
 [node name="ExplodingBarrel" parent="." instance=ExtResource("7_hssgc")]
 position = Vector2(317, 205)

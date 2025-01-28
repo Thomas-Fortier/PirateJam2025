@@ -1,9 +1,10 @@
 [gd_scene load_steps=3 format=3 uid="uid://bthni1oqodncp"]
 
 [ext_resource type="Script" path="res://entities/bullet/bullet.gd" id="1_eus8a"]
-[ext_resource type="Texture2D" uid="uid://d00eh6uvl7auh" path="res://entities/bullet/Bulletv4.png" id="2_wspel"]
+[ext_resource type="Texture2D" uid="uid://d00eh6uvl7auh" path="res://entities/bullet/bullet.png" id="2_wspel"]
 
 [node name="Bullet" type="CharacterBody2D"]
+collision_mask = 6
 script = ExtResource("1_eus8a")
 
 [node name="Collider" type="CollisionPolygon2D" parent="."]
