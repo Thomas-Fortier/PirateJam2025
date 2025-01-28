@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="GameConfig" load_steps=3 format=3 uid="uid://bh7dw50rrmopl"]
+
+[ext_resource type="Script" path="res://scripts/globals/game_config.gd" id="1_lyyry"]
+[ext_resource type="PackedScene" uid="uid://bdgmtlxnl4qhx" path="res://levels/playground_tom.tscn" id="1_oxrht"]
+
+[resource]
+script = ExtResource("1_lyyry")
+levels = Array[PackedScene]([ExtResource("1_oxrht")])
+max_turns = 3
+max_ricochets = 6

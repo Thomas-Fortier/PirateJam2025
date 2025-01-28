@@ -37,6 +37,11 @@ func _physics_process(delta: float) -> void:
 func select_direction() -> void:
 	_is_selecting_direction = true
 
+## Resets the state of the bullet.
+func reset() -> void:
+	_is_paused = false
+	_is_selecting_direction = true
+
 ## Pauses the bullet movement.
 func toggle_pause() -> void:
 	_is_paused = !_is_paused
@@ -51,5 +56,5 @@ func _bounce_off_wall(collision: KinematicCollision2D) -> void:
 func _follow_cursor() -> void:
 	look_at(get_global_mouse_position())
 	
-	if Input.is_action_just_pressed("fire"):
+	if Input.is_action_just_pressed("fire") and not _is_paused:
 		_is_selecting_direction = false

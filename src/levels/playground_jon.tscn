@@ -410,7 +410,6 @@ script = ExtResource("2_7xk0p")
 bullet = NodePath("../Bullet")
 
 [node name="Bullet" parent="." instance=ExtResource("1_nb5cp")]
-z_index = 1
 position = Vector2(308, 240)
 rotation = -0.461362
 
@@ -432,7 +431,7 @@ collision_mask = 3
 floor_constant_speed = true
 script = ExtResource("6_wlcvq")
 speed = 3000.0
-movement_interval = Array[float]([1.0, 1.5, 2.0])
+movement_interval = Array[float]([3.0, 4.0, 5.0])
 points_on_kill = 250
 
 [node name="Timer" type="Timer" parent="MovingEnemy"]
