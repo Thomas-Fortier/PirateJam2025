@@ -390,19 +390,16 @@ sources/0 = SubResource("TileSetAtlasSource_4apkj")
 
 [node name="PlaygroundJon" type="Node2D"]
 
-[node name="Overlay" parent="." node_paths=PackedStringArray("game_manager") instance=ExtResource("1_2hukh")]
+[node name="Overlay" parent="." instance=ExtResource("1_2hukh")]
 offset_left = 6.0
 offset_top = -7.0
 offset_right = 646.0
 offset_bottom = 353.0
-game_manager = NodePath("../GameManager")
 
-[node name="GameManager" type="Node" parent="." node_paths=PackedStringArray("bullet")]
+[node name="GameManager" type="Node" parent="."]
 script = ExtResource("2_7xk0p")
-bullet = NodePath("../Bullet")
 
 [node name="Bullet" parent="." instance=ExtResource("1_nb5cp")]
-z_index = 1
 position = Vector2(308, 240)
 rotation = -0.461362
 

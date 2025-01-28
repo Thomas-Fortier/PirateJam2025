@@ -1,4 +1,3 @@
-class_name GameManager
 extends Node
 
 ## Signal called when the points have been updated.
@@ -8,25 +7,16 @@ signal ricochets_changed(ricochets_remaining: int)
 ## Signal called when the number of turns has changed.
 signal turns_changed(turns: int, max_turns: int)
 
-@export_category("Dependencies")
 ## The main bullet that the player controls.
-@export var bullet: Bullet = null
-## The reference to the game over panel scene.
-@export var game_over_scene: PackedScene = preload("res://ui/popups/game_over_panel/game_over_panel.tscn")
+@onready var bullet: Bullet = $"../GameRoot/Bullet"
 
-@export_category("Stats")
-## The number of max turns the bullet has.
-@export var max_turns: int = 3
-## The number of max ricochets the bullet has.
-@export var max_ricochets: int = 6
 ## The total points that the player has.
-@export var points: int:
+var points: int:
 	set(value):
 		if points == value:
 			return
 		points = value
 		points_changed.emit(value)
-
 ## The number of ricochets remaining that the player has.
 var ricochets_remaining: int:
 	set(value):
@@ -40,16 +30,20 @@ var remaining_turns: int:
 		if remaining_turns == value:
 			return
 		remaining_turns = value
-		turns_changed.emit(value, max_turns)
+		turns_changed.emit(value, config.max_turns)
 ## Represents all enemies in the current level.
 var enemies: Array[Enemy] = []
+## The configuration for the game manager.
+var config: GameConfig = preload("res://scripts/globals/game_manager.tres") as GameConfig
 
 func _ready() -> void:
+	assert(config != null, "The config file could not be loaded.")
+	
 	assert(bullet != null, "The main bullet must be specified in the game manager.")
 	bullet.bounced_off_wall.connect(_on_bullet_bounce)
 	
-	ricochets_remaining = max_ricochets
-	remaining_turns = max_turns
+	ricochets_remaining = config.max_ricochets
+	remaining_turns = config.max_turns
 	
 	call_deferred("_initialize_enemies")
 
@@ -79,7 +73,7 @@ func _on_bullet_bounce() -> void:
 		return # TODO: Game over logic.
 	
 	bullet.select_direction()
-	ricochets_remaining = max_ricochets
+	ricochets_remaining = config.max_ricochets
 
 func _handle_game_over(did_win: bool) -> void:
 	print("Game over.")
@@ -88,9 +82,7 @@ func _handle_game_over(did_win: bool) -> void:
 	if did_win:
 		print("You won!")
 	else:
-		var instance: GameOverPanel = game_over_scene.instantiate()
-		instance.initialize(self)
-		add_child(instance)
+		print("You lost.")
 
 func load_level(level: PackedScene) -> void:
 	get_tree().change_scene_to_packed(level)
@@ -98,5 +90,5 @@ func load_level(level: PackedScene) -> void:
 ## Resets the state of the game manager back to default values.
 func reset() -> void:
 	points = 0
-	ricochets_remaining = max_ricochets
-	remaining_turns = max_turns
+	ricochets_remaining = config.max_ricochets
+	remaining_turns = config.max_turns

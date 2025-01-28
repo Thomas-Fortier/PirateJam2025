@@ -1,10 +1,7 @@
-[gd_scene load_steps=9 format=3 uid="uid://bdqn7gj1xmqay"]
+[gd_scene load_steps=6 format=3 uid="uid://bdqn7gj1xmqay"]
 
 [ext_resource type="FontFile" uid="uid://c4arg06qh2sqx" path="res://assets/fonts/pixellari.ttf" id="1_2blrg"]
-[ext_resource type="Script" path="res://ui/overlay/points.gd" id="1_mxe75"]
 [ext_resource type="Script" path="res://ui/overlay/overlay.gd" id="1_puhe0"]
-[ext_resource type="Script" path="res://ui/overlay/ricochets.gd" id="4_bc4tj"]
-[ext_resource type="Script" path="res://ui/overlay/turns.gd" id="4_tfg6g"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_buvxj"]
 font = ExtResource("1_2blrg")
@@ -49,14 +46,13 @@ offset_bottom = 30.0
 grow_horizontal = 2
 
 [node name="Points" type="Control" parent="Margin/Viewport/Stats"]
-unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
-script = ExtResource("1_mxe75")
 
 [node name="PointsLabel" type="Label" parent="Margin/Viewport/Stats/Points"]
+unique_name_in_owner = true
 layout_mode = 1
 offset_right = 40.0
 offset_bottom = 16.0
@@ -64,7 +60,6 @@ text = "0"
 label_settings = SubResource("LabelSettings_buvxj")
 
 [node name="Turns" type="Control" parent="Margin/Viewport/Stats"]
-unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
@@ -73,9 +68,9 @@ offset_left = -20.0
 offset_right = 20.0
 offset_bottom = 40.0
 grow_horizontal = 2
-script = ExtResource("4_tfg6g")
 
 [node name="TurnsLabel" type="Label" parent="Margin/Viewport/Stats/Turns"]
+unique_name_in_owner = true
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 23.0
@@ -83,7 +78,6 @@ text = "0 / 0"
 label_settings = SubResource("LabelSettings_5g3tt")
 
 [node name="Ricochets" type="Control" parent="Margin/Viewport/Stats"]
-unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
@@ -91,9 +85,9 @@ anchor_right = 1.0
 offset_left = -40.0
 offset_bottom = 40.0
 grow_horizontal = 0
-script = ExtResource("4_bc4tj")
 
 [node name="RicochetsLabel" type="Label" parent="Margin/Viewport/Stats/Ricochets"]
+unique_name_in_owner = true
 layout_mode = 1
 offset_right = 40.0
 offset_bottom = 16.0

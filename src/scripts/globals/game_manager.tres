@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="GameConfig" load_steps=2 format=3 uid="uid://bh7dw50rrmopl"]
+
+[ext_resource type="Script" path="res://scripts/globals/game_config.gd" id="1_lyyry"]
+
+[resource]
+script = ExtResource("1_lyyry")
+max_turns = 3
+max_ricochets = 6
