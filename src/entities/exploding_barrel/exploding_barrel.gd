@@ -3,7 +3,7 @@ extends Area2D
 @export var shrapnel_scene: PackedScene
 @export var shrapnel_count: int = 5
 @export var explosion_radius: float = 10.0
-@export var explosion_force: float = 175.0
+@export var explosion_force: float = 200.0
 
 var _random_number_generator = RandomNumberGenerator.new()
 
