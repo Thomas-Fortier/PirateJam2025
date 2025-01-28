@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d00eh6uvl7auh"
-path="res://.godot/imported/bullet.png-d3dacc23214f2cfa8a4bbd8885492f1f.ctex"
+uid="uid://plxwejagx8fa"
+path="res://.godot/imported/exploding_barrel.png-e457f54f942a05d7c2bbd6d9e0d0ab1f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://entities/bullet/bullet.png"
-dest_files=["res://.godot/imported/bullet.png-d3dacc23214f2cfa8a4bbd8885492f1f.ctex"]
+source_file="res://entities/exploding_barrel/exploding_barrel.png"
+dest_files=["res://.godot/imported/exploding_barrel.png-e457f54f942a05d7c2bbd6d9e0d0ab1f.ctex"]
 
 [params]
 

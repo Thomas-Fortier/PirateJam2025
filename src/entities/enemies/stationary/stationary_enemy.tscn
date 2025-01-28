@@ -7,6 +7,8 @@
 size = Vector2(16, 16)
 
 [node name="StationaryEnemy" type="CharacterBody2D"]
+collision_layer = 2
+collision_mask = 13
 script = ExtResource("1_ma8hv")
 
 [node name="Collider" type="CollisionShape2D" parent="."]

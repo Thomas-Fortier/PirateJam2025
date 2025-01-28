@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d00eh6uvl7auh"
-path="res://.godot/imported/bullet.png-d3dacc23214f2cfa8a4bbd8885492f1f.ctex"
+uid="uid://ccp2jbb4fw1c7"
+path="res://.godot/imported/shrapnel.png-273b82702fe68625970d8dc71cba4a4b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://entities/bullet/bullet.png"
-dest_files=["res://.godot/imported/bullet.png-d3dacc23214f2cfa8a4bbd8885492f1f.ctex"]
+source_file="res://entities/shrapnel/shrapnel.png"
+dest_files=["res://.godot/imported/shrapnel.png-273b82702fe68625970d8dc71cba4a4b.ctex"]
 
 [params]
 
