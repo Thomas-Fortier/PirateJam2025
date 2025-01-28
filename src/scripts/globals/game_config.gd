@@ -1,6 +1,8 @@
 class_name GameConfig
 extends Resource
 
+@export var levels: Array[PackedScene] = []
+
 @export_category("Max Values")
 ## The number of max turns the bullet has.
 @export var max_turns: int = 3

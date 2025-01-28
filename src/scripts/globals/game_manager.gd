@@ -1,5 +1,7 @@
 extends Node
 
+## Signal called for when the game is over.
+signal game_over(did_win: bool)
 ## Signal called when the points have been updated.
 signal points_changed(points: int)
 ## Signal called when the number of ricochets remaining has been changed.
@@ -7,8 +9,12 @@ signal ricochets_changed(ricochets_remaining: int)
 ## Signal called when the number of turns has changed.
 signal turns_changed(turns: int, max_turns: int)
 
+## The root of the game.
+@onready var game_root: Node2D = $"../GameRoot"
 ## The main bullet that the player controls.
 @onready var bullet: Bullet = $"../GameRoot/Bullet"
+## The level within the scene.
+@onready var level: Node2D = $"../GameRoot/Level"
 
 ## The total points that the player has.
 var points: int:
@@ -36,21 +42,26 @@ var enemies: Array[Enemy] = []
 ## The configuration for the game manager.
 var config: GameConfig = preload("res://scripts/globals/game_manager.tres") as GameConfig
 
+var _game_over_scene: PackedScene = preload("res://ui/popups/game_over_panel/game_over_panel.tscn")
+
 func _ready() -> void:
 	assert(config != null, "The config file could not be loaded.")
-	
+	assert(level != null, "No level was found / specified.")
 	assert(bullet != null, "The main bullet must be specified in the game manager.")
-	bullet.bounced_off_wall.connect(_on_bullet_bounce)
 	
+	bullet.bounced_off_wall.connect(_on_bullet_bounce)
 	ricochets_remaining = config.max_ricochets
 	remaining_turns = config.max_turns
 	
 	call_deferred("_initialize_enemies")
 
 func _initialize_enemies() -> void:
-	for enemy in get_tree().get_nodes_in_group("enemies"):
-		enemy.died.connect(_on_enemy_death)
-		enemies.append(enemy)
+	for node in get_tree().get_nodes_in_group("enemies"):
+		if node is Enemy:
+			if node.died.is_connected(_on_enemy_death):
+				continue
+			node.died.connect(_on_enemy_death)
+			enemies.append(node)
 
 ## The functionality for when an enemy dies within the level.
 func _on_enemy_death(enemy: Enemy) -> void:
@@ -77,18 +88,32 @@ func _on_bullet_bounce() -> void:
 
 func _handle_game_over(did_win: bool) -> void:
 	print("Game over.")
+	game_over.emit(did_win)
 	bullet.toggle_pause()
 	
 	if did_win:
 		print("You won!")
 	else:
+		var instance: GameOverPanel = _game_over_scene.instantiate()
+		get_tree().root.add_child(instance)
 		print("You lost.")
 
-func load_level(level: PackedScene) -> void:
-	get_tree().change_scene_to_packed(level)
+func switch_to_level(next_level: PackedScene) -> void:
+	level.queue_free()
+	
+	var instance = next_level.instantiate()
+	level = instance
+	game_root.add_child(instance)
+
+func reset_run() -> void:
+	var level_to_load: PackedScene = config.levels.pick_random()
+	switch_to_level(level_to_load)
+	reset()
 
 ## Resets the state of the game manager back to default values.
 func reset() -> void:
 	points = 0
 	ricochets_remaining = config.max_ricochets
 	remaining_turns = config.max_turns
+	bullet.reset()
+	_initialize_enemies()
