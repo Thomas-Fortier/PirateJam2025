@@ -9,12 +9,8 @@ signal ricochets_changed(ricochets_remaining: int)
 ## Signal called when the number of turns has changed.
 signal turns_changed(turns: int, max_turns: int)
 
-## The root of the game.
-@onready var game_root: Node2D = $"../GameRoot"
 ## The main bullet that the player controls.
 @onready var bullet: Bullet = $"../GameRoot/Bullet"
-## The level within the scene.
-@onready var level: Node2D = $"../GameRoot/Level"
 
 ## The number of levels completed this run.
 var levels_completed: int = 0
@@ -49,14 +45,10 @@ var remaining_turns: int:
 ## Represents all enemies in the current level.
 var enemies: Array[Enemy] = []
 ## The configuration for the game manager.
-var config: GameConfig = preload("res://scripts/globals/game_manager.tres") as GameConfig
-
-var _game_over_scene: PackedScene = preload("res://ui/popups/game_over_panel/game_over_panel.tscn")
-var _level_win_scene: PackedScene = preload("res://ui/popups/level_win_panel/level_win_panel.tscn")
+var config: GameConfig = preload("res://scripts/managers/game_manager.tres") as GameConfig
 
 func _ready() -> void:
 	assert(config != null, "The config file could not be loaded.")
-	assert(level != null, "No level was found / specified.")
 	assert(bullet != null, "The main bullet must be specified in the game manager.")
 	
 	bullet.bounced_off_wall.connect(_on_bullet_bounce)
@@ -102,35 +94,20 @@ func _on_bullet_bounce() -> void:
 	ricochets_remaining = config.max_ricochets
 
 func _handle_game_over(did_win: bool) -> void:
-	print("Game over.")
 	game_over.emit(did_win)
 	bullet.toggle_pause()
 	
 	if did_win:
-		print("You won!")
 		levels_completed += 1
-		var instance: LevelWinPanel = _level_win_scene.instantiate()
-		get_tree().root.add_child(instance)
-	else:
-		var instance: GameOverPanel = _game_over_scene.instantiate()
-		get_tree().root.add_child(instance)
-		print("You lost.")
-
-func switch_to_level(next_level_to_load: PackedScene) -> void:
-	level.queue_free()
 	
-	var instance = next_level_to_load.instantiate()
-	level = instance
-	game_root.add_child(instance)
+	UiManager.show_game_over(did_win)
 
 func next_level() -> void:
-	var level_to_load: PackedScene = config.levels.pick_random()
-	switch_to_level(level_to_load)
+	LevelManager.next_level(config)
 	reset()
 
 func reset_run() -> void:
-	var level_to_load: PackedScene = config.levels.pick_random()
-	switch_to_level(level_to_load)
+	LevelManager.next_level(config)
 	reset()
 	levels_completed = 0
 	total_ricochets = 0

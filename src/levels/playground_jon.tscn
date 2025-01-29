@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://bdqn7gj1xmqay" path="res://ui/overlay/overlay.tscn" id="1_2hukh"]
 [ext_resource type="PackedScene" uid="uid://bthni1oqodncp" path="res://entities/bullet/bullet.tscn" id="1_nb5cp"]
-[ext_resource type="Script" path="res://scripts/globals/game_manager.gd" id="2_7xk0p"]
+[ext_resource type="Script" path="res://scripts/managers/game_manager.gd" id="2_7xk0p"]
 [ext_resource type="Texture2D" uid="uid://ddduis4ta8v5w" path="res://levels/Solaria Demo Tiles.png" id="2_ibj78"]
 [ext_resource type="PackedScene" uid="uid://dvvs8ou2s3603" path="res://entities/enemies/stationary/stationary_enemy.tscn" id="5_wt6bq"]
 [ext_resource type="Script" path="res://entities/enemies/moving/moving_enemy.gd" id="6_wlcvq"]
