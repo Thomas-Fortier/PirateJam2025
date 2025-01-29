@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://c851uxpa0eutx" path="res://assets/tilemaps/walls.png" id="1_x5hm2"]
 [ext_resource type="PackedScene" uid="uid://cvts5e1hrop0n" path="res://entities/exploding_barrel/exploding_barrel.tscn" id="2_ln167"]
 [ext_resource type="PackedScene" uid="uid://dvvs8ou2s3603" path="res://entities/enemies/stationary/stationary_enemy.tscn" id="3_ixstw"]
-[ext_resource type="PackedScene" uid="uid://cdgnyaugbn4an" path="res://entities/enemies/moving/moving_enemy.tscn" id="3_kb0r8"]
+[ext_resource type="PackedScene" path="res://entities/enemies/moving/moving_enemy.tscn" id="3_kb0r8"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_6kebf"]
 texture = ExtResource("1_x5hm2")
