@@ -13,7 +13,7 @@ func _ready() -> void:
 
 # This function calls the explode function upon colliding with the player
 func _on_body_entered(body):
-	if body is Bullet:
+	if body is Bullet or body is Shrapnel:
 		explode()
 
 func explode():

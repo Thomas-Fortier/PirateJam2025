@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://d07o2ymbkswk0" path="res://entities/shrapnel/shrapnel.tscn" id="2_n1njm"]
 
 [node name="ExplodingBarrel" type="Area2D"]
+collision_mask = 9
 script = ExtResource("1_asrbp")
 shrapnel_scene = ExtResource("2_n1njm")
 

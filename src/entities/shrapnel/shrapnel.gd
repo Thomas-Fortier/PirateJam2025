@@ -1,3 +1,4 @@
+class_name Shrapnel
 extends RigidBody2D
 
 @export var damage: int = 250
