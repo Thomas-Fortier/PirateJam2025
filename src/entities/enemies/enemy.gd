@@ -7,6 +7,8 @@ extends CharacterBody2D
 # Private members
 var _is_dead: bool = false
 
+const DEATH_SOUND = preload("res://assets/sounds/enemy_killed.wav")
+
 ## Signal emitted when the enemy has died.
 ##
 ## Signal emitted when the enemy has died. This signal is being emitted
@@ -22,6 +24,7 @@ func kill() -> void:
 	if _is_dead:
 		return
 	
+	AudioManager.play_sound(DEATH_SOUND)
 	died.emit(self)
 	_is_dead = true
 	_on_death()

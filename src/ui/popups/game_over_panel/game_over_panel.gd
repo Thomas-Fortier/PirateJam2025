@@ -14,6 +14,8 @@ extends Panel
 
 var _skip_animation: bool = false
 
+const HOVER_SOUND = preload("res://assets/sounds/button_hover.wav")
+
 func _ready():
 	_toggle_section_visibility(false)
 	
@@ -56,3 +58,13 @@ func _on_timer_timeout() -> void:
 		_ricochets_section.visible = true
 	elif not _buttons_section.visible:
 		_buttons_section.visible = true
+
+# TODO: Create custom button class
+func _on_new_run_button_mouse_entered() -> void:
+	_handle_button_hover()
+
+func _on_quit_button_mouse_entered() -> void:
+	_handle_button_hover()
+
+func _handle_button_hover() -> void:
+	AudioManager.play_sound(HOVER_SOUND)

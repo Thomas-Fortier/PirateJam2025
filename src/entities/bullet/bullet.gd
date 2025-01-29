@@ -11,6 +11,9 @@ signal bounced_off_wall()
 var _is_selecting_direction: bool = true
 var _is_paused: bool = false
 
+const BOUNCE_SOUND = preload("res://assets/sounds/ricochet.wav")
+const SHOOT_SOUND = preload("res://assets/sounds/shoot.wav")
+
 func _physics_process(delta: float) -> void:
 	if _is_paused:
 		return
@@ -50,6 +53,7 @@ func toggle_pause() -> void:
 func _bounce_off_wall(collision: KinematicCollision2D) -> void:
 	velocity = velocity.bounce(collision.get_normal())
 	rotation = velocity.angle()
+	AudioManager.play_sound(BOUNCE_SOUND)
 	bounced_off_wall.emit()
 
 ## Follows the cursor and resumes moving in that direction when left click is pressed.
@@ -58,3 +62,4 @@ func _follow_cursor() -> void:
 	
 	if Input.is_action_just_pressed("fire") and not _is_paused:
 		_is_selecting_direction = false
+		AudioManager.play_sound(SHOOT_SOUND)
