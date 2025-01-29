@@ -1,7 +1,6 @@
 extends Node
 
-## This manager handles switching levels, resetting runs, and initializing enemies
-## for the current level.
+## This manager handles switching levels and resetting runs.
 
 signal level_changed(new_level: Node2D)
 

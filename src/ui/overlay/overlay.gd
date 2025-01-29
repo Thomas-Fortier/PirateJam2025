@@ -10,14 +10,14 @@ const CRITICAL_COLOR = Color.RED
 const NORMAL_COLOR = Color("bffff1")
 
 func _ready() -> void:
-	_points_label.text = str(GameManager.points)
-	GameManager.points_changed.connect(_on_points_changed)
+	_points_label.text = str(StatsManager.points)
+	StatsManager.points_changed.connect(_on_points_changed)
 	
-	_ricochets_label.text = str(GameManager.ricochets_remaining)
-	GameManager.ricochets_changed.connect(_on_ricochets_changed)
+	_ricochets_label.text = str(StatsManager.ricochets_remaining)
+	StatsManager.ricochets_changed.connect(_on_ricochets_changed)
 	
-	_turns_label.text = _get_turns_text(GameManager.remaining_turns, GameManager.config.max_turns)
-	GameManager.turns_changed.connect(_on_turns_changed)
+	_turns_label.text = _get_turns_text(StatsManager.remaining_turns, StatsManager.config.max_turns)
+	StatsManager.turns_changed.connect(_on_turns_changed)
 
 ## Logic that is executed when the points have been changed.
 func _on_points_changed(points: int) -> void:

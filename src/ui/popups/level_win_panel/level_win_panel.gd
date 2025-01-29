@@ -15,9 +15,9 @@ var _skip_animation: bool = false
 func _ready():
 	_toggle_section_visibility(false)
 	
-	_points_label.text = str(GameManager.total_points)
-	_enemies_killed_label.text = str(GameManager.total_enemies_killed)
-	_ricochets_label.text = str(GameManager.total_ricochets)
+	_points_label.text = str(StatsManager.points)
+	_enemies_killed_label.text = str(StatsManager.kills)
+	_ricochets_label.text = str(StatsManager.total_ricochets)
 
 func _process(_delta: float) -> void:
 	if Input.is_action_just_pressed("fire"):
