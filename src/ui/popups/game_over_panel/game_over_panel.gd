@@ -17,7 +17,7 @@ var _skip_animation: bool = false
 func _ready():
 	_toggle_section_visibility(false)
 	
-	_levels_label.text = str(GameManager.levels_completed)
+	_levels_label.text = str(StatsManager.levels_completed)
 	_points_label.text = str(StatsManager.total_points)
 	_enemies_killed_label.text = str(StatsManager.total_kills)
 	_ricochets_label.text = str(StatsManager.total_ricochets)

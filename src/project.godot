@@ -22,6 +22,7 @@ LevelManager="*res://scripts/managers/level_manager.gd"
 UiManager="*res://scripts/managers/ui_manager.gd"
 StatsManager="*res://scripts/managers/stats_manager.gd"
 EnemyManager="*res://scripts/managers/enemy_manager.gd"
+BulletManager="*res://scripts/managers/bullet_manager.gd"
 
 [display]
 

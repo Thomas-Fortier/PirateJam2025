@@ -7,6 +7,7 @@ signal turns_changed(turns: int, max_turns: int)
 var total_points: int = 0
 var total_kills: int = 0
 var total_ricochets: int = 0
+var levels_completed: int = 0
 
 ## The configuration for the game manager.
 var config: GameConfig = preload("res://scripts/managers/game_manager.tres") as GameConfig
@@ -49,6 +50,7 @@ func reset_all():
 	total_points = 0
 	total_kills = 0
 	total_ricochets = 0
+	levels_completed = 0
 
 func add_points(amount: int) -> void:
 	points += amount
