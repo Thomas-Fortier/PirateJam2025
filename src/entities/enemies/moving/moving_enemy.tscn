@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://cdgnyaugbn4an"]
+[gd_scene load_steps=4 format=3 uid="uid://bjh15uppbf6me"]
 
 [ext_resource type="Script" path="res://entities/enemies/moving/moving_enemy.gd" id="1_ttw8a"]
 [ext_resource type="Texture2D" uid="uid://c51kkoctibgb4" path="res://icon.svg" id="2_txacc"]
@@ -10,6 +10,7 @@ size = Vector2(16, 16)
 collision_layer = 2
 collision_mask = 13
 script = ExtResource("1_ttw8a")
+points_on_kill = 250
 
 [node name="Collider" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_5r20h")

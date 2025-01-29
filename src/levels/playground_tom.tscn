@@ -1,9 +1,8 @@
-[gd_scene load_steps=7 format=4 uid="uid://bdgmtlxnl4qhx"]
+[gd_scene load_steps=6 format=4 uid="uid://bdgmtlxnl4qhx"]
 
 [ext_resource type="Texture2D" uid="uid://c851uxpa0eutx" path="res://assets/tilemaps/walls.png" id="1_x5hm2"]
 [ext_resource type="PackedScene" uid="uid://cvts5e1hrop0n" path="res://entities/exploding_barrel/exploding_barrel.tscn" id="2_ln167"]
 [ext_resource type="PackedScene" uid="uid://dvvs8ou2s3603" path="res://entities/enemies/stationary/stationary_enemy.tscn" id="3_ixstw"]
-[ext_resource type="PackedScene" path="res://entities/enemies/moving/moving_enemy.tscn" id="3_kb0r8"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_6kebf"]
 texture = ExtResource("1_x5hm2")
@@ -511,18 +510,3 @@ position = Vector2(349, 209)
 
 [node name="StationaryEnemy" parent="." instance=ExtResource("3_ixstw")]
 position = Vector2(168, 227)
-
-[node name="StationaryEnemy2" parent="." instance=ExtResource("3_ixstw")]
-position = Vector2(67, 61)
-
-[node name="StationaryEnemy3" parent="." instance=ExtResource("3_ixstw")]
-position = Vector2(191, 106)
-
-[node name="StationaryEnemy4" parent="." instance=ExtResource("3_ixstw")]
-position = Vector2(551, 200)
-
-[node name="StationaryEnemy5" parent="." instance=ExtResource("3_ixstw")]
-position = Vector2(398, 98)
-
-[node name="MovingEnemy" parent="." instance=ExtResource("3_kb0r8")]
-position = Vector2(518, 111)

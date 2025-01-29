@@ -16,7 +16,7 @@ font = ExtResource("1_2blrg")
 font_color = Color(0.74902, 1, 0.945098, 1)
 
 [node name="Overlay" type="Control"]
-z_index = 99
+z_index = 98
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0

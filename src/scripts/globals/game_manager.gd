@@ -52,6 +52,7 @@ var enemies: Array[Enemy] = []
 var config: GameConfig = preload("res://scripts/globals/game_manager.tres") as GameConfig
 
 var _game_over_scene: PackedScene = preload("res://ui/popups/game_over_panel/game_over_panel.tscn")
+var _level_win_scene: PackedScene = preload("res://ui/popups/level_win_panel/level_win_panel.tscn")
 
 func _ready() -> void:
 	assert(config != null, "The config file could not be loaded.")
@@ -65,6 +66,7 @@ func _ready() -> void:
 	call_deferred("_initialize_enemies")
 
 func _initialize_enemies() -> void:
+	enemies.clear()
 	for node in get_tree().get_nodes_in_group("enemies"):
 		if node is Enemy:
 			if node.died.is_connected(_on_enemy_death):
@@ -107,17 +109,24 @@ func _handle_game_over(did_win: bool) -> void:
 	if did_win:
 		print("You won!")
 		levels_completed += 1
+		var instance: LevelWinPanel = _level_win_scene.instantiate()
+		get_tree().root.add_child(instance)
 	else:
 		var instance: GameOverPanel = _game_over_scene.instantiate()
 		get_tree().root.add_child(instance)
 		print("You lost.")
 
-func switch_to_level(next_level: PackedScene) -> void:
+func switch_to_level(next_level_to_load: PackedScene) -> void:
 	level.queue_free()
 	
-	var instance = next_level.instantiate()
+	var instance = next_level_to_load.instantiate()
 	level = instance
 	game_root.add_child(instance)
+
+func next_level() -> void:
+	var level_to_load: PackedScene = config.levels.pick_random()
+	switch_to_level(level_to_load)
+	reset()
 
 func reset_run() -> void:
 	var level_to_load: PackedScene = config.levels.pick_random()

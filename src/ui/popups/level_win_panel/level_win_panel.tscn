@@ -1,0 +1,213 @@
+[gd_scene load_steps=6 format=3 uid="uid://coyuono8x20hh"]
+
+[ext_resource type="Script" path="res://ui/popups/level_win_panel/level_win_panel.gd" id="1_qxu5a"]
+[ext_resource type="LabelSettings" uid="uid://fgnkylw30wul" path="res://ui/themes/label_settings/header_label.tres" id="2_6jpf7"]
+[ext_resource type="LabelSettings" uid="uid://mjfpnx8q3gdd" path="res://ui/themes/label_settings/normal_label.tres" id="3_yo8xu"]
+[ext_resource type="FontFile" uid="uid://c4arg06qh2sqx" path="res://assets/fonts/pixellari.ttf" id="4_kygeo"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4ky7e"]
+bg_color = Color(0.00392157, 0.109804, 0.152941, 1)
+
+[node name="GameOverPanel" type="Panel"]
+z_index = 99
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_4ky7e")
+script = ExtResource("1_qxu5a")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 1.5
+autostart = true
+
+[node name="Margin" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 12
+theme_override_constants/margin_top = 12
+theme_override_constants/margin_right = 11
+theme_override_constants/margin_bottom = 12
+
+[node name="Viewport" type="Control" parent="Margin"]
+layout_mode = 2
+
+[node name="Title" type="Label" parent="Margin/Viewport"]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -98.0
+offset_right = 98.0
+offset_bottom = 36.0
+grow_horizontal = 2
+text = "LEVEL COMPLETE"
+label_settings = ExtResource("2_6jpf7")
+horizontal_alignment = 1
+
+[node name="Stats" type="Control" parent="Margin/Viewport"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -220.5
+offset_top = -51.0
+offset_right = 221.5
+offset_bottom = 62.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Points" type="Control" parent="Margin/Viewport/Stats"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 22.0
+grow_horizontal = 2
+
+[node name="Label" type="Label" parent="Margin/Viewport/Stats/Points"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+text = "Points  ...................................................................................................."
+label_settings = ExtResource("3_yo8xu")
+
+[node name="PointsLabel" type="Label" parent="Margin/Viewport/Stats/Points"]
+unique_name_in_owner = true
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -40.0
+offset_top = -11.5
+offset_bottom = 11.5
+grow_horizontal = 0
+grow_vertical = 2
+text = "0"
+label_settings = ExtResource("3_yo8xu")
+horizontal_alignment = 2
+
+[node name="EnemiesKilled" type="Control" parent="Margin/Viewport/Stats"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = 24.0
+offset_bottom = 54.0
+grow_horizontal = 2
+
+[node name="Label" type="Label" parent="Margin/Viewport/Stats/EnemiesKilled"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+text = "Enemies Killed  ....................................................................................."
+label_settings = ExtResource("3_yo8xu")
+
+[node name="EnemiesKilledLabel" type="Label" parent="Margin/Viewport/Stats/EnemiesKilled"]
+unique_name_in_owner = true
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -40.0
+offset_top = -11.5
+offset_bottom = 11.5
+grow_horizontal = 0
+grow_vertical = 2
+text = "0"
+label_settings = ExtResource("3_yo8xu")
+horizontal_alignment = 2
+
+[node name="Ricochets" type="Control" parent="Margin/Viewport/Stats"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = 48.0
+offset_bottom = 78.0
+grow_horizontal = 2
+
+[node name="Label" type="Label" parent="Margin/Viewport/Stats/Ricochets"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+text = "Ricochets  ............................................................................................."
+label_settings = ExtResource("3_yo8xu")
+
+[node name="RicochetsLabel" type="Label" parent="Margin/Viewport/Stats/Ricochets"]
+unique_name_in_owner = true
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -40.0
+offset_top = -11.5
+offset_bottom = 11.5
+grow_horizontal = 0
+grow_vertical = 2
+text = "0"
+label_settings = ExtResource("3_yo8xu")
+horizontal_alignment = 2
+
+[node name="Buttons" type="Control" parent="Margin/Viewport"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -65.0
+offset_bottom = -13.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="NextLevelButton" type="Button" parent="Margin/Viewport/Buttons"]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -35.0
+offset_right = 35.0
+offset_bottom = 24.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("4_kygeo")
+theme_override_font_sizes/font_size = 12
+text = "Next Level"
+
+[node name="QuitButton" type="Button" parent="Margin/Viewport/Buttons"]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -35.0
+offset_top = -24.0
+offset_right = 35.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_fonts/font = ExtResource("4_kygeo")
+theme_override_font_sizes/font_size = 12
+text = "Quit"
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="pressed" from="Margin/Viewport/Buttons/NextLevelButton" to="." method="_on_next_level_button_pressed"]
