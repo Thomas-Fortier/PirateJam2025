@@ -6,6 +6,7 @@ signal bounced_off_wall()
 
 ## The speed that the bullet travels.
 @export var speed: float = 300.0
+var splitter: BulletSplitter = BulletSplitter.new()
 
 # Private members
 @onready var _trajectory_line: TrajectoryLine = %TrajectoryLine
@@ -74,4 +75,12 @@ func _follow_cursor() -> void:
 	if Input.is_action_just_pressed("fire") and not _is_paused:
 		_is_selecting_direction = false
 		AudioManager.play_sound(SHOOT_SOUND)
-		_trajectory_line.clear()
+    _trajectory_line.clear()
+
+## Detects split shot and calls the split bullet function as well as plays fire sound
+func _input(event: InputEvent) -> void:
+	if !_is_selecting_direction and not _is_paused and event.is_action_pressed("split_shot") and splitter:
+		print("Right click detected")
+		AudioManager.play_sound(SHOOT_SOUND)
+		splitter.split_bullet(self)
+		
