@@ -11,6 +11,7 @@ var _bullet_direction: Vector2 = Vector2.ZERO
 
 func _ready():
 	_line.clear_points()
+	_line.texture_repeat = CanvasItem.TEXTURE_REPEAT_ENABLED
 
 func update_trajectory(bullet_position: Vector2, bullet_rotation: float):
 	var direction = Vector2.RIGHT.rotated(bullet_rotation)

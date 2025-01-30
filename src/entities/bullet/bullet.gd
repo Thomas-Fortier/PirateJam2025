@@ -41,7 +41,8 @@ func _physics_process(delta: float) -> void:
 		_bounce_off_wall(collision)
 
 func _on_level_changed(next_level: Level) -> void:
-	position = next_level.get_spawn_point_position()
+	if next_level:
+		position = next_level.get_spawn_point_position()
 
 ## Pauses the bullet movement and allows the user to select the direction
 ## that the bullet is facing.

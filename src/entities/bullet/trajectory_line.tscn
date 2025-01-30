@@ -1,15 +1,13 @@
-[gd_scene load_steps=3 format=3 uid="uid://dn8jef7tbqno5"]
+[gd_scene load_steps=2 format=3 uid="uid://dn8jef7tbqno5"]
 
 [ext_resource type="Script" path="res://entities/bullet/trajectory_line.gd" id="1_507bm"]
-[ext_resource type="Texture2D" uid="uid://c1vxo21okg0iv" path="res://entities/bullet/dashed_line.png" id="2_qq4ob"]
 
 [node name="TrajectoryLine" type="Node2D"]
 script = ExtResource("1_507bm")
-_max_distance = 300.0
+_max_distance = 150.0
 
 [node name="Line2D" type="Line2D" parent="."]
 texture_repeat = 2
-width = 2.0
+width = 1.0
 default_color = Color(0.74902, 1, 0.945098, 1)
-texture = ExtResource("2_qq4ob")
 texture_mode = 1

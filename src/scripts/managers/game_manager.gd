@@ -5,7 +5,11 @@ signal game_over(did_win: bool)
 
 ## The configuration for the game manager.
 var config: GameConfig = preload("res://scripts/managers/game_manager.tres") as GameConfig
+@onready var game_root: Node2D = $"../GameRoot"
 
+const TITLE_SCREEN: PackedScene = preload("res://ui/title_screen/tilte_screen.tscn")
+const BULLET_SCENE: PackedScene = preload("res://entities/bullet/bullet.tscn")
+const OVERLAY_SCENE: PackedScene = preload("res://ui/overlay/overlay.tscn")
 const LEVEL_LOST_SOUND = preload("res://assets/sounds/level_lose.wav")
 const LEVEL_WON_SOUND = preload("res://assets/sounds/level_win.wav")
 
@@ -15,6 +19,29 @@ func _ready() -> void:
 
 func _on_all_enemies_defeated() -> void:
 	handle_game_over(true)
+
+func start_game() -> void:
+	var bullet: Bullet = BULLET_SCENE.instantiate()
+	game_root.add_child(bullet)
+	
+	_initialize_managers()
+	reset_run()
+	
+	var overlay: Overlay = OVERLAY_SCENE.instantiate()
+	overlay.size.x = 640
+	overlay.size.y = 360
+	game_root.add_child(overlay)
+
+func quit_game() -> void:
+	BulletManager.bullet.queue_free()
+	LevelManager.remove_level()
+	var overlay: Overlay = $"../GameRoot/Overlay"
+	overlay.queue_free()
+	var title_screen = TITLE_SCREEN.instantiate()
+	game_root.add_child(title_screen)
+
+func _initialize_managers() -> void:
+	BulletManager.initialize()
 
 func handle_game_over(did_win: bool) -> void:
 	game_over.emit(did_win)

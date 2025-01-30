@@ -64,3 +64,7 @@ func _on_timer_timeout() -> void:
 		return
 		
 	AudioManager.play_sound(APPEAR_SOUND)
+
+func _on_quit_button_pressed():
+	GameManager.quit_game()
+	queue_free()

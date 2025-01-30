@@ -1,9 +1,11 @@
 extends Node
 
-@onready var bullet: Bullet = $"../GameRoot/Bullet"
+var bullet: Bullet = null
 
-func _ready():
-	bullet.bounced_off_wall.connect(_on_bullet_bounce)
+func initialize() -> void:
+	bullet = $"../GameRoot/Bullet"
+	if bullet:
+		bullet.bounced_off_wall.connect(_on_bullet_bounce)
 
 func _on_bullet_bounce():
 	var ricochets_remaining: bool = StatsManager.add_ricochet()
