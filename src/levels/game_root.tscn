@@ -1,11 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://d2bxrtmiq3xgr"]
+[gd_scene load_steps=6 format=3 uid="uid://d2bxrtmiq3xgr"]
 
 [ext_resource type="Shader" path="res://shaders/crt.gdshader" id="1_4ubiu"]
 [ext_resource type="PackedScene" uid="uid://bdqn7gj1xmqay" path="res://ui/overlay/overlay.tscn" id="1_cokci"]
 [ext_resource type="PackedScene" uid="uid://bthni1oqodncp" path="res://entities/bullet/bullet.tscn" id="2_u7wcf"]
 [ext_resource type="PackedScene" uid="uid://bdgmtlxnl4qhx" path="res://levels/playground_tom.tscn" id="3_c4h5o"]
-[ext_resource type="Script" path="res://entities/bullet/abilities/bullet_splitter.gd" id="4_bvayj"]
-[ext_resource type="PackedScene" uid="uid://b6m3xrtoqqyff" path="res://entities/bullet/abilities/bullet_ricochet.tscn" id="5_temjm"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_71bd4"]
 shader = ExtResource("1_4ubiu")
@@ -36,12 +34,7 @@ offset_bottom = 360.0
 offset_right = 640.0
 offset_bottom = 360.0
 
-[node name="Bullet" parent="." node_paths=PackedStringArray("splitter") instance=ExtResource("2_u7wcf")]
+[node name="Bullet" parent="." instance=ExtResource("2_u7wcf")]
 position = Vector2(319, 316)
-splitter = NodePath("../BulletSplitter")
 
 [node name="Level" parent="." instance=ExtResource("3_c4h5o")]
-
-[node name="BulletSplitter" type="Node" parent="."]
-script = ExtResource("4_bvayj")
-ricochet_bullet_scene = ExtResource("5_temjm")

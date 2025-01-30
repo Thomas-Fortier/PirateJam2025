@@ -1,13 +1,15 @@
+class_name BulletSplitter
 extends Node
 
-@export var ricochet_bullet_scene: PackedScene 
-@export var split_angle: float = 15.0
+var ricochet_bullet_scene: PackedScene = preload("res://entities/bullet/abilities/bullet_ricochet.tscn")
+var split_angle: float = 15.0
 
+# Spawns two ricochets next to the bullet at slightly different angles
 func split_bullet(original_bullet: CharacterBody2D):
 	if not ricochet_bullet_scene:
-		print("Error Ricochet bullet scene not assigned!")
+		printerr("Scene not instantiated")
 		return
-		
+	
 	var bullet_position = original_bullet.global_position
 	var bullet_rotation = original_bullet.rotation
 	var bullet_velocity = original_bullet.velocity

@@ -9,6 +9,7 @@ var _is_paused: bool = false
 signal bounced_off_wall()
 const BOUNCE_SOUND = preload("res://assets/sounds/ricochet.wav")
 
+## Connecting to the global scripts to receive signals when the game is paused or level is changed
 func _ready() -> void:
 	var game_manager = get_node("/root/GameManager")
 	if game_manager:
@@ -17,7 +18,7 @@ func _ready() -> void:
 	if level_change:
 		level_change.level_changed.connect(_on_level_changed)
 
-# Called when the node enters the scene tree for the first time.
+# Bouncing logic for the ricochets, despawns once it has bounced three times
 func _physics_process(delta: float) -> void:
 	if _is_paused:
 		return
@@ -42,9 +43,11 @@ func _bounce_off_wall(collision: KinematicCollision2D) -> void:
 	AudioManager.play_sound(BOUNCE_SOUND)
 	bounced_off_wall.emit()
 	bounces -= 1
-	
+
+# Despawns the ricochet once new level is loaded
 func _on_level_changed(_next_level: Level) -> void:
 	queue_free()
-	
+
+# Pauses the ricochet on game over
 func _on_game_over(_did_win: bool) -> void:
 	_is_paused = true

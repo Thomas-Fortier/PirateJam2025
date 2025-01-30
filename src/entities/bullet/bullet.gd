@@ -6,7 +6,7 @@ signal bounced_off_wall()
 
 ## The speed that the bullet travels.
 @export var speed: float = 300.0
-@export var splitter: Node
+var splitter: BulletSplitter = BulletSplitter.new()
 
 # Private members
 var _is_selecting_direction: bool = true
