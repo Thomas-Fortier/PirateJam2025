@@ -8,6 +8,7 @@ signal bounced_off_wall()
 @export var speed: float = 300.0
 
 # Private members
+@onready var _trajectory_line: TrajectoryLine = %TrajectoryLine
 var _is_selecting_direction: bool = true
 var _is_paused: bool = false
 
@@ -65,8 +66,11 @@ func _bounce_off_wall(collision: KinematicCollision2D) -> void:
 
 ## Follows the cursor and resumes moving in that direction when left click is pressed.
 func _follow_cursor() -> void:
+	_trajectory_line.update_trajectory(global_position, rotation)
+	
 	look_at(get_global_mouse_position())
 	
 	if Input.is_action_just_pressed("fire") and not _is_paused:
 		_is_selecting_direction = false
 		AudioManager.play_sound(SHOOT_SOUND)
+		_trajectory_line.clear()
