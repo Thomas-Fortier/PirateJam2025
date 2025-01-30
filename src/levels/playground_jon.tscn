@@ -6,7 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://ddduis4ta8v5w" path="res://levels/Solaria Demo Tiles.png" id="2_ibj78"]
 [ext_resource type="PackedScene" uid="uid://dvvs8ou2s3603" path="res://entities/enemies/stationary/stationary_enemy.tscn" id="5_wt6bq"]
 [ext_resource type="Script" path="res://entities/enemies/moving/moving_enemy.gd" id="6_wlcvq"]
-[ext_resource type="PackedScene" uid="uid://cvts5e1hrop0n" path="res://entities/exploding_barrel/exploding_barrel.tscn" id="7_hssgc"]
+[ext_resource type="PackedScene" uid="uid://cvts5e1hrop0n" path="res://entities/bomb/bomb.tscn" id="7_hssgc"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_rd1pp"]
 

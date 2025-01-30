@@ -14,15 +14,13 @@ func _ready() -> void:
 	var game_manager = get_node("/root/GameManager")
 	if game_manager:
 		game_manager.game_over.connect(_on_game_over)
-	var level_change = get_node("/root/LevelManager")
-	if level_change:
-		level_change.level_changed.connect(_on_level_changed)
 
 # Bouncing logic for the ricochets, despawns once it has bounced three times
 func _physics_process(delta: float) -> void:
 	if _is_paused:
 		return
 	velocity = Vector2.RIGHT.rotated(rotation) * speed
+	handle_animation()
 	var collision: KinematicCollision2D = move_and_collide(velocity * delta)
 
 	if not collision:
@@ -44,10 +42,11 @@ func _bounce_off_wall(collision: KinematicCollision2D) -> void:
 	bounced_off_wall.emit()
 	bounces -= 1
 
-# Despawns the ricochet once new level is loaded
-func _on_level_changed(_next_level: Level) -> void:
-	queue_free()
-
-# Pauses the ricochet on game over
+# Deletes the ricochet on game over
 func _on_game_over(_did_win: bool) -> void:
 	_is_paused = true
+	queue_free()
+	
+func handle_animation() -> void:
+	var animated_sprite = $AnimatedSprite2D
+	animated_sprite.play("flying")

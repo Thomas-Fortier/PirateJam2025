@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dx1qqbqk8md22"
-path="res://.godot/imported/shrapnel.png-273b82702fe68625970d8dc71cba4a4b.ctex"
+uid="uid://8j5a0qq8t0ye"
+path="res://.godot/imported/ghoul_48px-Sheet-export.png-a5e83e8bed5d745383c219712514da44.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://entities/shrapnel/shrapnel.png"
-dest_files=["res://.godot/imported/shrapnel.png-273b82702fe68625970d8dc71cba4a4b.ctex"]
+source_file="res://entities/enemies/ghoul_48px-Sheet-export.png"
+dest_files=["res://.godot/imported/ghoul_48px-Sheet-export.png-a5e83e8bed5d745383c219712514da44.ctex"]
 
 [params]
 
