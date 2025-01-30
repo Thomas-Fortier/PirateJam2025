@@ -15,6 +15,7 @@ extends Panel
 var _skip_animation: bool = false
 
 const HOVER_SOUND = preload("res://assets/sounds/button_hover.wav")
+const APPEAR_SOUND = preload("res://assets/sounds/ui_item_appear.wav")
 
 func _ready():
 	_toggle_section_visibility(false)
@@ -58,3 +59,8 @@ func _on_timer_timeout() -> void:
 		_ricochets_section.visible = true
 	elif not _buttons_section.visible:
 		_buttons_section.visible = true
+	else:
+		_skip_animation = true
+		return
+		
+	AudioManager.play_sound(APPEAR_SOUND)

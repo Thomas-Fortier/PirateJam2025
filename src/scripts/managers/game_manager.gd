@@ -6,6 +6,9 @@ signal game_over(did_win: bool)
 ## The configuration for the game manager.
 var config: GameConfig = preload("res://scripts/managers/game_manager.tres") as GameConfig
 
+const LEVEL_LOST_SOUND = preload("res://assets/sounds/level_lose.wav")
+const LEVEL_WON_SOUND = preload("res://assets/sounds/level_win.wav")
+
 func _ready() -> void:
 	assert(config != null, "The config file could not be loaded.")
 	EnemyManager.all_enemies_defeated.connect(_on_all_enemies_defeated)
@@ -19,6 +22,11 @@ func handle_game_over(did_win: bool) -> void:
 
 	if did_win:
 		StatsManager.levels_completed += 1
+		AudioManager.play_sound(LEVEL_WON_SOUND)
+	else:
+		AudioManager.play_sound(LEVEL_LOST_SOUND)
+
+	await get_tree().create_timer(3.0).timeout # TODO: Parameterize
 
 	UiManager.show_game_over(did_win)
 
