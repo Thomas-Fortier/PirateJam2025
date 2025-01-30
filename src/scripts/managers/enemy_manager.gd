@@ -17,7 +17,8 @@ func initialize_enemies() -> void:
 
 func _clear_tracked_enemies() -> void:
 	for enemy in enemies:
-		enemy.remove_from_group("enemies")
+		if is_instance_valid(enemy):
+			enemy.remove_from_group("enemies")
 	enemies.clear()
 
 ## Handles when an enemy dies.

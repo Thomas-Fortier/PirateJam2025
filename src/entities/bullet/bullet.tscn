@@ -1,12 +1,17 @@
-[gd_scene load_steps=3 format=3 uid="uid://bthni1oqodncp"]
+[gd_scene load_steps=4 format=3 uid="uid://bthni1oqodncp"]
 
 [ext_resource type="Script" path="res://entities/bullet/bullet.gd" id="1_eus8a"]
+[ext_resource type="PackedScene" uid="uid://dn8jef7tbqno5" path="res://entities/bullet/trajectory_line.tscn" id="2_b66ph"]
 [ext_resource type="Texture2D" uid="uid://dwu8wv3f4oqdk" path="res://entities/bullet/bullet.png" id="2_wspel"]
 
 [node name="Bullet" type="CharacterBody2D"]
 z_index = 1
 collision_mask = 6
 script = ExtResource("1_eus8a")
+
+[node name="TrajectoryLine" parent="." instance=ExtResource("2_b66ph")]
+unique_name_in_owner = true
+position = Vector2(9, 0)
 
 [node name="Collider" type="CollisionPolygon2D" parent="."]
 polygon = PackedVector2Array(0, -4, 2, -4, 2, -3, 5, -3, 5, -2, 6, -2, 6, -1, 7, -1, 7, 1, 6, 1, 6, 2, 5, 2, 5, 3, 2, 3, 2, 4, 0, 4)

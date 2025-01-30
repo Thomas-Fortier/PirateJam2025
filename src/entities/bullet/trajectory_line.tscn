@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3 uid="uid://dn8jef7tbqno5"]
+
+[ext_resource type="Script" path="res://entities/bullet/trajectory_line.gd" id="1_507bm"]
+
+[node name="TrajectoryLine" type="Node2D"]
+script = ExtResource("1_507bm")
+_max_distance = 150.0
+
+[node name="Line2D" type="Line2D" parent="."]
+texture_repeat = 2
+width = 1.0
+default_color = Color(0.74902, 1, 0.945098, 1)
+texture_mode = 1

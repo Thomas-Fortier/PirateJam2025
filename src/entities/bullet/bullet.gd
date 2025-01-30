@@ -9,6 +9,7 @@ signal bounced_off_wall()
 var splitter: BulletSplitter = BulletSplitter.new()
 
 # Private members
+@onready var _trajectory_line: TrajectoryLine = %TrajectoryLine
 var _is_selecting_direction: bool = true
 var _is_paused: bool = false
 
@@ -41,7 +42,8 @@ func _physics_process(delta: float) -> void:
 		_bounce_off_wall(collision)
 
 func _on_level_changed(next_level: Level) -> void:
-	position = next_level.get_spawn_point_position()
+	if next_level:
+		position = next_level.get_spawn_point_position()
 
 ## Pauses the bullet movement and allows the user to select the direction
 ## that the bullet is facing.
@@ -66,11 +68,14 @@ func _bounce_off_wall(collision: KinematicCollision2D) -> void:
 
 ## Follows the cursor and resumes moving in that direction when left click is pressed.
 func _follow_cursor() -> void:
+	_trajectory_line.update_trajectory(global_position, rotation)
+	
 	look_at(get_global_mouse_position())
 	
 	if Input.is_action_just_pressed("fire") and not _is_paused:
 		_is_selecting_direction = false
 		AudioManager.play_sound(SHOOT_SOUND)
+    _trajectory_line.clear()
 
 ## Detects split shot and calls the split bullet function as well as plays fire sound
 func _input(event: InputEvent) -> void:
@@ -78,3 +83,4 @@ func _input(event: InputEvent) -> void:
 		print("Right click detected")
 		AudioManager.play_sound(SHOOT_SOUND)
 		splitter.split_bullet(self)
+		
