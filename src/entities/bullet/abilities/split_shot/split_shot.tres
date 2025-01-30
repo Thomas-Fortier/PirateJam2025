@@ -1,8 +1,11 @@
 [gd_resource type="Resource" script_class="BulletSplitter" load_steps=3 format=3 uid="uid://c61nns7ftkk5a"]
 
 [ext_resource type="Script" path="res://entities/bullet/abilities/split_shot/split_shot.gd" id="1_f1j77"]
-[ext_resource type="Texture2D" uid="uid://c51kkoctibgb4" path="res://icon.svg" id="1_s65vb"]
+[ext_resource type="Texture2D" uid="uid://dhr2at7hlkjc2" path="res://entities/bullet/abilities/split_shot/split_shot_icon.tres" id="1_xicel"]
 
 [resource]
 script = ExtResource("1_f1j77")
-icon = ExtResource("1_s65vb")
+name = "Split-Shot"
+description = "Creates 2 additional bullets that split off from the main one. Can only bounce 3 times."
+icon = ExtResource("1_xicel")
+max_usages = 1

@@ -1,0 +1,115 @@
+[gd_scene load_steps=5 format=3 uid="uid://bqyiwqe8bjy3i"]
+
+[ext_resource type="Script" path="res://ui/popups/ability_select/ability_panel.gd" id="1_kvbgu"]
+[ext_resource type="Theme" uid="uid://dfureb8blyilx" path="res://ui/themes/default_theme.tres" id="1_oyvrh"]
+[ext_resource type="PackedScene" uid="uid://cy8otjo413bqb" path="res://ui/elements/button.tscn" id="2_cbttc"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_j3jm8"]
+bg_color = Color(0.74902, 1, 0.945098, 0)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.74902, 1, 0.945098, 1)
+
+[node name="AbilityPanel" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_kvbgu")
+
+[node name="Control" type="Panel" parent="."]
+layout_mode = 0
+offset_right = 160.0
+offset_bottom = 173.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_j3jm8")
+
+[node name="Margin" type="MarginContainer" parent="Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 6
+theme_override_constants/margin_top = 6
+theme_override_constants/margin_right = 6
+theme_override_constants/margin_bottom = 6
+
+[node name="Viewport" type="Control" parent="Control/Margin"]
+layout_mode = 2
+
+[node name="Title" type="Label" parent="Control/Margin/Viewport"]
+unique_name_in_owner = true
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -71.5
+offset_right = 71.5
+offset_bottom = 13.0
+grow_horizontal = 2
+theme = ExtResource("1_oyvrh")
+theme_override_font_sizes/font_size = 18
+text = "Ability Name"
+horizontal_alignment = 1
+
+[node name="Icon" type="TextureRect" parent="Control/Margin/Viewport"]
+unique_name_in_owner = true
+modulate = Color(0.74902, 1, 0.945098, 1)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -8.0
+offset_top = -64.0
+offset_right = 8.0
+offset_bottom = -48.0
+grow_horizontal = 2
+grow_vertical = 2
+expand_mode = 1
+
+[node name="Description" type="Label" parent="Control/Margin/Viewport"]
+unique_name_in_owner = true
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -66.0
+offset_top = -15.5
+offset_right = 66.0
+offset_bottom = 39.5
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_oyvrh")
+theme_override_font_sizes/font_size = 10
+text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="ChooseButton" parent="Control/Margin/Viewport" instance=ExtResource("2_cbttc")]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -58.0
+offset_top = -19.0
+offset_right = 58.0
+offset_bottom = 0.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 16
+text = "CHOOSE"
+
+[connection signal="pressed" from="Control/Margin/Viewport/ChooseButton" to="." method="_on_choose_button_pressed"]

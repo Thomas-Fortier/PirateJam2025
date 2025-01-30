@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://ui/overlay/overlay.gd" id="1_puhe0"]
 [ext_resource type="Theme" uid="uid://dfureb8blyilx" path="res://ui/themes/default_theme.tres" id="2_tm8nv"]
 [ext_resource type="PackedScene" uid="uid://0x4i0g74ey02" path="res://ui/overlay/abilities/ability_slot.tscn" id="3_makk7"]
-[ext_resource type="Resource" uid="uid://c61nns7ftkk5a" path="res://entities/bullet/abilities/split_shot/split_shot.tres" id="4_f1343"]
+[ext_resource type="Script" path="res://ui/overlay/ability_slots.gd" id="3_r68hi"]
 
 [node name="Overlay" type="Control"]
 z_index = 98
@@ -109,6 +109,7 @@ offset_right = 60.5
 offset_bottom = 8.0
 grow_horizontal = 2
 grow_vertical = 0
+script = ExtResource("3_r68hi")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Margin/Viewport/Abilities"]
 layout_mode = 1
@@ -119,27 +120,31 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 10
 
-[node name="AbilitySlot" parent="Margin/Viewport/Abilities/HBoxContainer" instance=ExtResource("3_makk7")]
+[node name="AbilitySlot1" parent="Margin/Viewport/Abilities/HBoxContainer" instance=ExtResource("3_makk7")]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
-ability = ExtResource("4_f1343")
 
 [node name="AbilitySlot2" parent="Margin/Viewport/Abilities/HBoxContainer" instance=ExtResource("3_makk7")]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 keybind = 50
 
 [node name="AbilitySlot3" parent="Margin/Viewport/Abilities/HBoxContainer" instance=ExtResource("3_makk7")]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 keybind = 51
 
 [node name="AbilitySlot4" parent="Margin/Viewport/Abilities/HBoxContainer" instance=ExtResource("3_makk7")]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 keybind = 52
 
 [node name="AbilitySlot5" parent="Margin/Viewport/Abilities/HBoxContainer" instance=ExtResource("3_makk7")]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 keybind = 53

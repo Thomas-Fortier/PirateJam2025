@@ -1,0 +1,160 @@
+[gd_scene load_steps=6 format=3 uid="uid://dpjowbeoscnnq"]
+
+[ext_resource type="Theme" uid="uid://dfureb8blyilx" path="res://ui/themes/default_theme.tres" id="1_k1e08"]
+[ext_resource type="Script" path="res://ui/popups/ability_select/ability_select.gd" id="1_pbvqa"]
+[ext_resource type="PackedScene" uid="uid://bqyiwqe8bjy3i" path="res://ui/popups/ability_select/ability_panel.tscn" id="2_v38c4"]
+[ext_resource type="PackedScene" uid="uid://cy8otjo413bqb" path="res://ui/elements/button.tscn" id="4_ui7d7"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_twkip"]
+bg_color = Color(0.00392157, 0.109804, 0.152941, 1)
+
+[node name="AbilitySelect" type="Panel"]
+z_index = 100
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_twkip")
+script = ExtResource("1_pbvqa")
+
+[node name="Margin" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 12
+theme_override_constants/margin_top = 12
+theme_override_constants/margin_right = 12
+theme_override_constants/margin_bottom = 12
+
+[node name="Viewport" type="Control" parent="Margin"]
+layout_mode = 2
+
+[node name="Title" type="Label" parent="Margin/Viewport"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -110.5
+offset_right = 110.5
+offset_bottom = 24.0
+grow_horizontal = 2
+theme = ExtResource("1_k1e08")
+theme_override_font_sizes/font_size = 24
+text = "SELECT AN ABILITY"
+
+[node name="Subtitle" type="Label" parent="Margin/Viewport"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -48.5
+offset_top = 30.0
+offset_right = 48.5
+offset_bottom = 53.0
+grow_horizontal = 2
+theme = ExtResource("1_k1e08")
+text = "Choose 1 of 3"
+
+[node name="Abilities" type="HBoxContainer" parent="Margin/Viewport"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -264.5
+offset_top = -88.0
+offset_right = 264.5
+offset_bottom = 88.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 184
+
+[node name="AbilityPanel1" parent="Margin/Viewport/Abilities" instance=ExtResource("2_v38c4")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="AbilityPanel2" parent="Margin/Viewport/Abilities" instance=ExtResource("2_v38c4")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="AbilityPanel3" parent="Margin/Viewport/Abilities" instance=ExtResource("2_v38c4")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="SkipButton" parent="Margin/Viewport" instance=ExtResource("4_ui7d7")]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -58.0
+offset_top = -24.0
+offset_right = 58.0
+offset_bottom = 0.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "SKIP"
+
+[node name="NoMoreSpaceLabel" type="Label" parent="Margin/Viewport"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -98.5
+offset_top = -11.5
+offset_right = 98.5
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_k1e08")
+text = "You are filled up on abilities"
+
+[node name="NoMoreAbilitiesLabel" type="Label" parent="Margin/Viewport"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -98.5
+offset_top = -11.5
+offset_right = 98.5
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_k1e08")
+text = "There are no more abilities"
+
+[node name="OrLabel" type="Label" parent="Margin/Viewport"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -20.0
+offset_top = -56.0
+offset_right = 20.0
+offset_bottom = -33.0
+grow_horizontal = 2
+grow_vertical = 0
+theme = ExtResource("1_k1e08")
+text = "or"
+horizontal_alignment = 1
+
+[connection signal="pressed" from="Margin/Viewport/SkipButton" to="." method="_on_skip_button_pressed"]

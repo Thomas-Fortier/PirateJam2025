@@ -39,3 +39,6 @@ func execute() -> void:
 	AudioManager.play_sound(SHOOT_SOUND)
 	
 	_usages -= 1
+
+func reset_usages() -> void:
+	_usages = max_usages

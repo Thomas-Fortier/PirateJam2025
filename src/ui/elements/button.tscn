@@ -5,17 +5,21 @@
 
 [node name="Button" type="Button"]
 texture_filter = 1
+offset_right = 116.0
+offset_bottom = 24.0
 theme = ExtResource("1_0kwl6")
-text = "Some Text"
+text = "PLAY"
 flat = true
 script = ExtResource("2_73v4o")
 
 [node name="FocusElements" type="Control" parent="."]
 unique_name_in_owner = true
-visible = false
-anchors_preset = 0
-offset_right = 83.0
-offset_bottom = 21.0
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 mouse_filter = 1
 
 [node name="LeftArrow" type="Polygon2D" parent="FocusElements"]
@@ -25,7 +29,7 @@ polygon = PackedVector2Array(0, 0, 4, 2, 0, 4)
 
 [node name="RightArrow" type="Polygon2D" parent="FocusElements"]
 modulate = Color(0.74902, 1, 0.945098, 1)
-position = Vector2(85, 13)
+position = Vector2(120, 13)
 rotation = 3.14159
 polygon = PackedVector2Array(0, 0, 4, 2, 0, 4)
 
