@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://b6m3xrtoqqyff"]
 
-[ext_resource type="Script" path="res://entities/bullet/abilities/bullet_ricochet.gd" id="1_1hvi1"]
-[ext_resource type="Texture2D" uid="uid://vbanw7jc6p1p" path="res://entities/bullet/abilities/splitshot.png" id="2_n3bul"]
+[ext_resource type="Script" path="res://entities/bullet/abilities/split_shot/bullet_ricochet.gd" id="1_1hvi1"]
+[ext_resource type="Texture2D" uid="uid://vbanw7jc6p1p" path="res://entities/bullet/abilities/split_shot/split_shot.png" id="2_n3bul"]
 
 [node name="BulletRicochet" type="CharacterBody2D"]
 z_index = 1

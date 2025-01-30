@@ -13,7 +13,7 @@ func _ready() -> void:
 	_ricochets_label.text = str(StatsManager.ricochets_remaining)
 	StatsManager.ricochets_changed.connect(_on_ricochets_changed)
 	
-	_turns_label.text = _get_turns_text(StatsManager.remaining_turns, StatsManager.config.max_turns)
+	_turns_label.text = _get_turns_text(StatsManager.remaining_turns, GameManager.config.max_turns)
 	StatsManager.turns_changed.connect(_on_turns_changed)
 
 ## Logic that is executed when the points have been changed.

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://r24lfp3bvrdr"
-path="res://.godot/imported/frame.png-b759cd91fb5c65e013c9baf2a2a3c472.ctex"
+uid="uid://vbanw7jc6p1p"
+path="res://.godot/imported/split_shot.png-4cd898d63babbe03572944ab1e444541.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://ui/overlay/frame.png"
-dest_files=["res://.godot/imported/frame.png-b759cd91fb5c65e013c9baf2a2a3c472.ctex"]
+source_file="res://entities/bullet/abilities/split_shot/split_shot.png"
+dest_files=["res://.godot/imported/split_shot.png-4cd898d63babbe03572944ab1e444541.ctex"]
 
 [params]
 

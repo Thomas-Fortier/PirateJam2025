@@ -24,7 +24,7 @@ StatsManager="*res://scripts/managers/stats_manager.gd"
 EnemyManager="*res://scripts/managers/enemy_manager.gd"
 BulletManager="*res://scripts/managers/bullet_manager.gd"
 AudioManager="*res://scripts/managers/audio_manager.gd"
-SplitterManager="*res://entities/bullet/abilities/bullet_splitter.gd"
+AbilityManager="*res://scripts/managers/ability_manager.gd"
 
 [display]
 

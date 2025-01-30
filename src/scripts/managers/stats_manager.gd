@@ -9,9 +9,6 @@ var total_kills: int = 0
 var total_ricochets: int = 0
 var levels_completed: int = 0
 
-## The configuration for the game manager.
-var config: GameConfig = preload("res://scripts/managers/game_manager.tres") as GameConfig
-
 var points: int:
 	set(value):
 		if points == value:
@@ -36,14 +33,14 @@ var remaining_turns: int:
 var kills: int = 0
 
 func _ready():
-	ricochets_remaining = config.max_ricochets
-	remaining_turns = config.max_turns
+	ricochets_remaining = GameManager.config.max_ricochets
+	remaining_turns = GameManager.config.max_turns
 
 func reset_level_stats() -> void:
 	points = 0
 	kills = 0
-	ricochets_remaining = config.max_ricochets
-	remaining_turns = config.max_turns
+	ricochets_remaining = GameManager.config.max_ricochets
+	remaining_turns = GameManager.config.max_turns
 
 func reset_all():
 	reset_level_stats()
@@ -61,7 +58,7 @@ func add_kill() -> void:
 	kills += 1
 
 func reset_ricochets_remaining() -> void:
-	ricochets_remaining = config.max_ricochets
+	ricochets_remaining = GameManager.config.max_ricochets
 
 func decrement_remaining_turns() -> bool:
 	remaining_turns -= 1
