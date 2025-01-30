@@ -24,6 +24,7 @@ StatsManager="*res://scripts/managers/stats_manager.gd"
 EnemyManager="*res://scripts/managers/enemy_manager.gd"
 BulletManager="*res://scripts/managers/bullet_manager.gd"
 AudioManager="*res://scripts/managers/audio_manager.gd"
+SplitterManager="*res://entities/bullet/abilities/bullet_splitter.gd"
 
 [display]
 
@@ -38,6 +39,11 @@ window/stretch/aspect="keep_height"
 fire={
 "deadzone": 0.5,
 "events": [Object(InputEventMouseButton,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"button_mask":0,"position":Vector2(0, 0),"global_position":Vector2(0, 0),"factor":1.0,"button_index":1,"canceled":false,"pressed":false,"double_click":false,"script":null)
+]
+}
+split_shot={
+"deadzone": 0.5,
+"events": [Object(InputEventMouseButton,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"button_mask":0,"position":Vector2(0, 0),"global_position":Vector2(0, 0),"factor":1.0,"button_index":2,"canceled":false,"pressed":false,"double_click":false,"script":null)
 ]
 }
 

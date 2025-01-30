@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://b6m3xrtoqqyff"]
+
+[ext_resource type="Script" path="res://entities/bullet/abilities/bullet_ricochet.gd" id="1_1hvi1"]
+[ext_resource type="Texture2D" uid="uid://vbanw7jc6p1p" path="res://entities/bullet/abilities/splitshot.png" id="2_n3bul"]
+
+[node name="BulletRicochet" type="CharacterBody2D"]
+z_index = 1
+collision_mask = 6
+script = ExtResource("1_1hvi1")
+
+[node name="Collider" type="CollisionPolygon2D" parent="."]
+position = Vector2(1, 0)
+polygon = PackedVector2Array(0, -3, 2, -3, 2, -2, 4, -2, 4, -1, 5, -1, 5, 0, 5, 1, 4, 1, 4, 2, 2, 2, 2, 3, 0, 3)
+
+[node name="Sprite" type="Sprite2D" parent="Collider"]
+modulate = Color(0.74902, 1, 0.945098, 1)
+texture_filter = 1
+position = Vector2(-1, 1)
+texture = ExtResource("2_n3bul")
