@@ -14,6 +14,10 @@ var _is_paused: bool = false
 const BOUNCE_SOUND = preload("res://assets/sounds/ricochet.wav")
 const SHOOT_SOUND = preload("res://assets/sounds/shoot.wav")
 
+func _ready() -> void:
+	LevelManager.level_changed.connect(_on_level_changed)
+	_on_level_changed.call_deferred(LevelManager.level)
+
 func _physics_process(delta: float) -> void:
 	if _is_paused:
 		return
@@ -34,6 +38,9 @@ func _physics_process(delta: float) -> void:
 		collider.kill()
 	else:
 		_bounce_off_wall(collision)
+
+func _on_level_changed(next_level: Level) -> void:
+	position = next_level.get_spawn_point_position()
 
 ## Pauses the bullet movement and allows the user to select the direction
 ## that the bullet is facing.

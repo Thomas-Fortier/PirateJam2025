@@ -2,11 +2,11 @@ extends Node
 
 ## This manager handles switching levels and resetting runs.
 
-signal level_changed(new_level: Node2D)
+signal level_changed(new_level: Level)
 
 ## The root of the game.
 @onready var game_root: Node2D = $"../GameRoot"
-@onready var level: Node2D = $"../GameRoot/Level"
+@onready var level: Level = $"../GameRoot/Level"
 
 ## Handles switching to a new level.
 func switch_to_level(next_level_to_load: PackedScene) -> void:

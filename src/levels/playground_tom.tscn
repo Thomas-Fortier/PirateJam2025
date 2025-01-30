@@ -1,5 +1,6 @@
-[gd_scene load_steps=6 format=4 uid="uid://bdgmtlxnl4qhx"]
+[gd_scene load_steps=7 format=4 uid="uid://bdgmtlxnl4qhx"]
 
+[ext_resource type="Script" path="res://levels/level.gd" id="1_7d144"]
 [ext_resource type="Texture2D" uid="uid://c851uxpa0eutx" path="res://assets/tilemaps/walls.png" id="1_x5hm2"]
 [ext_resource type="PackedScene" uid="uid://cvts5e1hrop0n" path="res://entities/exploding_barrel/exploding_barrel.tscn" id="2_ln167"]
 [ext_resource type="PackedScene" uid="uid://dvvs8ou2s3603" path="res://entities/enemies/stationary/stationary_enemy.tscn" id="3_ixstw"]
@@ -496,6 +497,11 @@ physics_layer_0/collision_mask = 0
 sources/0 = SubResource("TileSetAtlasSource_6kebf")
 
 [node name="Level" type="Node2D"]
+script = ExtResource("1_7d144")
+
+[node name="SpawnPoint" type="Node2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(313, 310)
 
 [node name="TileMapLayers" type="Node2D" parent="."]
 

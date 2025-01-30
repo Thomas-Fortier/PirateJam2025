@@ -35,4 +35,4 @@ func reset_run() -> void:
 ## Resets the state of the game manager back to default values.
 func reset_bullet_and_enemies() -> void:
 	BulletManager.bullet.reset()
-	EnemyManager.initialize_enemies()
+	EnemyManager.initialize_enemies.call_deferred()

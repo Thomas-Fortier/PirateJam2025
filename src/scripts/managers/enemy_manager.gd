@@ -8,12 +8,17 @@ func _ready() -> void:
 	call_deferred("initialize_enemies")
 
 func initialize_enemies() -> void:
-	enemies.clear()
+	_clear_tracked_enemies()
 	for node in get_tree().get_nodes_in_group("enemies"):
 		if node is Enemy:
 			if not node.died.is_connected(_on_enemy_death):
 				node.died.connect(_on_enemy_death)
 			enemies.append(node)
+
+func _clear_tracked_enemies() -> void:
+	for enemy in enemies:
+		enemy.remove_from_group("enemies")
+	enemies.clear()
 
 ## Handles when an enemy dies.
 func _on_enemy_death(enemy: Enemy) -> void:
