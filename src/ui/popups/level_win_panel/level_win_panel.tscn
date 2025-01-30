@@ -1,9 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://coyuono8x20hh"]
+[gd_scene load_steps=5 format=3 uid="uid://coyuono8x20hh"]
 
 [ext_resource type="Script" path="res://ui/popups/level_win_panel/level_win_panel.gd" id="1_qxu5a"]
-[ext_resource type="LabelSettings" uid="uid://fgnkylw30wul" path="res://ui/themes/label_settings/header_label.tres" id="2_6jpf7"]
-[ext_resource type="LabelSettings" uid="uid://mjfpnx8q3gdd" path="res://ui/themes/label_settings/normal_label.tres" id="3_yo8xu"]
-[ext_resource type="FontFile" uid="uid://c4arg06qh2sqx" path="res://assets/fonts/pixellari.ttf" id="4_kygeo"]
+[ext_resource type="Theme" uid="uid://dfureb8blyilx" path="res://ui/themes/default_theme.tres" id="2_glxgv"]
+[ext_resource type="PackedScene" uid="uid://cy8otjo413bqb" path="res://ui/elements/button.tscn" id="4_v5lm4"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4ky7e"]
 bg_color = Color(0.00392157, 0.109804, 0.152941, 1)
@@ -47,8 +46,9 @@ offset_left = -98.0
 offset_right = 98.0
 offset_bottom = 36.0
 grow_horizontal = 2
+theme = ExtResource("2_glxgv")
+theme_override_font_sizes/font_size = 36
 text = "LEVEL COMPLETE"
-label_settings = ExtResource("2_6jpf7")
 horizontal_alignment = 1
 
 [node name="Stats" type="Control" parent="Margin/Viewport"]
@@ -74,11 +74,13 @@ offset_bottom = 22.0
 grow_horizontal = 2
 
 [node name="Label" type="Label" parent="Margin/Viewport/Stats/Points"]
+texture_filter = 1
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 23.0
+theme = ExtResource("2_glxgv")
+theme_override_font_sizes/font_size = 14
 text = "Points  ...................................................................................................."
-label_settings = ExtResource("3_yo8xu")
 
 [node name="PointsLabel" type="Label" parent="Margin/Viewport/Stats/Points"]
 unique_name_in_owner = true
@@ -94,8 +96,9 @@ offset_top = -11.5
 offset_bottom = 11.5
 grow_horizontal = 0
 grow_vertical = 2
+theme = ExtResource("2_glxgv")
+theme_override_font_sizes/font_size = 14
 text = "0"
-label_settings = ExtResource("3_yo8xu")
 horizontal_alignment = 2
 
 [node name="EnemiesKilled" type="Control" parent="Margin/Viewport/Stats"]
@@ -108,11 +111,13 @@ offset_bottom = 54.0
 grow_horizontal = 2
 
 [node name="Label" type="Label" parent="Margin/Viewport/Stats/EnemiesKilled"]
+texture_filter = 1
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 23.0
+theme = ExtResource("2_glxgv")
+theme_override_font_sizes/font_size = 14
 text = "Enemies Killed  ....................................................................................."
-label_settings = ExtResource("3_yo8xu")
 
 [node name="EnemiesKilledLabel" type="Label" parent="Margin/Viewport/Stats/EnemiesKilled"]
 unique_name_in_owner = true
@@ -128,8 +133,9 @@ offset_top = -11.5
 offset_bottom = 11.5
 grow_horizontal = 0
 grow_vertical = 2
+theme = ExtResource("2_glxgv")
+theme_override_font_sizes/font_size = 14
 text = "0"
-label_settings = ExtResource("3_yo8xu")
 horizontal_alignment = 2
 
 [node name="Ricochets" type="Control" parent="Margin/Viewport/Stats"]
@@ -142,11 +148,13 @@ offset_bottom = 78.0
 grow_horizontal = 2
 
 [node name="Label" type="Label" parent="Margin/Viewport/Stats/Ricochets"]
+texture_filter = 1
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 23.0
+theme = ExtResource("2_glxgv")
+theme_override_font_sizes/font_size = 14
 text = "Ricochets  ............................................................................................."
-label_settings = ExtResource("3_yo8xu")
 
 [node name="RicochetsLabel" type="Label" parent="Margin/Viewport/Stats/Ricochets"]
 unique_name_in_owner = true
@@ -162,8 +170,9 @@ offset_top = -11.5
 offset_bottom = 11.5
 grow_horizontal = 0
 grow_vertical = 2
+theme = ExtResource("2_glxgv")
+theme_override_font_sizes/font_size = 14
 text = "0"
-label_settings = ExtResource("3_yo8xu")
 horizontal_alignment = 2
 
 [node name="Buttons" type="Control" parent="Margin/Viewport"]
@@ -178,35 +187,29 @@ offset_bottom = -13.0
 grow_horizontal = 2
 grow_vertical = 0
 
-[node name="NextLevelButton" type="Button" parent="Margin/Viewport/Buttons"]
-texture_filter = 1
+[node name="NextLevelButton" parent="Margin/Viewport/Buttons" instance=ExtResource("4_v5lm4")]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -35.0
-offset_right = 35.0
+offset_left = -41.0
+offset_right = 41.0
 offset_bottom = 24.0
 grow_horizontal = 2
-theme_override_fonts/font = ExtResource("4_kygeo")
-theme_override_font_sizes/font_size = 12
 text = "Next Level"
 
-[node name="QuitButton" type="Button" parent="Margin/Viewport/Buttons"]
-texture_filter = 1
+[node name="QuitButton" parent="Margin/Viewport/Buttons" instance=ExtResource("4_v5lm4")]
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -35.0
+offset_left = -41.0
 offset_top = -24.0
-offset_right = 35.0
+offset_right = 41.0
 grow_horizontal = 2
 grow_vertical = 0
-theme_override_fonts/font = ExtResource("4_kygeo")
-theme_override_font_sizes/font_size = 12
 text = "Quit"
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

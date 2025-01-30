@@ -1,0 +1,35 @@
+[gd_scene load_steps=3 format=3 uid="uid://cy8otjo413bqb"]
+
+[ext_resource type="Theme" uid="uid://dfureb8blyilx" path="res://ui/themes/default_theme.tres" id="1_0kwl6"]
+[ext_resource type="Script" path="res://ui/elements/button.gd" id="2_73v4o"]
+
+[node name="Button" type="Button"]
+texture_filter = 1
+theme = ExtResource("1_0kwl6")
+text = "Some Text"
+flat = true
+script = ExtResource("2_73v4o")
+
+[node name="FocusElements" type="Control" parent="."]
+unique_name_in_owner = true
+visible = false
+anchors_preset = 0
+offset_right = 83.0
+offset_bottom = 21.0
+mouse_filter = 1
+
+[node name="LeftArrow" type="Polygon2D" parent="FocusElements"]
+modulate = Color(0.74902, 1, 0.945098, 1)
+position = Vector2(-4, 9)
+polygon = PackedVector2Array(0, 0, 4, 2, 0, 4)
+
+[node name="RightArrow" type="Polygon2D" parent="FocusElements"]
+modulate = Color(0.74902, 1, 0.945098, 1)
+position = Vector2(85, 13)
+rotation = 3.14159
+polygon = PackedVector2Array(0, 0, 4, 2, 0, 4)
+
+[connection signal="focus_entered" from="." to="." method="_on_focus_entered"]
+[connection signal="focus_exited" from="." to="." method="_on_focus_exited"]
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
