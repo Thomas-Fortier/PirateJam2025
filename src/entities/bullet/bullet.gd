@@ -75,7 +75,7 @@ func _follow_cursor() -> void:
 	if Input.is_action_just_pressed("fire") and not _is_paused:
 		_is_selecting_direction = false
 		AudioManager.play_sound(SHOOT_SOUND)
-    _trajectory_line.clear()
+		_trajectory_line.clear()
 
 ## Detects split shot and calls the split bullet function as well as plays fire sound
 func _input(event: InputEvent) -> void:
