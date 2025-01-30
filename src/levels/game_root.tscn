@@ -1,10 +1,34 @@
-[gd_scene load_steps=4 format=3 uid="uid://d2bxrtmiq3xgr"]
+[gd_scene load_steps=6 format=3 uid="uid://d2bxrtmiq3xgr"]
 
+[ext_resource type="Shader" path="res://shaders/crt.gdshader" id="1_4ubiu"]
 [ext_resource type="PackedScene" uid="uid://bdqn7gj1xmqay" path="res://ui/overlay/overlay.tscn" id="1_cokci"]
 [ext_resource type="PackedScene" uid="uid://bthni1oqodncp" path="res://entities/bullet/bullet.tscn" id="2_u7wcf"]
 [ext_resource type="PackedScene" uid="uid://bdgmtlxnl4qhx" path="res://levels/playground_tom.tscn" id="3_c4h5o"]
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_71bd4"]
+shader = ExtResource("1_4ubiu")
+shader_parameter/resolution = Vector2(640, 360)
+shader_parameter/scan_line_amount = 1.0
+shader_parameter/warp_amount = 0.1
+shader_parameter/noise_amount = 0.03
+shader_parameter/interference_amount = 0.2
+shader_parameter/grille_amount = 0.1
+shader_parameter/grille_size = 1.0
+shader_parameter/vignette_amount = 0.6
+shader_parameter/vignette_intensity = 0.4
+shader_parameter/aberation_amount = 0.5
+shader_parameter/roll_line_amount = 0.3
+shader_parameter/roll_speed = 1.0
+shader_parameter/scan_line_strength = -8.0
+shader_parameter/pixel_strength = -2.0
+
 [node name="GameRoot" type="Node2D"]
+
+[node name="CRT" type="ColorRect" parent="."]
+z_index = 100
+material = SubResource("ShaderMaterial_71bd4")
+offset_right = 640.0
+offset_bottom = 360.0
 
 [node name="Overlay" parent="." instance=ExtResource("1_cokci")]
 offset_right = 640.0
