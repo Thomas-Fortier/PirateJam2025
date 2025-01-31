@@ -65,7 +65,7 @@ func next_level() -> void:
 	reset_bullet_and_enemies_and_ability_usages()
 
 func reset_run() -> void:
-	LevelManager.next_level(config)
+	LevelManager.first_level(config)
 	StatsManager.reset_all()
 	AbilityManager.reset()
 	reset_bullet_and_enemies_and_ability_usages()

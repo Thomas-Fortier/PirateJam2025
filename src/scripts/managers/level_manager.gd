@@ -25,6 +25,10 @@ func next_level(config: GameConfig) -> void:
 	var level_to_load: PackedScene = config.levels[_level_index]
 	switch_to_level(level_to_load)
 
+func first_level(config: GameConfig) -> void:
+	_level_index = -1
+	next_level(config)
+
 func remove_level() -> void:
 	level.queue_free()
 	level = null

@@ -56,6 +56,7 @@ func _on_level_changed(next_level: Level) -> void:
 ## Pauses the bullet movement and allows the user to select the direction
 ## that the bullet is facing.
 func select_direction() -> void:
+	_overriden_direction = Vector2.ZERO
 	_is_selecting_direction = true
 
 ## Resets the state of the bullet.
