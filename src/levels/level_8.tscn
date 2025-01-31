@@ -543,10 +543,10 @@ position = Vector2(338, 181)
 position = Vector2(303, 216)
 
 [node name="Bomb" parent="." instance=ExtResource("2_n42eo")]
-position = Vector2(463, 237)
+position = Vector2(597, 291)
 
 [node name="Bomb2" parent="." instance=ExtResource("2_n42eo")]
-position = Vector2(180, 115)
+position = Vector2(47, 62)
 
 [node name="Area2D" type="StaticBody2D" parent="."]
 collision_layer = 256

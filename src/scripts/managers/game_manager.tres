@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="GameConfig" load_steps=18 format=3 uid="uid://bh7dw50rrmopl"]
+[gd_resource type="Resource" script_class="GameConfig" load_steps=19 format=3 uid="uid://bh7dw50rrmopl"]
 
 [ext_resource type="Script" path="res://scripts/managers/game_config.gd" id="1_lyyry"]
 [ext_resource type="Script" path="res://entities/bullet/abilities/ability.gd" id="1_x6jmf"]
@@ -17,10 +17,11 @@
 [ext_resource type="PackedScene" uid="uid://dj3yy4dn12po0" path="res://levels/level_7.tscn" id="11_tdh33"]
 [ext_resource type="PackedScene" uid="uid://bxk35qk56dfs0" path="res://levels/level_8.tscn" id="12_1q3tj"]
 [ext_resource type="PackedScene" uid="uid://c5yknat6y2e2y" path="res://levels/level_9.tscn" id="12_xvp6d"]
+[ext_resource type="PackedScene" uid="uid://dgolsljnry5lk" path="res://levels/level_10.tscn" id="17_kxm2x"]
 
 [resource]
 script = ExtResource("1_lyyry")
-levels = Array[PackedScene]([ExtResource("4_ypj1e"), ExtResource("6_qeapu"), ExtResource("7_66673"), ExtResource("8_ib3d2"), ExtResource("9_debtl"), ExtResource("10_7qgsu"), ExtResource("11_tdh33"), ExtResource("12_1q3tj"), ExtResource("12_xvp6d")])
+levels = Array[PackedScene]([ExtResource("4_ypj1e"), ExtResource("6_qeapu"), ExtResource("7_66673"), ExtResource("8_ib3d2"), ExtResource("9_debtl"), ExtResource("10_7qgsu"), ExtResource("11_tdh33"), ExtResource("12_1q3tj"), ExtResource("12_xvp6d"), ExtResource("17_kxm2x")])
 abilities = Array[ExtResource("1_x6jmf")]([ExtResource("2_x8ov4"), ExtResource("3_q6op5"), ExtResource("4_yl023"), ExtResource("5_qw2bd"), ExtResource("6_b1gku"), ExtResource("7_026j1")])
 max_turns = 3
 max_ricochets = 3
