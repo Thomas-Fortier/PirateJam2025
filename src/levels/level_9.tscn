@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=4 uid="uid://c5yknat6y2e2y"]
+[gd_scene load_steps=7 format=4 uid="uid://c5yknat6y2e2y"]
 
 [ext_resource type="Script" path="res://levels/level.gd" id="1_4m82j"]
 [ext_resource type="Texture2D" uid="uid://c851uxpa0eutx" path="res://assets/tilemaps/walls.png" id="1_6415v"]
 [ext_resource type="PackedScene" uid="uid://dvvs8ou2s3603" path="res://entities/enemies/stationary/stationary_enemy.tscn" id="3_dgtll"]
+[ext_resource type="PackedScene" uid="uid://dm12n5pc24twx" path="res://entities/pickups/extra_turn/extra_turn.tscn" id="4_s2x2i"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_g8060"]
 texture = ExtResource("1_6415v")
@@ -512,3 +513,18 @@ tile_set = SubResource("TileSet_t86xx")
 
 [node name="StationaryEnemy" parent="TileMapLayers" instance=ExtResource("3_dgtll")]
 position = Vector2(562, 290)
+
+[node name="ExtraTurn" parent="." instance=ExtResource("4_s2x2i")]
+position = Vector2(160, 197)
+
+[node name="ExtraTurn2" parent="." instance=ExtResource("4_s2x2i")]
+position = Vector2(242, 197)
+
+[node name="ExtraTurn3" parent="." instance=ExtResource("4_s2x2i")]
+position = Vector2(322, 197)
+
+[node name="ExtraTurn4" parent="." instance=ExtResource("4_s2x2i")]
+position = Vector2(402, 197)
+
+[node name="ExtraTurn5" parent="." instance=ExtResource("4_s2x2i")]
+position = Vector2(482, 197)

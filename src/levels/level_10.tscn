@@ -1,8 +1,9 @@
-[gd_scene load_steps=8 format=4 uid="uid://dgolsljnry5lk"]
+[gd_scene load_steps=9 format=4 uid="uid://dgolsljnry5lk"]
 
 [ext_resource type="Texture2D" uid="uid://c851uxpa0eutx" path="res://assets/tilemaps/walls.png" id="1_8fekj"]
 [ext_resource type="PackedScene" uid="uid://dvvs8ou2s3603" path="res://entities/enemies/stationary/stationary_enemy.tscn" id="2_g4uu2"]
 [ext_resource type="PackedScene" uid="uid://bjh15uppbf6me" path="res://entities/enemies/moving/moving_enemy.tscn" id="3_d4ly0"]
+[ext_resource type="PackedScene" uid="uid://dm12n5pc24twx" path="res://entities/pickups/extra_turn/extra_turn.tscn" id="4_wrslm"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_7253l"]
 texture = ExtResource("1_8fekj")
@@ -550,3 +551,9 @@ shape = SubResource("RectangleShape2D_bm18a")
 [node name="CollisionShape2D4" type="CollisionShape2D" parent="Area2D2"]
 position = Vector2(161, 248)
 shape = SubResource("RectangleShape2D_42l3i")
+
+[node name="ExtraTurn" parent="." instance=ExtResource("4_wrslm")]
+position = Vector2(200, 80)
+
+[node name="ExtraTurn2" parent="." instance=ExtResource("4_wrslm")]
+position = Vector2(441, 285)
