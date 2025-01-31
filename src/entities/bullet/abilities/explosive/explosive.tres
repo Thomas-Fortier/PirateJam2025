@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="Explosive" load_steps=3 format=3 uid="uid://ccm8pn4rej3fn"]
+
+[ext_resource type="Script" path="res://entities/bullet/abilities/explosive/explosive.gd" id="1_2llf8"]
+[ext_resource type="Texture2D" uid="uid://ll0bvgdt5gvu" path="res://entities/bullet/abilities/explosive/explosive_icon.tres" id="1_7aipd"]
+
+[resource]
+script = ExtResource("1_2llf8")
+is_passive = false
+name = "Explosive"
+description = "Detonates a bomb where the bullet is imediately."
+icon = ExtResource("1_7aipd")
+max_usages = 1

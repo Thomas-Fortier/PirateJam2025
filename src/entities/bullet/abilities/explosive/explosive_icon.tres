@@ -1,0 +1,6 @@
+[gd_resource type="CanvasTexture" load_steps=2 format=3 uid="uid://ll0bvgdt5gvu"]
+
+[ext_resource type="Texture2D" uid="uid://dbrtthe0vnqxo" path="res://entities/bomb/bomb.png" id="1_8abju"]
+
+[resource]
+diffuse_texture = ExtResource("1_8abju")
