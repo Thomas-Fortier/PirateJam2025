@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bajs7cuvgxg6"
-path="res://.godot/imported/splitshott.png-c0e143c1780280c846d619fd8a9afe50.ctex"
+uid="uid://ba5h3cdeh2nd2"
+path="res://.godot/imported/bomb-Sheet.png-4f7d18c241dbf94ee7cabe36af307630.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://entities/bullet/abilities/splitshott.png"
-dest_files=["res://.godot/imported/splitshott.png-c0e143c1780280c846d619fd8a9afe50.ctex"]
+source_file="res://entities/bomb/bomb-Sheet.png"
+dest_files=["res://.godot/imported/bomb-Sheet.png-4f7d18c241dbf94ee7cabe36af307630.ctex"]
 
 [params]
 

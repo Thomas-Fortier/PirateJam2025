@@ -7,14 +7,20 @@ extends Area2D
 
 const EXPLOSION_SOUND = preload("res://assets/sounds/mixkit-arcade-game-explosion-2759.wav")
 var _random_number_generator = RandomNumberGenerator.new()
+var exploded: bool = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	body_entered.connect(_on_body_entered)
+	$AnimatedSprite2D.animation_finished.connect(_on_animation_finished)
 
 # This function calls the explode function upon colliding with the player
 func _on_body_entered(body):
+	if exploded:
+		return
 	if body is Bullet or body is Shrapnel or body is BulletRicochet:
+		exploded = true
+		handle_animation()
 		explode()
 
 func explode():
@@ -47,7 +53,13 @@ func _add_shrapnel(shrapnel_instance):
 	get_parent().add_child(shrapnel_instance)
 
 func play_explosion_effects():
-	AudioManager.play_sound(EXPLOSION_SOUND)
-	queue_free()
+	if not exploded:
+		AudioManager.play_sound(EXPLOSION_SOUND)
 
- 
+func handle_animation() -> void:
+	var animated_sprite = $AnimatedSprite2D
+	animated_sprite.play("explode")
+	animated_sprite.set_frame(0)
+
+func _on_animation_finished():
+	queue_free()

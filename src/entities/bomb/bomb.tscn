@@ -1,8 +1,37 @@
-[gd_scene load_steps=4 format=3 uid="uid://cvts5e1hrop0n"]
+[gd_scene load_steps=8 format=3 uid="uid://cvts5e1hrop0n"]
 
 [ext_resource type="Script" path="res://entities/bomb/bomb.gd" id="1_j61ue"]
 [ext_resource type="PackedScene" uid="uid://d07o2ymbkswk0" path="res://entities/shrapnel/shrapnel.tscn" id="2_n7msq"]
-[ext_resource type="Texture2D" uid="uid://dbrtthe0vnqxo" path="res://entities/bomb/bomb.png" id="3_vacby"]
+[ext_resource type="Texture2D" uid="uid://ba5h3cdeh2nd2" path="res://entities/bomb/bomb-Sheet.png" id="3_2x8q3"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e13fg"]
+atlas = ExtResource("3_2x8q3")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gu7yl"]
+atlas = ExtResource("3_2x8q3")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6nkyf"]
+atlas = ExtResource("3_2x8q3")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_dqi6s"]
+animations = [{
+"frames": [{
+"duration": 0.2,
+"texture": SubResource("AtlasTexture_e13fg")
+}, {
+"duration": 0.4,
+"texture": SubResource("AtlasTexture_gu7yl")
+}, {
+"duration": 0.4,
+"texture": SubResource("AtlasTexture_6nkyf")
+}],
+"loop": false,
+"name": &"explode",
+"speed": 5.0
+}]
 
 [node name="Bomb" type="Area2D"]
 collision_mask = 9
@@ -11,9 +40,12 @@ shrapnel_scene = ExtResource("2_n7msq")
 shrapnel_count = 8
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
-polygon = PackedVector2Array(4, 15, -3, 15, -10, 12, -13, 5, -13, -5, -9, -12, -4, -14, 4, -14, 10, -11, 13, -4, 13, 5, 10, 12)
+texture_filter = 1
+polygon = PackedVector2Array(-2, 9, -6, 8, -8, 6, -8, 0, -5, -4, -3, -8, 1, -9, 5, -6, 3, -2, 4, 3, 4, 5, 2, 7)
 
-[node name="Sprite2D" type="Sprite2D" parent="CollisionPolygon2D"]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 modulate = Color(0.74902, 1, 0.945098, 1)
 texture_filter = 1
-texture = ExtResource("3_vacby")
+sprite_frames = SubResource("SpriteFrames_dqi6s")
+animation = &"explode"
+frame_progress = 0.169154
