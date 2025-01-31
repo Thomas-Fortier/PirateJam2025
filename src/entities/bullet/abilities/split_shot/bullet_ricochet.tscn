@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=3 uid="uid://b6m3xrtoqqyff"]
 
-[ext_resource type="Script" path="res://entities/bullet/abilities/bullet_ricochet.gd" id="1_1hvi1"]
+[ext_resource type="Script" path="res://entities/bullet/abilities/split_shot/bullet_ricochet.gd" id="1_1hvi1"]
 [ext_resource type="Texture2D" uid="uid://bajs7cuvgxg6" path="res://entities/bullet/abilities/splitshot.png" id="2_vsgax"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_vxs1m"]

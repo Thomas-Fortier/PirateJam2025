@@ -26,10 +26,9 @@ func _process(_delta: float) -> void:
 		_skip_animation = true
 		_toggle_section_visibility(true)
 
-## Logic to execute when the "New Run" button is pressed.
+## Logic to execute when the continue button is pressed.
 func _on_next_level_button_pressed():
-	GameManager.next_level()
-	# TODO: Implement animation / transition or whatever else
+	AbilityManager.show_ability_select()
 	queue_free()
 
 ## Toggles the visibility of the sections with the cooresponding flag.

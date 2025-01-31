@@ -2,6 +2,7 @@ class_name GameConfig
 extends Resource
 
 @export var levels: Array[PackedScene] = []
+@export var abilities: Array[Ability] = []
 
 @export_category("Max Values")
 ## The number of max turns the bullet has.

@@ -1,0 +1,7 @@
+[gd_resource type="CanvasTexture" load_steps=2 format=3 uid="uid://dhr2at7hlkjc2"]
+
+[ext_resource type="Texture2D" uid="uid://dnj154dsp06x" path="res://entities/bullet/abilities/split_shot/split_shot_icon.png" id="1_v7mg6"]
+
+[resource]
+diffuse_texture = ExtResource("1_v7mg6")
+texture_filter = 1

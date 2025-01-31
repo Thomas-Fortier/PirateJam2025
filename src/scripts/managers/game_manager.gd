@@ -60,14 +60,16 @@ func handle_game_over(did_win: bool) -> void:
 func next_level() -> void:
 	LevelManager.next_level(config)
 	StatsManager.reset_level_stats()
-	reset_bullet_and_enemies()
+	reset_bullet_and_enemies_and_ability_usages()
 
 func reset_run() -> void:
 	LevelManager.next_level(config)
 	StatsManager.reset_all()
-	reset_bullet_and_enemies()
+	AbilityManager.reset()
+	reset_bullet_and_enemies_and_ability_usages()
 
 ## Resets the state of the game manager back to default values.
-func reset_bullet_and_enemies() -> void:
+func reset_bullet_and_enemies_and_ability_usages() -> void:
+	AbilityManager.clear_ability_usages()
 	BulletManager.bullet.reset()
 	EnemyManager.initialize_enemies.call_deferred()

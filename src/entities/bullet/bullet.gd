@@ -76,11 +76,3 @@ func _follow_cursor() -> void:
 		_is_selecting_direction = false
 		AudioManager.play_sound(SHOOT_SOUND)
 		_trajectory_line.clear()
-
-## Detects split shot and calls the split bullet function as well as plays fire sound
-func _input(event: InputEvent) -> void:
-	if !_is_selecting_direction and not _is_paused and event.is_action_pressed("split_shot") and splitter:
-		print("Right click detected")
-		AudioManager.play_sound(SHOOT_SOUND)
-		splitter.split_bullet(self)
-		
