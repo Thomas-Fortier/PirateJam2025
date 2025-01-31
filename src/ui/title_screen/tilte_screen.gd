@@ -6,6 +6,10 @@ func _ready() -> void:
 	size.x = 640
 	size.y = 360
 
+func _process(delta: float) -> void:
+	var animated_sprite = %EnemyAnimation
+	animated_sprite.play("idle")
+
 func _on_play_button_pressed():
 	GameManager.start_game()
 	queue_free()
