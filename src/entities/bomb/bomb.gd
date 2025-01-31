@@ -1,3 +1,4 @@
+class_name Bomb
 extends Area2D
 
 @export var shrapnel_scene: PackedScene
@@ -7,6 +8,7 @@ extends Area2D
 
 const EXPLOSION_SOUND = preload("res://assets/sounds/mixkit-arcade-game-explosion-2759.wav")
 var _random_number_generator = RandomNumberGenerator.new()
+var _ignore_collision: bool = false
 var exploded: bool = false
 
 # Called when the node enters the scene tree for the first time.
@@ -16,14 +18,16 @@ func _ready() -> void:
 
 # This function calls the explode function upon colliding with the player
 func _on_body_entered(body):
-	if exploded:
+	if exploded or _ignore_collision:
 		return
 	if body is Bullet or body is Shrapnel or body is BulletRicochet:
 		exploded = true
 		handle_animation()
 		explode()
 
-func explode():
+func explode(ignore_collision: bool = false):
+	_ignore_collision = ignore_collision
+	
 	## Spawn shrapnel pieces
 	for i in range(shrapnel_count):
 		var shrapnel_instance = shrapnel_scene.instantiate()

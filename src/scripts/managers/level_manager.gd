@@ -7,6 +7,7 @@ signal level_changed(new_level: Level)
 ## The root of the game.
 @onready var game_root: Node2D = $"../GameRoot"
 var level: Level = null
+var _level_index: int = -1 # TODO: Stinky
 
 ## Handles switching to a new level.
 func switch_to_level(next_level_to_load: PackedScene) -> void:
@@ -19,8 +20,14 @@ func switch_to_level(next_level_to_load: PackedScene) -> void:
 
 ## Loads a new random level from the config.
 func next_level(config: GameConfig) -> void:
-	var level_to_load: PackedScene = config.levels.pick_random()
+	if _level_index != config.levels.size() - 1:
+		_level_index += 1
+	var level_to_load: PackedScene = config.levels[_level_index]
 	switch_to_level(level_to_load)
+
+func first_level(config: GameConfig) -> void:
+	_level_index = -1
+	next_level(config)
 
 func remove_level() -> void:
 	level.queue_free()

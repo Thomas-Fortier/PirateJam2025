@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="Freeze" load_steps=4 format=3 uid="uid://b7usokbsyb73u"]
+
+[ext_resource type="AudioStream" uid="uid://cndqlt8q6cj87" path="res://entities/bullet/abilities/freeze/freeze.wav" id="1_b7pbx"]
+[ext_resource type="Texture2D" uid="uid://bhiqyb5mexhbt" path="res://entities/bullet/abilities/freeze/freeze_icon.tres" id="1_dctwb"]
+[ext_resource type="Script" path="res://entities/bullet/abilities/freeze/freeze.gd" id="1_vd7l5"]
+
+[resource]
+script = ExtResource("1_vd7l5")
+name = "Freeze"
+description = "Freezes the bullet mid flight to choose direction."
+icon = ExtResource("1_dctwb")
+max_usages = 1
+ability_sound = ExtResource("1_b7pbx")

@@ -49,12 +49,14 @@ func _physics_process(delta: float) -> void:
 		_bounce_off_wall(collision)
 
 func _on_level_changed(next_level: Level) -> void:
+	_overriden_direction = Vector2.ZERO
 	if next_level:
 		position = next_level.get_spawn_point_position()
 
 ## Pauses the bullet movement and allows the user to select the direction
 ## that the bullet is facing.
 func select_direction() -> void:
+	_overriden_direction = Vector2.ZERO
 	_is_selecting_direction = true
 
 ## Resets the state of the bullet.
