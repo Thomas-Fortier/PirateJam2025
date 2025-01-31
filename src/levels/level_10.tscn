@@ -1,6 +1,7 @@
-[gd_scene load_steps=9 format=4 uid="uid://dgolsljnry5lk"]
+[gd_scene load_steps=10 format=4 uid="uid://dgolsljnry5lk"]
 
 [ext_resource type="Texture2D" uid="uid://c851uxpa0eutx" path="res://assets/tilemaps/walls.png" id="1_8fekj"]
+[ext_resource type="Script" path="res://levels/level.gd" id="1_wub3v"]
 [ext_resource type="PackedScene" uid="uid://dvvs8ou2s3603" path="res://entities/enemies/stationary/stationary_enemy.tscn" id="2_g4uu2"]
 [ext_resource type="PackedScene" uid="uid://bjh15uppbf6me" path="res://entities/enemies/moving/moving_enemy.tscn" id="3_d4ly0"]
 [ext_resource type="PackedScene" uid="uid://dm12n5pc24twx" path="res://entities/pickups/extra_turn/extra_turn.tscn" id="4_wrslm"]
@@ -503,6 +504,7 @@ size = Vector2(24.25, 65)
 size = Vector2(63, 15)
 
 [node name="Level10" type="Node2D"]
+script = ExtResource("1_wub3v")
 
 [node name="SpawnPoint" type="Node2D" parent="."]
 unique_name_in_owner = true
