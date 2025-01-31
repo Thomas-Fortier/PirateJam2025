@@ -46,14 +46,14 @@ func explode():
 		## Calls the _add_shrapnel function
 		call_deferred("_add_shrapnel", shrapnel_instance)
 		
-	call_deferred("play_explosion_effects")
+	play_explosion_effects()
 
 ## This is a helper function to add the shrapnel pieces after the explosion
 func _add_shrapnel(shrapnel_instance):
 	get_parent().add_child(shrapnel_instance)
 
 func play_explosion_effects():
-	if not exploded:
+	if exploded:
 		AudioManager.play_sound(EXPLOSION_SOUND)
 
 func handle_animation() -> void:
