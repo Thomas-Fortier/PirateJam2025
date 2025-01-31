@@ -15,8 +15,10 @@ func _ready() -> void:
 	_key_bind_label.text = OS.get_keycode_string(keybind)
 	
 	if not ability:
+		_key_bind_label.visible = false
 		return
 	
+	_key_bind_label.visible = true
 	_set_properties(ability)
 
 func _on_game_over(_did_win: bool) -> void:
@@ -31,6 +33,7 @@ func _process(_delta: float) -> void:
 
 func add_ability(ability_to_add: Ability) -> void:
 	ability = ability_to_add
+	_key_bind_label.visible = true
 	_set_properties(ability_to_add)
 
 func _set_properties(ability_to_set: Ability) -> void:
