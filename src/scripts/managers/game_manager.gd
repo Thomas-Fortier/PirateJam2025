@@ -2,6 +2,8 @@ extends Node
 
 ## Signal called for when the game is over.
 signal game_over(did_win: bool)
+## Signal to call when the game has started
+signal game_start
 
 ## The configuration for the game manager.
 var config: GameConfig = preload("res://scripts/managers/game_manager.tres") as GameConfig
@@ -73,3 +75,4 @@ func reset_bullet_and_enemies_and_ability_usages() -> void:
 	AbilityManager.clear_ability_usages()
 	BulletManager.bullet.reset()
 	EnemyManager.initialize_enemies.call_deferred()
+	game_start.emit()

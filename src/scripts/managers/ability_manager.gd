@@ -1,6 +1,7 @@
 extends Node
 
 signal ability_added(ability: Ability)
+signal abilities_cleared
 
 var _all_abilities: Array[Ability] = []
 var _current_abilities: Array[Ability] = []
@@ -38,3 +39,4 @@ func has_no_more_space_for_abilities():
 
 func reset() -> void:
 	_current_abilities.clear()
+	abilities_cleared.emit()

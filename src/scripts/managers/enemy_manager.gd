@@ -29,3 +29,19 @@ func _on_enemy_death(enemy: Enemy) -> void:
 
 	if enemies.is_empty():
 		all_enemies_defeated.emit()
+
+func _get_closest_enemy_to_node(node: Node2D) -> Enemy:
+	if enemies.is_empty():
+		return null  # No enemies left
+
+	var closest_enemy: Enemy = null
+	var closest_distance: float = INF
+
+	for enemy in enemies:
+		if is_instance_valid(enemy):  # Ensure enemy is still valid
+			var distance = node.global_position.distance_to(enemy.global_position)
+			if distance < closest_distance:
+				closest_distance = distance
+				closest_enemy = enemy
+
+	return closest_enemy
