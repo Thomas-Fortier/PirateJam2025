@@ -5,10 +5,13 @@
 [ext_resource type="Script" path="res://entities/bullet/abilities/ability.gd" id="1_x6jmf"]
 [ext_resource type="Resource" uid="uid://c61nns7ftkk5a" path="res://entities/bullet/abilities/split_shot/split_shot.tres" id="2_x8ov4"]
 [ext_resource type="Resource" uid="uid://btycwaef56jik" path="res://entities/bullet/abilities/target_lock/target_lock.tres" id="3_q6op5"]
+[ext_resource type="PackedScene" uid="uid://dnutprpxk521t" path="res://levels/level1.tscn" id="4_ypj1e"]
 
 [resource]
 script = ExtResource("1_lyyry")
 levels = Array[PackedScene]([ExtResource("1_oxrht")])
 abilities = Array[ExtResource("1_x6jmf")]([ExtResource("2_x8ov4"), ExtResource("3_q6op5")])
+levels = Array[PackedScene]([ExtResource("1_oxrht"), ExtResource("4_ypj1e")])
+abilities = Array[ExtResource("1_x6jmf")]([ExtResource("2_x8ov4")])
 max_turns = 3
 max_ricochets = 6
