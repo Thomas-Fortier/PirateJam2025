@@ -14,10 +14,14 @@ const BULLET_SCENE: PackedScene = preload("res://entities/bullet/bullet.tscn")
 const OVERLAY_SCENE: PackedScene = preload("res://ui/overlay/overlay.tscn")
 const LEVEL_LOST_SOUND = preload("res://assets/sounds/level_lose.wav")
 const LEVEL_WON_SOUND = preload("res://assets/sounds/level_win.wav")
+const MUSIC = preload("res://assets/sounds/music.mp3")
 
 func _ready() -> void:
 	assert(config != null, "The config file could not be loaded.")
 	EnemyManager.all_enemies_defeated.connect(_on_all_enemies_defeated)
+	
+	# PLAY THE MUSIC!!!
+	AudioManager.play_sound(MUSIC)
 
 func _on_all_enemies_defeated() -> void:
 	handle_game_over(true)
