@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://dvvs8ou2s3603" path="res://entities/enemies/stationary/stationary_enemy.tscn" id="3_h4yqx"]
 [ext_resource type="PackedScene" uid="uid://bjh15uppbf6me" path="res://entities/enemies/moving/moving_enemy.tscn" id="4_awg7l"]
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_oiuj1"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_30dmo"]
 texture = ExtResource("2_04qx1")
 margins = Vector2i(16, 16)
 separation = Vector2i(8, 8)
@@ -494,7 +494,7 @@ use_texture_padding = false
 [sub_resource type="TileSet" id="TileSet_b0q8q"]
 physics_layer_0/collision_layer = 4
 physics_layer_0/collision_mask = 0
-sources/0 = SubResource("TileSetAtlasSource_oiuj1")
+sources/0 = SubResource("TileSetAtlasSource_30dmo")
 
 [node name="Level3" type="Node2D"]
 script = ExtResource("1_hjis0")
