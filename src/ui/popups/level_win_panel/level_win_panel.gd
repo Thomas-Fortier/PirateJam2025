@@ -13,6 +13,7 @@ extends Panel
 var _skip_animation: bool = false
 
 const APPEAR_SOUND = preload("res://assets/sounds/ui_item_appear.wav")
+const GAME_COMPLETE_SCENE: PackedScene = preload("res://ui/game_complete/game_complete.tscn")
 
 func _ready():
 	_toggle_section_visibility(false)
@@ -28,7 +29,12 @@ func _process(_delta: float) -> void:
 
 ## Logic to execute when the continue button is pressed.
 func _on_next_level_button_pressed():
-	AbilityManager.show_ability_select()
+	if LevelManager.are_there_levels_remaining():
+		AbilityManager.show_ability_select()
+	else:
+		var game_complete = GAME_COMPLETE_SCENE.instantiate()
+		GameManager.game_root.add_child(game_complete)
+	
 	queue_free()
 
 ## Toggles the visibility of the sections with the cooresponding flag.
