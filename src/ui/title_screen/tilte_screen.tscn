@@ -43,7 +43,7 @@ offset_bottom = -44.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_26s2w")
-theme_override_font_sizes/font_size = 36
+theme_override_font_sizes/font_size = 48
 text = "RICOCHET"
 
 [node name="Buttons" type="Control" parent="Margin/Viewport"]
@@ -54,9 +54,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -105.5
-offset_top = -41.5
+offset_top = -36.5
 offset_right = 105.5
-offset_bottom = 41.5
+offset_bottom = 46.5
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -68,13 +68,13 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -58.0
-offset_top = -12.0
+offset_top = -6.0
 offset_right = 58.0
-offset_bottom = 12.0
+offset_bottom = 18.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="SettingsButton" parent="Margin/Viewport/Buttons" instance=ExtResource("2_e2snu")]
+[node name="CreditsButton" parent="Margin/Viewport/Buttons" instance=ExtResource("2_e2snu")]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -87,7 +87,7 @@ offset_right = 58.0
 offset_bottom = 45.0
 grow_horizontal = 2
 grow_vertical = 2
-text = "SETTINGS
-"
+text = "CREDITS"
 
 [connection signal="pressed" from="Margin/Viewport/Buttons/PlayButton" to="." method="_on_play_button_pressed"]
+[connection signal="pressed" from="Margin/Viewport/Buttons/CreditsButton" to="." method="_on_credits_button_pressed"]

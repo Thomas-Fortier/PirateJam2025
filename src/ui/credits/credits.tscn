@@ -1,0 +1,114 @@
+[gd_scene load_steps=5 format=3 uid="uid://bj44tl3i4ph38"]
+
+[ext_resource type="Theme" uid="uid://dfureb8blyilx" path="res://ui/themes/default_theme.tres" id="1_12nqg"]
+[ext_resource type="Script" path="res://ui/credits/credits.gd" id="1_vc8rj"]
+[ext_resource type="PackedScene" uid="uid://cy8otjo413bqb" path="res://ui/elements/button.tscn" id="2_oe4y2"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_08kkg"]
+bg_color = Color(0.00392157, 0.109804, 0.152941, 1)
+
+[node name="Credits" type="Control"]
+z_index = 100
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_vc8rj")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_08kkg")
+
+[node name="Margin" type="MarginContainer" parent="Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 12
+theme_override_constants/margin_top = 12
+theme_override_constants/margin_right = 12
+theme_override_constants/margin_bottom = 12
+
+[node name="Viewport" type="Control" parent="Panel/Margin"]
+layout_mode = 2
+
+[node name="Title" type="Label" parent="Panel/Margin/Viewport"]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -308.0
+offset_right = 308.0
+offset_bottom = 23.0
+grow_horizontal = 2
+theme = ExtResource("1_12nqg")
+theme_override_font_sizes/font_size = 36
+text = "CREDITS"
+horizontal_alignment = 1
+
+[node name="CloseButton" parent="Panel/Margin/Viewport" instance=ExtResource("2_oe4y2")]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -58.0
+offset_top = -24.0
+offset_right = 58.0
+offset_bottom = 0.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "CLOSE"
+
+[node name="Main" type="Control" parent="Panel/Margin/Viewport"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -196.5
+offset_top = -106.5
+offset_right = 196.5
+offset_bottom = 106.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Text" type="Label" parent="Panel/Margin/Viewport/Main"]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -213.0
+offset_top = -107.0
+offset_right = 269.0
+offset_bottom = 105.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_12nqg")
+theme_override_constants/line_spacing = 12
+theme_override_font_sizes/font_size = 16
+text = "Developer 1 ........................................ MrBixbite
+Developer 2 ........................................ kingofseas
+Artist ................................................... Both of us
+QA Testers ........................................ Also Us (We hope it works)
+Sleep Schedule Management ........... Non-existent
+Motivation ........................................... Started strong, faded fast
+Technical Issues ............................... Why is it doing this?
+Game Design ...................................... Seemed like a good idea at 2 AM"
+
+[connection signal="pressed" from="Panel/Margin/Viewport/CloseButton" to="." method="_on_close_button_pressed"]
