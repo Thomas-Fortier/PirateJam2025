@@ -7,8 +7,6 @@ var split_angle: float = 15.0
 var _is_initialized: bool = false
 var _usages: int
 
-const SHOOT_SOUND = preload("res://assets/sounds/shoot.wav")
-
 # Spawns two ricochets next to the bullet at slightly different angles
 func execute() -> void:
 	if not ricochet_bullet_scene:
@@ -36,7 +34,7 @@ func execute() -> void:
 		
 		original_bullet.get_parent().add_child(new_bullet)
 	
-	AudioManager.play_sound(SHOOT_SOUND)
+	AudioManager.play_sound(ability_sound)
 	
 	_usages -= 1
 

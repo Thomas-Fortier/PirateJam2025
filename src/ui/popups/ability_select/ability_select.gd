@@ -10,6 +10,8 @@ extends Control
 @onready var _no_more_abilities_label: Label = %NoMoreAbilitiesLabel
 @onready var _or_label: Label = %OrLabel
 
+var _ability_pool: Array[Ability] = []
+
 func _ready():
 	size.x = 640
 	size.y = 360
@@ -32,8 +34,15 @@ func _ready():
 
 func _get_random_ability_for_panel(panel: AbilityPanel) -> bool:
 	var random_ability = AbilityManager.get_random_ability()
+	
 	if not random_ability:
 		return false
+	
+	# TODO: THIS IS ABSOLUTE GARBAGE
+	while not AbilityManager.is_ability_pool_less_than(3) and _ability_pool.has(random_ability):
+		random_ability = AbilityManager.get_random_ability()
+	
+	_ability_pool.append(random_ability)
 	panel.assign_ability(random_ability)
 	panel.ability_chosen.connect(_on_ability_chosen)
 	return true
