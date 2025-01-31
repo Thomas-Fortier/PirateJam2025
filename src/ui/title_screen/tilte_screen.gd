@@ -1,6 +1,6 @@
 extends Control
 
-const CREDITS_SCENE: PackedScene = preload("res://ui/credits/credits.tscn")
+var CREDITS_SCENE: PackedScene = load("res://ui/credits/credits.tscn")
 
 func _ready() -> void:
 	size.x = 640

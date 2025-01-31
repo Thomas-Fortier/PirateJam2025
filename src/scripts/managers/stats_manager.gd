@@ -48,9 +48,12 @@ func _ready():
 func _on_game_over(_did_win: bool) -> void:
 	_custom_max_ricochets = 0
 
-func override_max_ricochets(new_max: int) -> void:
-	_custom_max_ricochets = new_max
-	ricochets_remaining = new_max
+func override_max_ricochets(additional_ricochets: int) -> void:
+	if _custom_max_ricochets != 0:
+		_custom_max_ricochets += additional_ricochets
+	else:
+		_custom_max_ricochets += GameManager.config.max_ricochets + additional_ricochets
+	ricochets_remaining = _custom_max_ricochets
 
 func reset_level_stats() -> void:
 	points = 0

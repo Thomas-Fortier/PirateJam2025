@@ -14,8 +14,8 @@ var _is_selecting_direction: bool = true
 var _is_paused: bool = false
 var _overriden_direction: Vector2 = Vector2.ZERO
 
-const BOUNCE_SOUND = preload("res://assets/sounds/ricochet.wav")
-const SHOOT_SOUND = preload("res://assets/sounds/shoot.wav")
+var BOUNCE_SOUND = load("res://assets/sounds/ricochet.wav")
+var SHOOT_SOUND = load("res://assets/sounds/shoot.wav")
 
 func _ready() -> void:
 	LevelManager.level_changed.connect(_on_level_changed)

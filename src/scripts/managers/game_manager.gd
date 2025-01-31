@@ -6,14 +6,14 @@ signal game_over(did_win: bool)
 signal game_start
 
 ## The configuration for the game manager.
-var config: GameConfig = preload("res://scripts/managers/game_manager.tres") as GameConfig
+var config: GameConfig = load("res://scripts/managers/game_manager.tres") as GameConfig
 @onready var game_root: Node2D = $"../GameRoot"
 
-const TITLE_SCREEN: PackedScene = preload("res://ui/title_screen/tilte_screen.tscn")
-const BULLET_SCENE: PackedScene = preload("res://entities/bullet/bullet.tscn")
-const OVERLAY_SCENE: PackedScene = preload("res://ui/overlay/overlay.tscn")
-const LEVEL_LOST_SOUND = preload("res://assets/sounds/level_lose.wav")
-const LEVEL_WON_SOUND = preload("res://assets/sounds/level_win.wav")
+var TITLE_SCREEN: PackedScene = load("res://ui/title_screen/tilte_screen.tscn")
+var BULLET_SCENE: PackedScene = load("res://entities/bullet/bullet.tscn")
+var OVERLAY_SCENE: PackedScene = load("res://ui/overlay/overlay.tscn")
+var LEVEL_LOST_SOUND = load("res://assets/sounds/level_lose.wav")
+var LEVEL_WON_SOUND = load("res://assets/sounds/level_win.wav")
 
 func _ready() -> void:
 	assert(config != null, "The config file could not be loaded.")

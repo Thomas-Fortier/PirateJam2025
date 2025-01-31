@@ -1,7 +1,7 @@
 class_name BulletSplitter
 extends Ability
 
-var ricochet_bullet_scene: PackedScene = preload("res://entities/bullet/abilities/split_shot/bullet_ricochet.tscn")
+var ricochet_bullet_scene: PackedScene = load("res://entities/bullet/abilities/split_shot/bullet_ricochet.tscn")
 var split_angle: float = 15.0
 
 var _is_initialized: bool = false

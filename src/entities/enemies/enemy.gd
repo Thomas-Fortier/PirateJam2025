@@ -7,7 +7,7 @@ extends CharacterBody2D
 # Private members
 var _is_dead: bool = false
 
-const DEATH_SOUND = preload("res://assets/sounds/enemy_killed.wav")
+var DEATH_SOUND = load("res://assets/sounds/enemy_killed.wav")
 
 ## Signal emitted when the enemy has died.
 ##

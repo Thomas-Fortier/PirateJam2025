@@ -12,8 +12,8 @@ extends Panel
 
 var _skip_animation: bool = false
 
-const APPEAR_SOUND = preload("res://assets/sounds/ui_item_appear.wav")
-const GAME_COMPLETE_SCENE: PackedScene = preload("res://ui/game_complete/game_complete.tscn")
+var APPEAR_SOUND = load("res://assets/sounds/ui_item_appear.wav")
+var GAME_COMPLETE_SCENE: PackedScene = load("res://ui/game_complete/game_complete.tscn")
 
 func _ready():
 	_toggle_section_visibility(false)

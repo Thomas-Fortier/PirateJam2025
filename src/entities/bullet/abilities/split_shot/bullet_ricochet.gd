@@ -7,7 +7,7 @@ extends CharacterBody2D
 var _is_paused: bool = false
 
 signal bounced_off_wall()
-const BOUNCE_SOUND = preload("res://assets/sounds/ricochet.wav")
+var BOUNCE_SOUND = load("res://assets/sounds/ricochet.wav")
 
 ## Connecting to the global scripts to receive signals when the game is paused or level is changed
 func _ready() -> void:

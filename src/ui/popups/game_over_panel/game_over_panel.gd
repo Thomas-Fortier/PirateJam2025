@@ -14,8 +14,8 @@ extends Panel
 
 var _skip_animation: bool = false
 
-const HOVER_SOUND = preload("res://assets/sounds/button_hover.wav")
-const APPEAR_SOUND = preload("res://assets/sounds/ui_item_appear.wav")
+var HOVER_SOUND = load("res://assets/sounds/button_hover.wav")
+var APPEAR_SOUND = load("res://assets/sounds/ui_item_appear.wav")
 
 func _ready():
 	_toggle_section_visibility(false)

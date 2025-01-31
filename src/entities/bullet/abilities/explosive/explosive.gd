@@ -4,7 +4,7 @@ extends Ability
 var _is_initialized: bool = false
 var _usages: int
 
-const BOMB_SCENE: PackedScene = preload("res://entities/bomb/bomb.tscn")
+var BOMB_SCENE: PackedScene = load("res://entities/bomb/bomb.tscn")
 
 func execute() -> void:
 	if not _is_initialized:

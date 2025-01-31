@@ -6,7 +6,7 @@ signal abilities_cleared
 var _all_abilities: Array[Ability] = []
 var _current_abilities: Array[Ability] = []
 
-const ABILITY_SELECT = preload("res://ui/popups/ability_select/ability_select.tscn")
+var ABILITY_SELECT = load("res://ui/popups/ability_select/ability_select.tscn")
 
 func _ready():
 	_all_abilities = GameManager.config.abilities

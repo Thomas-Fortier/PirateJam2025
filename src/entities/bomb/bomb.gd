@@ -6,7 +6,7 @@ extends Area2D
 @export var explosion_radius: float = 10.0
 @export var explosion_force: float = 200.0
 
-const EXPLOSION_SOUND = preload("res://assets/sounds/mixkit-arcade-game-explosion-2759.wav")
+var EXPLOSION_SOUND = load("res://assets/sounds/mixkit-arcade-game-explosion-2759.wav")
 var _random_number_generator = RandomNumberGenerator.new()
 var _ignore_collision: bool = false
 var exploded: bool = false
