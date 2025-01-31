@@ -30,7 +30,7 @@ func _on_enemy_death(enemy: Enemy) -> void:
 	if enemies.is_empty():
 		all_enemies_defeated.emit()
 
-func _get_closest_enemy_to_node(node: Node2D) -> Enemy:
+func get_closest_enemy_to_node(node: Node2D) -> Enemy:
 	if enemies.is_empty():
 		return null  # No enemies left
 

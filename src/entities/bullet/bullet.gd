@@ -12,6 +12,7 @@ var splitter: BulletSplitter = BulletSplitter.new()
 @onready var _trajectory_line: TrajectoryLine = %TrajectoryLine
 var _is_selecting_direction: bool = true
 var _is_paused: bool = false
+var _overriden_direction: Vector2 = Vector2.ZERO
 
 const BOUNCE_SOUND = preload("res://assets/sounds/ricochet.wav")
 const SHOOT_SOUND = preload("res://assets/sounds/shoot.wav")
@@ -28,7 +29,12 @@ func _physics_process(delta: float) -> void:
 		_follow_cursor()
 		return
 	
-	velocity = Vector2.RIGHT.rotated(rotation) * speed
+	if _overriden_direction != Vector2.ZERO:
+		velocity = _overriden_direction.normalized() * speed
+		rotation = velocity.angle()
+	else:
+		velocity = Vector2.RIGHT.rotated(rotation) * speed
+	
 	var collision: KinematicCollision2D = move_and_collide(velocity * delta)
 
 	if not collision:
@@ -39,6 +45,7 @@ func _physics_process(delta: float) -> void:
 	if collider is Enemy:
 		collider.kill()
 	else:
+		_overriden_direction = Vector2.ZERO
 		_bounce_off_wall(collision)
 
 func _on_level_changed(next_level: Level) -> void:
@@ -58,6 +65,11 @@ func reset() -> void:
 ## Pauses the bullet movement.
 func toggle_pause() -> void:
 	_is_paused = !_is_paused
+
+func override_direction(direction: Vector2) -> void:
+	if _is_selecting_direction or _is_paused:
+		return
+	_overriden_direction = direction.normalized() * speed
 
 ## Bonces the bullet off of a given collision object.
 func _bounce_off_wall(collision: KinematicCollision2D) -> void:
