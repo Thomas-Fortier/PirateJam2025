@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://d2bxrtmiq3xgr"]
+[gd_scene load_steps=5 format=3 uid="uid://d2bxrtmiq3xgr"]
 
 [ext_resource type="Shader" path="res://shaders/crt.gdshader" id="1_4ubiu"]
+[ext_resource type="AudioStream" uid="uid://dp62iqcsngi80" path="res://assets/sounds/music.mp3" id="3_otjip"]
 [ext_resource type="PackedScene" uid="uid://wqou0ibwbfku" path="res://ui/title_screen/tilte_screen.tscn" id="5_axmu4"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_71bd4"]
@@ -31,3 +32,8 @@ offset_bottom = 360.0
 [node name="TilteScreen" parent="." instance=ExtResource("5_axmu4")]
 offset_right = 640.0
 offset_bottom = 360.0
+
+[node name="MusicPlayer" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_otjip")
+volume_db = -1.0
+autoplay = true
