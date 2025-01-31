@@ -1,6 +1,7 @@
 class_name Ability
 extends Resource
 
+@export var is_passive: bool = false
 @export var name: String = "Unknown"
 @export var description: String = "No description."
 @export var icon: CanvasTexture

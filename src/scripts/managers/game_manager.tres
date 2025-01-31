@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="GameConfig" load_steps=15 format=3 uid="uid://bh7dw50rrmopl"]
+[gd_resource type="Resource" script_class="GameConfig" load_steps=17 format=3 uid="uid://bh7dw50rrmopl"]
 
 [ext_resource type="Script" path="res://scripts/managers/game_config.gd" id="1_lyyry"]
 [ext_resource type="Script" path="res://entities/bullet/abilities/ability.gd" id="1_x6jmf"]
@@ -6,6 +6,8 @@
 [ext_resource type="Resource" uid="uid://btycwaef56jik" path="res://entities/bullet/abilities/target_lock/target_lock.tres" id="3_q6op5"]
 [ext_resource type="Resource" uid="uid://b7usokbsyb73u" path="res://entities/bullet/abilities/freeze/freeze.tres" id="4_yl023"]
 [ext_resource type="PackedScene" uid="uid://dnutprpxk521t" path="res://levels/level1.tscn" id="4_ypj1e"]
+[ext_resource type="Resource" uid="uid://c75nocxwicheu" path="res://entities/bullet/abilities/hardened/hardened_2.tres" id="5_qw2bd"]
+[ext_resource type="Resource" uid="uid://dqqbkts34818n" path="res://entities/bullet/abilities/hardened/hardened_1.tres" id="6_b1gku"]
 [ext_resource type="PackedScene" uid="uid://cc240ib03pafu" path="res://levels/level_2.tscn" id="6_qeapu"]
 [ext_resource type="PackedScene" uid="uid://lxq4wtclf24o" path="res://levels/level_3.tscn" id="7_66673"]
 [ext_resource type="PackedScene" uid="uid://ugfv4nkld7kr" path="res://levels/level_4.tscn" id="8_ib3d2"]
@@ -18,6 +20,6 @@
 [resource]
 script = ExtResource("1_lyyry")
 levels = Array[PackedScene]([ExtResource("4_ypj1e"), ExtResource("6_qeapu"), ExtResource("7_66673"), ExtResource("8_ib3d2"), ExtResource("9_debtl"), ExtResource("10_7qgsu"), ExtResource("11_tdh33"), ExtResource("12_1q3tj"), ExtResource("12_xvp6d")])
-abilities = Array[ExtResource("1_x6jmf")]([ExtResource("2_x8ov4"), ExtResource("3_q6op5"), ExtResource("4_yl023")])
+abilities = Array[ExtResource("1_x6jmf")]([ExtResource("2_x8ov4"), ExtResource("3_q6op5"), ExtResource("4_yl023"), ExtResource("5_qw2bd"), ExtResource("6_b1gku")])
 max_turns = 3
 max_ricochets = 3
