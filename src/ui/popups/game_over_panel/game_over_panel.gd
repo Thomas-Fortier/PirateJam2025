@@ -8,7 +8,9 @@ extends Panel
 @onready var _buttons_section: Control = %Buttons
 
 @onready var _levels_label: Label = %LevelsCompletedLabel
-@onready var _points_label: Label = %PointsLabel
+@onready var _high_score_text_label: Label = %HighScoreTextLabel
+@onready var _high_score_label: Label = %HighScoreLabel
+@onready var _total_points_label: Label = %TotalPointsLabel
 @onready var _enemies_killed_label: Label = %EnemiesKilledLabel
 @onready var _ricochets_label: Label = %RicochetsLabel
 
@@ -21,7 +23,15 @@ func _ready():
 	_toggle_section_visibility(false)
 	
 	_levels_label.text = str(StatsManager.levels_completed)
-	_points_label.text = str(StatsManager.total_points)
+	
+	if StatsManager.new_high_score:
+		_high_score_text_label.text = "New High Score:"
+		StatsManager.new_high_score = false
+
+	else:
+		_high_score_text_label.text = "High Score:"
+	_high_score_label.text = str(StatsManager.high_score)
+	_total_points_label.text = str(StatsManager.total_points)
 	_enemies_killed_label.text = str(StatsManager.total_kills)
 	_ricochets_label.text = str(StatsManager.total_ricochets)
 

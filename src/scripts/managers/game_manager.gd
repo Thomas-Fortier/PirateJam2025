@@ -48,6 +48,11 @@ func _initialize_managers() -> void:
 func handle_game_over(did_win: bool) -> void:
 	game_over.emit(did_win)
 	BulletManager.bullet.toggle_pause()
+	
+	if StatsManager.new_high_score:
+		StatsManager.high_score = StatsManager.total_points
+		StatsManager.save_data.high_score = StatsManager.high_score
+		StatsManager.save_data.save()
 
 	if did_win:
 		StatsManager.levels_completed += 1

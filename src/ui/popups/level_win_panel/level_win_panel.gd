@@ -6,6 +6,9 @@ extends Panel
 @onready var _ricochets_section: Control = %Ricochets
 @onready var _buttons_section: Control = %Buttons
 
+@onready var _high_score_text_label: Label = %HighScoreTextLabel
+@onready var _high_score_label: Label = %HighScoreLabel
+@onready var _total_points_label: Label = %TotalPointsLabel
 @onready var _points_label: Label = %PointsLabel
 @onready var _enemies_killed_label: Label = %EnemiesKilledLabel
 @onready var _ricochets_label: Label = %RicochetsLabel
@@ -18,6 +21,13 @@ var GAME_COMPLETE_SCENE: PackedScene = load("res://ui/game_complete/game_complet
 func _ready():
 	_toggle_section_visibility(false)
 	
+	if StatsManager.new_high_score:
+		_high_score_text_label.text = "New High Score:"
+		StatsManager.new_high_score = false
+	else:
+		_high_score_text_label.text = "High Score:"
+	_high_score_label.text = str(StatsManager.high_score)
+	_total_points_label.text = str(StatsManager.total_points)
 	_points_label.text = str(StatsManager.points)
 	_enemies_killed_label.text = str(StatsManager.kills)
 	_ricochets_label.text = str(StatsManager.total_ricochets)
