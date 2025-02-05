@@ -4,6 +4,9 @@ signal points_changed(points: int)
 signal ricochets_changed(ricochets_remaining: int)
 signal turns_changed(turns: int, max_turns: int)
 
+var save_data: SaveData
+var new_high_score: bool = false
+var high_score: int = 0
 var total_points: int = 0
 var total_kills: int = 0
 var total_ricochets: int = 0
@@ -35,6 +38,9 @@ var remaining_turns: int:
 var kills: int = 0
 
 func _ready():
+	save_data = SaveData.load_or_create()
+	high_score = save_data.high_score
+	
 	remaining_turns = GameManager.config.max_turns
 	
 	if _custom_max_ricochets != 0:
@@ -77,6 +83,9 @@ func reset_all():
 func add_points(amount: int) -> void:
 	points += amount
 	total_points += amount
+	
+	if total_points > high_score and not new_high_score:
+		new_high_score = true
 
 func add_kill() -> void:
 	total_kills += 1

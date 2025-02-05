@@ -1,10 +1,13 @@
 extends Control
 
+@onready var _high_score_label: Label = %HighscoreLabel
+
 var CREDITS_SCENE: PackedScene = load("res://ui/credits/credits.tscn")
 
 func _ready() -> void:
 	size.x = 640
 	size.y = 360
+	_high_score_label.text = str(StatsManager.high_score)
 
 func _process(delta: float) -> void:
 	var animated_sprite = %EnemyAnimation

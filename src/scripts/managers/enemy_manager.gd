@@ -24,7 +24,8 @@ func _clear_tracked_enemies() -> void:
 ## Handles when an enemy dies.
 func _on_enemy_death(enemy: Enemy) -> void:
 	enemies.erase(enemy)
-	StatsManager.add_points(enemy.points_on_kill)
+	# Multiplier based on how many turns it required you to get a kill
+	StatsManager.add_points(enemy.points_on_kill * StatsManager.remaining_turns)
 	StatsManager.add_kill()
 
 	if enemies.is_empty():
