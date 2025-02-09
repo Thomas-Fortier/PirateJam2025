@@ -128,6 +128,30 @@ grow_horizontal = 2
 grow_vertical = 2
 text = "CREDITS"
 
+[node name="Version" type="Control" parent="Margin/Viewport"]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -19.0
+offset_right = 40.0
+grow_vertical = 0
+
+[node name="Label" type="Label" parent="Margin/Viewport/Version"]
+layout_mode = 0
+offset_right = 15.0
+offset_bottom = 23.0
+theme = ExtResource("1_26s2w")
+text = "V"
+
+[node name="VersionLabel" type="Label" parent="Margin/Viewport/Version"]
+layout_mode = 0
+offset_left = 16.0
+offset_right = 56.0
+offset_bottom = 23.0
+theme = ExtResource("1_26s2w")
+text = "1.0.0"
+
 [node name="ExplosiveIcon" type="Sprite2D" parent="."]
 modulate = Color(0.74902, 1, 0.945098, 1)
 texture_filter = 1
