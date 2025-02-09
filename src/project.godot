@@ -17,13 +17,13 @@ config/icon="res://icon.svg"
 
 [autoload]
 
-GameManager="*res://scripts/managers/game_manager.gd"
-LevelManager="*res://scripts/managers/level_manager.gd"
-UiManager="*res://scripts/managers/ui_manager.gd"
-StatsManager="*res://scripts/managers/stats_manager.gd"
-EnemyManager="*res://scripts/managers/enemy_manager.gd"
-BulletManager="*res://scripts/managers/bullet_manager.gd"
-AbilityManager="*res://scripts/managers/ability_manager.gd"
+GameManager="*res://managers/game_manager.gd"
+LevelManager="*res://managers/level_manager.gd"
+UiManager="*res://managers/ui_manager.gd"
+StatsManager="*res://managers/stats_manager.gd"
+EnemyManager="*res://managers/enemy_manager.gd"
+BulletManager="*res://managers/bullet_manager.gd"
+AbilityManager="*res://managers/ability_manager.gd"
 SettingsManager="*res://managers/settings_manager.gd"
 AudioManager="*res://managers/audio_manager.gd"
 

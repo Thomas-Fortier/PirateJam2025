@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="GameConfig" load_steps=19 format=3 uid="uid://bh7dw50rrmopl"]
 
-[ext_resource type="Script" path="res://scripts/managers/game_config.gd" id="1_lyyry"]
+[ext_resource type="Script" path="res://managers/game_config.gd" id="1_lyyry"]
 [ext_resource type="Script" path="res://entities/bullet/abilities/ability.gd" id="1_x6jmf"]
 [ext_resource type="Resource" uid="uid://c61nns7ftkk5a" path="res://entities/bullet/abilities/split_shot/split_shot.tres" id="2_x8ov4"]
 [ext_resource type="Resource" uid="uid://btycwaef56jik" path="res://entities/bullet/abilities/target_lock/target_lock.tres" id="3_q6op5"]
