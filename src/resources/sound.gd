@@ -6,7 +6,8 @@ extends Resource
 ## Represents the sound type.
 enum SoundType {
 	SFX,
-	MUSIC
+	MUSIC,
+	MASTER,
 }
 
 ## Represents the spacial type that the sound is. (e.g. 2d, 3d or none)

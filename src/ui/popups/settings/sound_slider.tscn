@@ -1,0 +1,53 @@
+[gd_scene load_steps=3 format=3 uid="uid://comqcv0ap57pd"]
+
+[ext_resource type="Theme" uid="uid://dfureb8blyilx" path="res://ui/themes/default_theme.tres" id="1_c2obp"]
+[ext_resource type="Script" path="res://ui/popups/settings/sound_slider.gd" id="1_iwjxn"]
+
+[node name="SoundSlider" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -426.0
+offset_bottom = -343.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_iwjxn")
+
+[node name="NameLabel" type="Label" parent="."]
+unique_name_in_owner = true
+texture_filter = 1
+layout_mode = 0
+offset_right = 43.0
+offset_bottom = 18.0
+theme = ExtResource("1_c2obp")
+text = "Sound"
+
+[node name="Slider" type="HSlider" parent="."]
+unique_name_in_owner = true
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -45.5
+offset_right = 45.5
+offset_bottom = 16.0
+grow_horizontal = 2
+theme = ExtResource("1_c2obp")
+
+[node name="SliderValueLabel" type="Label" parent="."]
+unique_name_in_owner = true
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -40.0
+offset_bottom = 16.0
+grow_horizontal = 0
+theme = ExtResource("1_c2obp")
+text = "?"
+horizontal_alignment = 2
+
+[connection signal="value_changed" from="Slider" to="." method="_on_slider_value_changed"]

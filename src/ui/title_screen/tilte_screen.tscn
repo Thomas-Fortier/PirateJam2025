@@ -93,13 +93,27 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -105.5
-offset_top = 1.5
+offset_top = 17.5
 offset_right = 105.5
-offset_bottom = 84.5
+offset_bottom = 100.5
 grow_horizontal = 2
 grow_vertical = 2
 
 [node name="PlayButton" parent="Margin/Viewport/Buttons" instance=ExtResource("2_e2snu")]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -58.0
+offset_top = -32.0
+offset_right = 58.0
+offset_bottom = -8.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="SettingsButton" parent="Margin/Viewport/Buttons" instance=ExtResource("2_e2snu")]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -112,6 +126,7 @@ offset_right = 58.0
 offset_bottom = 18.0
 grow_horizontal = 2
 grow_vertical = 2
+text = "SETTINGS"
 
 [node name="CreditsButton" parent="Margin/Viewport/Buttons" instance=ExtResource("2_e2snu")]
 layout_mode = 1
@@ -138,6 +153,7 @@ offset_right = 40.0
 grow_vertical = 0
 
 [node name="Label" type="Label" parent="Margin/Viewport/Version"]
+texture_filter = 1
 layout_mode = 0
 offset_right = 15.0
 offset_bottom = 23.0
@@ -145,6 +161,7 @@ theme = ExtResource("1_26s2w")
 text = "V"
 
 [node name="VersionLabel" type="Label" parent="Margin/Viewport/Version"]
+texture_filter = 1
 layout_mode = 0
 offset_left = 16.0
 offset_right = 56.0
@@ -181,4 +198,5 @@ frame = 2
 frame_progress = 0.640275
 
 [connection signal="pressed" from="Margin/Viewport/Buttons/PlayButton" to="." method="_on_play_button_pressed"]
+[connection signal="pressed" from="Margin/Viewport/Buttons/SettingsButton" to="." method="_on_settings_button_pressed"]
 [connection signal="pressed" from="Margin/Viewport/Buttons/CreditsButton" to="." method="_on_credits_button_pressed"]

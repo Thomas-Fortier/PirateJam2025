@@ -1,0 +1,131 @@
+[gd_scene load_steps=6 format=3 uid="uid://tb7tssw28ei7"]
+
+[ext_resource type="Script" path="res://ui/popups/settings/settings.gd" id="1_ctqin"]
+[ext_resource type="Theme" uid="uid://dfureb8blyilx" path="res://ui/themes/default_theme.tres" id="1_f2ylj"]
+[ext_resource type="PackedScene" uid="uid://comqcv0ap57pd" path="res://ui/popups/settings/sound_slider.tscn" id="2_hiboq"]
+[ext_resource type="PackedScene" uid="uid://cy8otjo413bqb" path="res://ui/elements/button.tscn" id="3_j0p8r"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_byxtx"]
+bg_color = Color(0.00392157, 0.109804, 0.152941, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.74902, 1, 0.945098, 1)
+
+[node name="Settings" type="Control"]
+z_index = 999
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ctqin")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -159.0
+offset_top = -163.0
+offset_right = 159.0
+offset_bottom = 163.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_byxtx")
+
+[node name="Margin" type="MarginContainer" parent="Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 12
+theme_override_constants/margin_top = 12
+theme_override_constants/margin_right = 12
+theme_override_constants/margin_bottom = 12
+
+[node name="Viewport" type="Control" parent="Panel/Margin"]
+layout_mode = 2
+
+[node name="Title" type="Label" parent="Panel/Margin/Viewport"]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 23.0
+grow_horizontal = 2
+theme = ExtResource("1_f2ylj")
+theme_override_font_sizes/font_size = 21
+text = "SETTINGS"
+horizontal_alignment = 1
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Panel/Margin/Viewport"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 42.0
+offset_bottom = -43.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel/Margin/Viewport/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="SoundCategory" type="Control" parent="Panel/Margin/Viewport/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Label" type="Label" parent="Panel/Margin/Viewport/ScrollContainer/VBoxContainer/SoundCategory"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_f2ylj")
+text = "SOUND"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MasterSlider" parent="Panel/Margin/Viewport/ScrollContainer/VBoxContainer" instance=ExtResource("2_hiboq")]
+layout_mode = 2
+size_flags_vertical = 3
+_name = "Master"
+_sound_type = 2
+
+[node name="MusicSlider" parent="Panel/Margin/Viewport/ScrollContainer/VBoxContainer" instance=ExtResource("2_hiboq")]
+layout_mode = 2
+size_flags_vertical = 3
+_name = "Music"
+
+[node name="SfxSlider" parent="Panel/Margin/Viewport/ScrollContainer/VBoxContainer" instance=ExtResource("2_hiboq")]
+layout_mode = 2
+size_flags_vertical = 3
+_name = "SFX"
+_sound_type = 0
+
+[node name="CloseButton" parent="Panel/Margin/Viewport" instance=ExtResource("3_j0p8r")]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -58.0
+offset_top = -24.0
+offset_right = 58.0
+offset_bottom = 0.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "CLOSE"
+
+[connection signal="pressed" from="Panel/Margin/Viewport/CloseButton" to="." method="_on_close_button_pressed"]
