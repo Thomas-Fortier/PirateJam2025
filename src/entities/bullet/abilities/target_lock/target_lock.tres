@@ -1,13 +1,14 @@
 [gd_resource type="Resource" script_class="TargetLock" load_steps=4 format=3 uid="uid://btycwaef56jik"]
 
 [ext_resource type="Script" path="res://entities/bullet/abilities/target_lock/target_lock.gd" id="1_d1old"]
-[ext_resource type="AudioStream" uid="uid://dxy5n7i7agpco" path="res://entities/bullet/abilities/target_lock/target_lock.wav" id="1_nbnm5"]
+[ext_resource type="Resource" uid="uid://onrsiqj2ga33" path="res://entities/bullet/abilities/target_lock/target_lock_sound.tres" id="1_sluak"]
 [ext_resource type="Texture2D" uid="uid://dhl24f78yxerc" path="res://entities/bullet/abilities/target_lock/target_lock_icon.tres" id="1_t56gi"]
 
 [resource]
 script = ExtResource("1_d1old")
+is_passive = false
 name = "Target Lock"
 description = "Changes direction mid-flight to the nearest enemy."
 icon = ExtResource("1_t56gi")
 max_usages = 1
-ability_sound = ExtResource("1_nbnm5")
+ability_sound = ExtResource("1_sluak")

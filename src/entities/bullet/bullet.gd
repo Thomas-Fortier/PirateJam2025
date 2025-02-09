@@ -4,6 +4,11 @@ extends CharacterBody2D
 ## Signal for when the bullet has bounced off a wall.
 signal bounced_off_wall()
 
+@export_category("Sounds")
+@export var _shoot_sound: Sound
+@export var _ricochet_sound: Sound
+
+@export_category("Stats")
 ## The speed that the bullet travels.
 @export var speed: float = 300.0
 var splitter: BulletSplitter = BulletSplitter.new()
@@ -13,9 +18,6 @@ var splitter: BulletSplitter = BulletSplitter.new()
 var _is_selecting_direction: bool = true
 var _is_paused: bool = false
 var _overriden_direction: Vector2 = Vector2.ZERO
-
-var BOUNCE_SOUND = load("res://assets/sounds/ricochet.wav")
-var SHOOT_SOUND = load("res://assets/sounds/shoot.wav")
 
 func _ready() -> void:
 	LevelManager.level_changed.connect(_on_level_changed)
@@ -77,7 +79,7 @@ func override_direction(direction: Vector2) -> void:
 func _bounce_off_wall(collision: KinematicCollision2D) -> void:
 	velocity = velocity.bounce(collision.get_normal())
 	rotation = velocity.angle()
-	AudioManager.play_sound(BOUNCE_SOUND)
+	AudioManager.play_sound(_ricochet_sound)
 	bounced_off_wall.emit()
 
 ## Follows the cursor and resumes moving in that direction when left click is pressed.
@@ -88,5 +90,5 @@ func _follow_cursor() -> void:
 	
 	if Input.is_action_just_pressed("fire") and not _is_paused:
 		_is_selecting_direction = false
-		AudioManager.play_sound(SHOOT_SOUND)
+		AudioManager.play_sound(_shoot_sound)
 		_trajectory_line.clear()

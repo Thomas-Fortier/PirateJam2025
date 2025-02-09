@@ -23,8 +23,9 @@ UiManager="*res://scripts/managers/ui_manager.gd"
 StatsManager="*res://scripts/managers/stats_manager.gd"
 EnemyManager="*res://scripts/managers/enemy_manager.gd"
 BulletManager="*res://scripts/managers/bullet_manager.gd"
-AudioManager="*res://scripts/managers/audio_manager.gd"
 AbilityManager="*res://scripts/managers/ability_manager.gd"
+SettingsManager="*res://managers/settings_manager.gd"
+AudioManager="*res://managers/audio_manager.gd"
 
 [display]
 
@@ -33,6 +34,10 @@ window/size/viewport_height=360
 window/size/mode=3
 window/stretch/mode="canvas_items"
 window/stretch/aspect="keep_height"
+
+[dotnet]
+
+project/assembly_name="PirateJam 2025"
 
 [input]
 

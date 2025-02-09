@@ -12,12 +12,16 @@ var config: GameConfig = load("res://scripts/managers/game_manager.tres") as Gam
 var TITLE_SCREEN: PackedScene = load("res://ui/title_screen/tilte_screen.tscn")
 var BULLET_SCENE: PackedScene = load("res://entities/bullet/bullet.tscn")
 var OVERLAY_SCENE: PackedScene = load("res://ui/overlay/overlay.tscn")
-var LEVEL_LOST_SOUND = load("res://assets/sounds/level_lose.wav")
-var LEVEL_WON_SOUND = load("res://assets/sounds/level_win.wav")
+var LEVEL_LOST_SOUND = load("res://assets/sounds/level_lose_sound.tres") as Sound
+var LEVEL_WON_SOUND = load("res://assets/sounds/level_win_sound.tres") as Sound
+var MUSIC = load("res://assets/sounds/music.tres") as Sound
 
 func _ready() -> void:
 	assert(config != null, "The config file could not be loaded.")
 	EnemyManager.all_enemies_defeated.connect(_on_all_enemies_defeated)
+	
+	# Play music
+	AudioManager.play_sound(MUSIC)
 
 func _on_all_enemies_defeated() -> void:
 	handle_game_over(true)

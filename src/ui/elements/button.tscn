@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://cy8otjo413bqb"]
+[gd_scene load_steps=4 format=3 uid="uid://cy8otjo413bqb"]
 
 [ext_resource type="Theme" uid="uid://dfureb8blyilx" path="res://ui/themes/default_theme.tres" id="1_0kwl6"]
 [ext_resource type="Script" path="res://ui/elements/button.gd" id="2_73v4o"]
+[ext_resource type="Resource" uid="uid://di6o0mvapy3ug" path="res://ui/elements/hover_sound.tres" id="3_jfind"]
 
 [node name="Button" type="Button"]
 texture_filter = 1
@@ -11,6 +12,7 @@ theme = ExtResource("1_0kwl6")
 text = "PLAY"
 flat = true
 script = ExtResource("2_73v4o")
+_hover_sound = ExtResource("3_jfind")
 
 [node name="FocusElements" type="Control" parent="."]
 unique_name_in_owner = true

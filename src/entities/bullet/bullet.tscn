@@ -1,13 +1,17 @@
-[gd_scene load_steps=4 format=3 uid="uid://bthni1oqodncp"]
+[gd_scene load_steps=6 format=3 uid="uid://bthni1oqodncp"]
 
 [ext_resource type="Script" path="res://entities/bullet/bullet.gd" id="1_eus8a"]
 [ext_resource type="PackedScene" uid="uid://dn8jef7tbqno5" path="res://entities/bullet/trajectory_line.tscn" id="2_b66ph"]
+[ext_resource type="Resource" uid="uid://c0xobxg4myum5" path="res://entities/bullet/shoot_sound.tres" id="2_fcycp"]
 [ext_resource type="Texture2D" uid="uid://dwu8wv3f4oqdk" path="res://entities/bullet/bullet.png" id="2_wspel"]
+[ext_resource type="Resource" uid="uid://qpf1svadvk46" path="res://entities/bullet/ricochet_sound.tres" id="3_jrhae"]
 
 [node name="Bullet" type="CharacterBody2D"]
 z_index = 1
 collision_mask = 6
 script = ExtResource("1_eus8a")
+_shoot_sound = ExtResource("2_fcycp")
+_ricochet_sound = ExtResource("3_jrhae")
 
 [node name="TrajectoryLine" parent="." instance=ExtResource("2_b66ph")]
 unique_name_in_owner = true

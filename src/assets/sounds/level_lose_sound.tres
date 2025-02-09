@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="Sound" load_steps=3 format=3 uid="uid://kvgqu6fsqf4j"]
+
+[ext_resource type="Script" path="res://resources/sound.gd" id="1_cffiy"]
+[ext_resource type="AudioStream" uid="uid://bpj2nli7mwxo8" path="res://assets/sounds/level_lose.wav" id="2_muqqt"]
+
+[resource]
+script = ExtResource("1_cffiy")
+stream = ExtResource("2_muqqt")
+sound_type = 0
+volume = 1.0
+looping = false
+pitch_scale = 1.0
+spatial_type = 0
+attenuation = 1.0
+max_distance = 1000.0

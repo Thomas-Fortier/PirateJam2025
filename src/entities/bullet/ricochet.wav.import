@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://dnbfuub0fdwdl"
-path="res://.godot/imported/ricochet.wav-ed14292dda8d05f66af253f346f32f68.sample"
+path="res://.godot/imported/ricochet.wav-aeebc38bc38ea1a2b44f4493bf50d122.sample"
 
 [deps]
 
-source_file="res://assets/sounds/ricochet.wav"
-dest_files=["res://.godot/imported/ricochet.wav-ed14292dda8d05f66af253f346f32f68.sample"]
+source_file="res://entities/bullet/ricochet.wav"
+dest_files=["res://.godot/imported/ricochet.wav-aeebc38bc38ea1a2b44f4493bf50d122.sample"]
 
 [params]
 

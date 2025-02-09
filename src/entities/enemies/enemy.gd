@@ -1,13 +1,15 @@
 class_name Enemy
 extends CharacterBody2D
 
+@export_category("Sounds")
+@export var _death_sound: Sound
+
+@export_category("Stats")
 ## Represents the number of points that should be acquired when this enemy dies.
 @export var points_on_kill: int = 100
 
 # Private members
 var _is_dead: bool = false
-
-var DEATH_SOUND = load("res://assets/sounds/enemy_killed.wav")
 
 ## Signal emitted when the enemy has died.
 ##
@@ -24,7 +26,7 @@ func kill() -> void:
 	if _is_dead:
 		return
 	
-	AudioManager.play_sound(DEATH_SOUND)
+	AudioManager.play_sound(_death_sound)
 	died.emit(self)
 	_is_dead = true
 	_on_death()

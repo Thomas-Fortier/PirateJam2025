@@ -1,13 +1,16 @@
 class_name BulletRicochet
 extends CharacterBody2D
 
+@export_category("Sounds")
+@export var _ricochet_sound: Sound
+
+@export_category("Stats")
 @export var speed: float = 300.0
 @export var bounces: int = 3
 
 var _is_paused: bool = false
 
 signal bounced_off_wall()
-var BOUNCE_SOUND = load("res://assets/sounds/ricochet.wav")
 
 ## Connecting to the global scripts to receive signals when the game is paused or level is changed
 func _ready() -> void:
@@ -38,7 +41,7 @@ func _physics_process(delta: float) -> void:
 func _bounce_off_wall(collision: KinematicCollision2D) -> void:
 	velocity = velocity.bounce(collision.get_normal())
 	rotation = velocity.angle()
-	AudioManager.play_sound(BOUNCE_SOUND)
+	AudioManager.play_sound(_ricochet_sound)
 	bounced_off_wall.emit()
 	bounces -= 1
 

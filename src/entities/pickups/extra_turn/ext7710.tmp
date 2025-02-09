@@ -2,13 +2,13 @@
 
 [ext_resource type="Texture2D" uid="uid://dxpwv1d0b2w6y" path="res://entities/pickups/extra_turn/extra_turn.png" id="1_8uwjf"]
 [ext_resource type="Script" path="res://entities/pickups/extra_turn/extra_turn.gd" id="1_oq4jm"]
-[ext_resource type="Resource" uid="uid://3ic0haqshjnb" path="res://entities/pickups/extra_turn/extra_turn_sound.tres" id="2_wyh6a"]
+[ext_resource type="AudioStream" uid="uid://be4pbp8scs08k" path="res://entities/pickups/extra_turn/extra_turn.wav" id="2_okvvr"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_8vpw7"]
 
 [node name="ExtraTurn" type="Area2D"]
 script = ExtResource("1_oq4jm")
-_pickup_sound = ExtResource("2_wyh6a")
+_pickup_sound = ExtResource("2_okvvr")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 scale = Vector2(0.7, 0.7)

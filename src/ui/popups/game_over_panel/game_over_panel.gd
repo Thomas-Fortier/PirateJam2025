@@ -1,6 +1,9 @@
 class_name GameOverPanel
 extends Panel
 
+@export_category("Sounds")
+@export var _appear_sound: Sound
+
 @onready var _levels_section: Control = %Levels
 @onready var _points_section: Control = %Points
 @onready var _enemies_killed_section: Control = %EnemiesKilled
@@ -13,9 +16,6 @@ extends Panel
 @onready var _ricochets_label: Label = %RicochetsLabel
 
 var _skip_animation: bool = false
-
-var HOVER_SOUND = load("res://assets/sounds/button_hover.wav")
-var APPEAR_SOUND = load("res://assets/sounds/ui_item_appear.wav")
 
 func _ready():
 	_toggle_section_visibility(false)
@@ -63,7 +63,7 @@ func _on_timer_timeout() -> void:
 		_skip_animation = true
 		return
 		
-	AudioManager.play_sound(APPEAR_SOUND)
+	AudioManager.play_sound(_appear_sound)
 
 func _on_quit_button_pressed():
 	GameManager.quit_game()

@@ -6,7 +6,9 @@ extends Area2D
 @export var explosion_radius: float = 10.0
 @export var explosion_force: float = 200.0
 
-var EXPLOSION_SOUND = load("res://assets/sounds/mixkit-arcade-game-explosion-2759.wav")
+@export_category("Sounds")
+@export var _explosion_sound: Sound
+
 var _random_number_generator = RandomNumberGenerator.new()
 var _ignore_collision: bool = false
 var exploded: bool = false
@@ -58,7 +60,7 @@ func _add_shrapnel(shrapnel_instance):
 
 func play_explosion_effects():
 	if exploded:
-		AudioManager.play_sound(EXPLOSION_SOUND)
+		AudioManager.play_sound(_explosion_sound)
 
 func handle_animation() -> void:
 	var animated_sprite = $AnimatedSprite2D

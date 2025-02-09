@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://coyuono8x20hh"]
+[gd_scene load_steps=6 format=3 uid="uid://coyuono8x20hh"]
 
 [ext_resource type="Script" path="res://ui/popups/level_win_panel/level_win_panel.gd" id="1_qxu5a"]
 [ext_resource type="Theme" uid="uid://dfureb8blyilx" path="res://ui/themes/default_theme.tres" id="2_glxgv"]
+[ext_resource type="Resource" uid="uid://dmw44de0dih8e" path="res://ui/popups/ui_item_appear_sound.tres" id="2_l220d"]
 [ext_resource type="PackedScene" uid="uid://cy8otjo413bqb" path="res://ui/elements/button.tscn" id="4_v5lm4"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4ky7e"]
@@ -16,6 +17,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_4ky7e")
 script = ExtResource("1_qxu5a")
+_appear_sound = ExtResource("2_l220d")
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 1.5

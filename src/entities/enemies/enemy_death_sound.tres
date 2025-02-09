@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="Sound" load_steps=3 format=3 uid="uid://ccm5rlvna53y4"]
+
+[ext_resource type="Script" path="res://resources/sound.gd" id="1_4pd7f"]
+[ext_resource type="AudioStream" uid="uid://ridhr6v2hph" path="res://entities/enemies/enemy_killed.wav" id="2_ka6li"]
+
+[resource]
+script = ExtResource("1_4pd7f")
+stream = ExtResource("2_ka6li")
+sound_type = 0
+volume = 1.0
+looping = false
+pitch_scale = 1.0
+spatial_type = 0
+attenuation = 1.0
+max_distance = 1000.0

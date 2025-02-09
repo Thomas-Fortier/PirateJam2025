@@ -1,6 +1,9 @@
 class_name LevelWinPanel
 extends Panel
 
+@export_category("Sounds")
+@export var _appear_sound: Sound
+
 @onready var _points_section: Control = %Points
 @onready var _enemies_killed_section: Control = %EnemiesKilled
 @onready var _ricochets_section: Control = %Ricochets
@@ -12,7 +15,6 @@ extends Panel
 
 var _skip_animation: bool = false
 
-var APPEAR_SOUND = load("res://assets/sounds/ui_item_appear.wav")
 var GAME_COMPLETE_SCENE: PackedScene = load("res://ui/game_complete/game_complete.tscn")
 
 func _ready():
@@ -61,7 +63,7 @@ func _on_timer_timeout() -> void:
 		_skip_animation = true
 		return
 	
-	AudioManager.play_sound(APPEAR_SOUND)
+	AudioManager.play_sound(_appear_sound)
 
 func _on_quit_button_pressed():
 	GameManager.quit_game()

@@ -1,8 +1,8 @@
 extends Button
 
-@onready var _focus_elements: Control = %FocusElements
+@export var _hover_sound: Sound
 
-var HOVER_SOUND = load("res://assets/sounds/button_hover.wav")
+@onready var _focus_elements: Control = %FocusElements
 
 func _ready():
 	_focus_elements.visible = false
@@ -18,7 +18,7 @@ func _on_focus_entered():
 
 func _handle_focused() -> void:
 	_focus_elements.visible = true
-	AudioManager.play_sound(HOVER_SOUND)
+	AudioManager.play_sound(_hover_sound)
 
 func _on_focus_exited():
 	_focus_elements.visible = false

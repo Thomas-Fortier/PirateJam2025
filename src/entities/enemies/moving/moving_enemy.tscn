@@ -1,6 +1,7 @@
-[gd_scene load_steps=13 format=3 uid="uid://bjh15uppbf6me"]
+[gd_scene load_steps=14 format=3 uid="uid://bjh15uppbf6me"]
 
 [ext_resource type="Script" path="res://entities/enemies/moving/moving_enemy.gd" id="1_ttw8a"]
+[ext_resource type="Resource" uid="uid://ccm5rlvna53y4" path="res://entities/enemies/enemy_death_sound.tres" id="2_oorra"]
 [ext_resource type="Texture2D" uid="uid://8j5a0qq8t0ye" path="res://entities/enemies/ghoul_48px-Sheet-export.png" id="2_qy33g"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5r20h"]
@@ -79,6 +80,7 @@ animations = [{
 collision_layer = 2
 collision_mask = 269
 script = ExtResource("1_ttw8a")
+_death_sound = ExtResource("2_oorra")
 points_on_kill = 250
 
 [node name="Collider" type="CollisionShape2D" parent="."]

@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="Sound" load_steps=3 format=3 uid="uid://dmw44de0dih8e"]
+
+[ext_resource type="Script" path="res://resources/sound.gd" id="1_kk31g"]
+[ext_resource type="AudioStream" uid="uid://bdl77own8sq3e" path="res://ui/popups/ui_item_appear.wav" id="2_on6ev"]
+
+[resource]
+script = ExtResource("1_kk31g")
+stream = ExtResource("2_on6ev")
+sound_type = 0
+volume = 1.0
+looping = false
+pitch_scale = 1.0
+spatial_type = 0
+attenuation = 1.0
+max_distance = 1000.0

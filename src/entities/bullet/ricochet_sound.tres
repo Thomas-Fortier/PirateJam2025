@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="Sound" load_steps=3 format=3 uid="uid://qpf1svadvk46"]
+
+[ext_resource type="Script" path="res://resources/sound.gd" id="1_lgbt2"]
+[ext_resource type="AudioStream" uid="uid://dnbfuub0fdwdl" path="res://entities/bullet/ricochet.wav" id="2_dmis6"]
+
+[resource]
+script = ExtResource("1_lgbt2")
+stream = ExtResource("2_dmis6")
+sound_type = 0
+volume = 1.0
+looping = false
+pitch_scale = 1.0
+spatial_type = 0
+attenuation = 1.0
+max_distance = 1000.0

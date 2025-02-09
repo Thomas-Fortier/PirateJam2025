@@ -1,6 +1,7 @@
-[gd_scene load_steps=8 format=3 uid="uid://b6m3xrtoqqyff"]
+[gd_scene load_steps=9 format=3 uid="uid://b6m3xrtoqqyff"]
 
 [ext_resource type="Script" path="res://entities/bullet/abilities/split_shot/bullet_ricochet.gd" id="1_1hvi1"]
+[ext_resource type="Resource" uid="uid://qpf1svadvk46" path="res://entities/bullet/ricochet_sound.tres" id="2_h0s0m"]
 [ext_resource type="Texture2D" uid="uid://bajs7cuvgxg6" path="res://entities/bullet/abilities/splitshot.png" id="2_vsgax"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_vxs1m"]
@@ -44,6 +45,7 @@ modulate = Color(0.74902, 1, 0.945098, 1)
 z_index = 1
 collision_mask = 6
 script = ExtResource("1_1hvi1")
+_ricochet_sound = ExtResource("2_h0s0m")
 
 [node name="Collider" type="CollisionPolygon2D" parent="."]
 position = Vector2(1, 0)
