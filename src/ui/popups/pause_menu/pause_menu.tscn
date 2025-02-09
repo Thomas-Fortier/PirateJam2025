@@ -1,0 +1,128 @@
+[gd_scene load_steps=5 format=3 uid="uid://dxxd81h14krwi"]
+
+[ext_resource type="Script" path="res://ui/popups/pause_menu/pause_menu.gd" id="1_fgyar"]
+[ext_resource type="Theme" uid="uid://dfureb8blyilx" path="res://ui/themes/default_theme.tres" id="2_pa33m"]
+[ext_resource type="PackedScene" uid="uid://cy8otjo413bqb" path="res://ui/elements/button.tscn" id="3_ko7sq"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_x2ock"]
+bg_color = Color(0.00392157, 0.109804, 0.152941, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.74902, 1, 0.945098, 1)
+
+[node name="PauseMenu" type="Control"]
+z_index = 998
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_fgyar")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -159.0
+offset_top = -163.0
+offset_right = 159.0
+offset_bottom = 163.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_x2ock")
+
+[node name="Margin" type="MarginContainer" parent="Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 12
+theme_override_constants/margin_top = 12
+theme_override_constants/margin_right = 12
+theme_override_constants/margin_bottom = 12
+
+[node name="Viewport" type="Control" parent="Panel/Margin"]
+layout_mode = 2
+
+[node name="Title" type="Label" parent="Panel/Margin/Viewport"]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 23.0
+grow_horizontal = 2
+theme = ExtResource("2_pa33m")
+theme_override_font_sizes/font_size = 21
+text = "PAUSED"
+horizontal_alignment = 1
+
+[node name="Buttons" type="Control" parent="Panel/Margin/Viewport"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -120.5
+offset_top = -104.5
+offset_right = 120.5
+offset_bottom = 104.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ResumeButton" parent="Panel/Margin/Viewport/Buttons" instance=ExtResource("3_ko7sq")]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -58.0
+offset_top = -42.0
+offset_right = 58.0
+offset_bottom = -18.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "RESUME"
+
+[node name="SettingsButton" parent="Panel/Margin/Viewport/Buttons" instance=ExtResource("3_ko7sq")]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -58.0
+offset_top = -12.0
+offset_right = 58.0
+offset_bottom = 12.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "SETTINGS"
+
+[node name="QuitButton" parent="Panel/Margin/Viewport/Buttons" instance=ExtResource("3_ko7sq")]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -58.0
+offset_top = 18.0
+offset_right = 58.0
+offset_bottom = 42.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "QUIT"
+
+[connection signal="pressed" from="Panel/Margin/Viewport/Buttons/ResumeButton" to="." method="_on_resume_button_pressed"]
+[connection signal="pressed" from="Panel/Margin/Viewport/Buttons/SettingsButton" to="." method="_on_settings_button_pressed"]
+[connection signal="pressed" from="Panel/Margin/Viewport/Buttons/QuitButton" to="." method="_on_quit_button_pressed"]

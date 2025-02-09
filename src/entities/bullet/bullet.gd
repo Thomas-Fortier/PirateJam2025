@@ -22,6 +22,9 @@ var _overriden_direction: Vector2 = Vector2.ZERO
 func _ready() -> void:
 	LevelManager.level_changed.connect(_on_level_changed)
 	_on_level_changed.call_deferred(LevelManager.level)
+	
+	GameManager.game_paused.connect(_on_game_paused)
+	GameManager.game_resumed.connect(_on_game_resumed)
 
 func _physics_process(delta: float) -> void:
 	if _is_paused:
@@ -49,6 +52,12 @@ func _physics_process(delta: float) -> void:
 	else:
 		_overriden_direction = Vector2.ZERO
 		_bounce_off_wall(collision)
+
+func _on_game_paused() -> void:
+	_is_paused = true
+
+func _on_game_resumed() -> void:
+	_is_paused = false
 
 func _on_level_changed(next_level: Level) -> void:
 	_overriden_direction = Vector2.ZERO

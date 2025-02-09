@@ -12,6 +12,7 @@ func show_game_over(did_win: bool) -> void:
 	var instance = _level_win_scene.instantiate() if did_win else _game_over_scene.instantiate()
 	get_tree().root.add_child(instance)
 
-func show_settings_screen() -> void:
-	var instance = _settings_scene.instantiate()
+func show_settings_screen() -> SettingsMenu:
+	var instance = _settings_scene.instantiate() as SettingsMenu
 	get_tree().root.add_child(instance)
+	return instance

@@ -4,6 +4,10 @@ extends Node
 signal game_over(did_win: bool)
 ## Signal to call when the game has started
 signal game_start
+## Signal called when the game is paused.
+signal game_paused
+## Signal called when the game is resumed from a paused state.
+signal game_resumed
 
 ## The configuration for the game manager.
 var config: GameConfig = load("res://managers/game_manager.tres") as GameConfig
@@ -12,9 +16,14 @@ var config: GameConfig = load("res://managers/game_manager.tres") as GameConfig
 var TITLE_SCREEN: PackedScene = load("res://ui/title_screen/tilte_screen.tscn")
 var BULLET_SCENE: PackedScene = load("res://entities/bullet/bullet.tscn")
 var OVERLAY_SCENE: PackedScene = load("res://ui/overlay/overlay.tscn")
+var PAUSE_SCENE: PackedScene = load("res://ui/popups/pause_menu/pause_menu.tscn")
 var LEVEL_LOST_SOUND = load("res://assets/sounds/level_lose_sound.tres") as Sound
 var LEVEL_WON_SOUND = load("res://assets/sounds/level_win_sound.tres") as Sound
 var MUSIC = load("res://assets/sounds/music.tres") as Sound
+
+var _game_started: bool = false
+var _is_paused: bool = false
+var _pause_menu_instance: PauseMenu = null
 
 func _ready() -> void:
 	assert(config != null, "The config file could not be loaded.")
@@ -23,8 +32,29 @@ func _ready() -> void:
 	# Play music
 	AudioManager.play_sound(MUSIC)
 
+func _process(delta: float) -> void:
+	if Input.is_action_just_pressed("ui_cancel") and _game_started:
+		if _is_paused and is_instance_valid(_pause_menu_instance):
+			if _pause_menu_instance.is_sub_menu_opened:
+				return
+			
+			_pause_menu_instance.queue_free()
+			_pause_menu_instance = null
+			_is_paused = false
+			game_resumed.emit()
+			return
+		
+		game_paused.emit()
+		_is_paused = true
+		_pause_menu_instance = PAUSE_SCENE.instantiate()
+		game_root.add_child(_pause_menu_instance)
+
 func _on_all_enemies_defeated() -> void:
 	handle_game_over(true)
+
+func resume_game() -> void:
+	game_resumed.emit()
+	_is_paused = false
 
 func start_game() -> void:
 	var bullet: Bullet = BULLET_SCENE.instantiate()
@@ -45,12 +75,14 @@ func quit_game() -> void:
 	overlay.queue_free()
 	var title_screen = TITLE_SCREEN.instantiate()
 	game_root.add_child(title_screen)
+	_game_started = false
 
 func _initialize_managers() -> void:
 	BulletManager.initialize()
 
 func handle_game_over(did_win: bool) -> void:
 	game_over.emit(did_win)
+	_game_started = false
 	BulletManager.bullet.toggle_pause()
 
 	if did_win:
@@ -80,3 +112,4 @@ func reset_bullet_and_enemies_and_ability_usages() -> void:
 	BulletManager.bullet.reset()
 	EnemyManager.initialize_enemies.call_deferred()
 	game_start.emit()
+	_game_started = true
