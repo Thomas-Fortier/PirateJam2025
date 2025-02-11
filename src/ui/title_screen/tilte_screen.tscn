@@ -69,6 +69,7 @@ theme_override_constants/margin_bottom = 12
 layout_mode = 2
 
 [node name="Title" type="Label" parent="Margin/Viewport"]
+texture_filter = 1
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -112,6 +113,7 @@ offset_right = 58.0
 offset_bottom = -8.0
 grow_horizontal = 2
 grow_vertical = 2
+_focus = true
 
 [node name="SettingsButton" parent="Margin/Viewport/Buttons" instance=ExtResource("2_e2snu")]
 layout_mode = 1

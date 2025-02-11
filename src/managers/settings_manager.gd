@@ -10,7 +10,7 @@ signal music_volume_updated(new_value: float)
 signal sfx_volume_updated(new_value: float)
 
 ## The master volume of the game.
-var master_volume: float = 1.0:
+var master_volume: float = 0.75:
 	get:
 		return master_volume
 	set(value):
