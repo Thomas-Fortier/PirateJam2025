@@ -1,7 +1,6 @@
-[gd_scene load_steps=4 format=3 uid="uid://d2bxrtmiq3xgr"]
+[gd_scene load_steps=3 format=3 uid="uid://d2bxrtmiq3xgr"]
 
 [ext_resource type="Shader" path="res://shaders/crt.gdshader" id="1_4ubiu"]
-[ext_resource type="PackedScene" uid="uid://wqou0ibwbfku" path="res://ui/title_screen/tilte_screen.tscn" id="5_axmu4"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_71bd4"]
 shader = ExtResource("1_4ubiu")
@@ -25,9 +24,5 @@ shader_parameter/pixel_strength = -2.0
 [node name="CRT" type="ColorRect" parent="."]
 z_index = 999
 material = SubResource("ShaderMaterial_71bd4")
-offset_right = 640.0
-offset_bottom = 360.0
-
-[node name="TilteScreen" parent="." instance=ExtResource("5_axmu4")]
 offset_right = 640.0
 offset_bottom = 360.0

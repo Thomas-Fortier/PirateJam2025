@@ -3,6 +3,8 @@ extends UserInterface
 var CREDITS_SCENE: PackedScene = load("res://ui/credits/credits.tscn")
 
 @onready var _play_button: Button = %PlayButton
+@onready var _settings_button: Button = %SettingsButton
+@onready var _credits_button: Button = %CreditsButton
 
 func _ready() -> void:
 	size.x = 640
@@ -15,10 +17,10 @@ func _process(delta: float) -> void:
 
 func _on_play_button_pressed():
 	GameManager.start_game()
-	queue_free()
+	close_window()
 
 func _on_credits_button_pressed():
-	UiManager.show_ui(CREDITS_SCENE)
+	UiManager.show_ui(CREDITS_SCENE, _credits_button)
 
 func _on_settings_button_pressed():
-	UiManager.show_settings_screen()
+	UiManager.show_settings_screen(_settings_button)

@@ -117,6 +117,7 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="SettingsButton" parent="Margin/Viewport/Buttons" instance=ExtResource("2_e2snu")]
+unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -132,6 +133,7 @@ grow_vertical = 2
 text = "SETTINGS"
 
 [node name="CreditsButton" parent="Margin/Viewport/Buttons" instance=ExtResource("2_e2snu")]
+unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5

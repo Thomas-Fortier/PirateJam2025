@@ -31,14 +31,16 @@ func _ready() -> void:
 	
 	# Play music
 	AudioManager.play_sound(MUSIC)
+	
+	# Display title screen
+	UiManager.call_deferred("show_ui", TITLE_SCREEN)
 
 func _process(delta: float) -> void:
-	if Input.is_action_just_pressed("ui_cancel") and _game_started:
+	if Input.is_action_just_pressed("pause") and _game_started:
 		if _is_paused and is_instance_valid(_pause_menu_instance):
 			if _pause_menu_instance.is_sub_menu_opened:
 				return
 			
-			_pause_menu_instance.queue_free()
 			_pause_menu_instance = null
 			_is_paused = false
 			game_resumed.emit()
@@ -46,7 +48,7 @@ func _process(delta: float) -> void:
 		
 		game_paused.emit()
 		_is_paused = true
-		UiManager.show_ui(PAUSE_SCENE)
+		_pause_menu_instance = UiManager.show_ui(PAUSE_SCENE)
 
 func _on_all_enemies_defeated() -> void:
 	handle_game_over(true)
@@ -72,8 +74,7 @@ func quit_game() -> void:
 	LevelManager.remove_level()
 	var overlay: Overlay = $"../GameRoot/Overlay"
 	overlay.queue_free()
-	var title_screen = TITLE_SCREEN.instantiate()
-	game_root.add_child(title_screen)
+	UiManager.show_ui(TITLE_SCREEN)
 	_game_started = false
 
 func _initialize_managers() -> void:
