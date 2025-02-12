@@ -1,7 +1,0 @@
-[gd_resource type="CanvasTexture" load_steps=2 format=3 uid="uid://dhl24f78yxerc"]
-
-[ext_resource type="Texture2D" uid="uid://vbu4l5lxj4ih" path="res://entities/bullet/abilities/target_lock/target_lock_icon.png" id="1_d21op"]
-
-[resource]
-diffuse_texture = ExtResource("1_d21op")
-texture_filter = 1

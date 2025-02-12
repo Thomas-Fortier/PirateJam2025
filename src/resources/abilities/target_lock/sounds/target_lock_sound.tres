@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="Sound" load_steps=3 format=3 uid="uid://onrsiqj2ga33"]
+
+[ext_resource type="Script" path="res://resources/sound.gd" id="1_qsrwy"]
+[ext_resource type="AudioStream" uid="uid://dxy5n7i7agpco" path="res://resources/abilities/target_lock/sounds/target_lock.wav" id="2_gynvb"]
+
+[resource]
+script = ExtResource("1_qsrwy")
+stream = ExtResource("2_gynvb")
+sound_type = 0
+volume = 1.0
+looping = false
+pitch_scale = 1.0
+spatial_type = 0
+attenuation = 1.0
+max_distance = 1000.0

@@ -10,7 +10,7 @@ signal game_paused
 signal game_resumed
 
 ## The configuration for the game manager.
-var config: GameConfig = load("res://managers/game_manager.tres") as GameConfig
+var config: GameConfig = load("res://resources/game_config.tres") as GameConfig
 @onready var game_root: Node2D = $"../GameRoot"
 
 var TITLE_SCREEN: PackedScene = load("res://ui/title_screen/tilte_screen.tscn")

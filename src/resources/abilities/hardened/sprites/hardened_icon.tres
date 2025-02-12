@@ -1,0 +1,6 @@
+[gd_resource type="CanvasTexture" load_steps=2 format=3 uid="uid://bcto27mdtoqbf"]
+
+[ext_resource type="Texture2D" uid="uid://d1rviqeljue1r" path="res://resources/abilities/hardened/sprites/hardened_icon.png" id="1_j1s0u"]
+
+[resource]
+diffuse_texture = ExtResource("1_j1s0u")

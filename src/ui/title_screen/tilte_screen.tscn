@@ -3,9 +3,9 @@
 [ext_resource type="Script" path="res://ui/title_screen/tilte_screen.gd" id="1_4egoi"]
 [ext_resource type="Theme" uid="uid://dfureb8blyilx" path="res://ui/themes/default_theme.tres" id="1_26s2w"]
 [ext_resource type="PackedScene" uid="uid://cy8otjo413bqb" path="res://ui/elements/button.tscn" id="2_e2snu"]
-[ext_resource type="Texture2D" uid="uid://ll0bvgdt5gvu" path="res://entities/bullet/abilities/explosive/explosive_icon.tres" id="4_ycf6w"]
-[ext_resource type="Texture2D" uid="uid://dwu8wv3f4oqdk" path="res://entities/bullet/bullet.png" id="5_vhbs1"]
-[ext_resource type="Texture2D" uid="uid://8j5a0qq8t0ye" path="res://entities/enemies/ghoul_48px-Sheet-export.png" id="6_aevuw"]
+[ext_resource type="Texture2D" uid="uid://ll0bvgdt5gvu" path="res://resources/abilities/explosive/sprites/explosive_icon.tres" id="4_ycf6w"]
+[ext_resource type="Texture2D" uid="uid://dwu8wv3f4oqdk" path="res://entities/bullet/sprites/bullet.png" id="5_vhbs1"]
+[ext_resource type="Texture2D" uid="uid://8j5a0qq8t0ye" path="res://entities/enemies/sprites/enemy_sprite_sheet.png" id="6_aevuw"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_1kvch"]
 atlas = ExtResource("6_aevuw")

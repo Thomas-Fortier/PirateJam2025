@@ -1,0 +1,7 @@
+[gd_resource type="CanvasTexture" load_steps=2 format=3 uid="uid://bhiqyb5mexhbt"]
+
+[ext_resource type="Texture2D" uid="uid://cwq3s3jenlh2p" path="res://resources/abilities/freeze/sprites/freeze_icon.png" id="1_aqeku"]
+
+[resource]
+diffuse_texture = ExtResource("1_aqeku")
+texture_filter = 1

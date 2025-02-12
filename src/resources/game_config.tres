@@ -1,0 +1,27 @@
+[gd_resource type="Resource" script_class="GameConfig" load_steps=19 format=3 uid="uid://bh7dw50rrmopl"]
+
+[ext_resource type="Script" path="res://resources/abilities/ability.gd" id="1_lwxyo"]
+[ext_resource type="Resource" uid="uid://c61nns7ftkk5a" path="res://resources/abilities/split_shot/split_shot.tres" id="2_h88ed"]
+[ext_resource type="Resource" uid="uid://btycwaef56jik" path="res://resources/abilities/target_lock/target_lock.tres" id="3_er5x5"]
+[ext_resource type="Resource" uid="uid://b7usokbsyb73u" path="res://resources/abilities/freeze/freeze.tres" id="4_fp2ck"]
+[ext_resource type="Resource" uid="uid://c75nocxwicheu" path="res://resources/abilities/hardened/hardened_2.tres" id="5_g1rvj"]
+[ext_resource type="Resource" uid="uid://dqqbkts34818n" path="res://resources/abilities/hardened/hardened_1.tres" id="6_182om"]
+[ext_resource type="Resource" uid="uid://ccm8pn4rej3fn" path="res://resources/abilities/explosive/explosive.tres" id="7_56uc4"]
+[ext_resource type="PackedScene" uid="uid://dnutprpxk521t" path="res://levels/main/level_1.tscn" id="8_poxhb"]
+[ext_resource type="PackedScene" uid="uid://cc240ib03pafu" path="res://levels/main/level_2.tscn" id="9_35fyy"]
+[ext_resource type="PackedScene" uid="uid://lxq4wtclf24o" path="res://levels/main/level_3.tscn" id="10_iqjvp"]
+[ext_resource type="PackedScene" uid="uid://ugfv4nkld7kr" path="res://levels/main/level_4.tscn" id="11_5hgom"]
+[ext_resource type="PackedScene" uid="uid://b8qgonno668b" path="res://levels/main/level_5.tscn" id="12_jc1l4"]
+[ext_resource type="PackedScene" uid="uid://8dkixtrcixol" path="res://levels/main/level_6.tscn" id="13_vfli2"]
+[ext_resource type="PackedScene" uid="uid://dj3yy4dn12po0" path="res://levels/main/level_7.tscn" id="14_0mokr"]
+[ext_resource type="PackedScene" uid="uid://bxk35qk56dfs0" path="res://levels/main/level_8.tscn" id="15_jwcig"]
+[ext_resource type="PackedScene" uid="uid://c5yknat6y2e2y" path="res://levels/main/level_9.tscn" id="16_g7miq"]
+[ext_resource type="PackedScene" uid="uid://dgolsljnry5lk" path="res://levels/main/level_10.tscn" id="17_7abo7"]
+[ext_resource type="Script" path="res://managers/game_config.gd" id="18_1wjmd"]
+
+[resource]
+script = ExtResource("18_1wjmd")
+levels = Array[PackedScene]([ExtResource("8_poxhb"), ExtResource("9_35fyy"), ExtResource("10_iqjvp"), ExtResource("11_5hgom"), ExtResource("12_jc1l4"), ExtResource("13_vfli2"), ExtResource("14_0mokr"), ExtResource("15_jwcig"), ExtResource("16_g7miq"), ExtResource("17_7abo7")])
+abilities = Array[ExtResource("1_lwxyo")]([ExtResource("2_h88ed"), ExtResource("3_er5x5"), ExtResource("4_fp2ck"), ExtResource("5_g1rvj"), ExtResource("6_182om"), ExtResource("7_56uc4")])
+max_turns = 3
+max_ricochets = 3

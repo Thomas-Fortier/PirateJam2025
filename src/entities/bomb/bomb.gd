@@ -1,6 +1,7 @@
 class_name Bomb
 extends Area2D
 
+@export_category("Settings")
 @export var shrapnel_scene: PackedScene
 @export var shrapnel_count: int = 5
 @export var explosion_radius: float = 10.0
@@ -11,7 +12,7 @@ extends Area2D
 
 var _random_number_generator = RandomNumberGenerator.new()
 var _ignore_collision: bool = false
-var exploded: bool = false
+var _exploded: bool = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -20,10 +21,10 @@ func _ready() -> void:
 
 # This function calls the explode function upon colliding with the player
 func _on_body_entered(body):
-	if exploded or _ignore_collision:
+	if _exploded or _ignore_collision:
 		return
 	if body is Bullet or body is Shrapnel or body is BulletRicochet:
-		exploded = true
+		_exploded = true
 		handle_animation()
 		explode()
 
@@ -59,7 +60,7 @@ func _add_shrapnel(shrapnel_instance):
 	get_parent().add_child(shrapnel_instance)
 
 func play_explosion_effects():
-	if exploded:
+	if _exploded:
 		AudioManager.play_sound(_explosion_sound)
 
 func handle_animation() -> void:

@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="Hardened" load_steps=3 format=3 uid="uid://c75nocxwicheu"]
+
+[ext_resource type="Texture2D" uid="uid://bcto27mdtoqbf" path="res://resources/abilities/hardened/sprites/hardened_icon.tres" id="1_jerc8"]
+[ext_resource type="Script" path="res://resources/abilities/hardened/hardened.gd" id="2_a0fv8"]
+
+[resource]
+script = ExtResource("2_a0fv8")
+_ricochets_to_add = 2
+is_passive = true
+name = "Hardened 2"
+description = "Increases the number of max ricochets by 2."
+icon = ExtResource("1_jerc8")
+max_usages = 1

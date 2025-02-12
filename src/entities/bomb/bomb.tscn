@@ -1,9 +1,9 @@
 [gd_scene load_steps=9 format=3 uid="uid://cvts5e1hrop0n"]
 
 [ext_resource type="Script" path="res://entities/bomb/bomb.gd" id="1_j61ue"]
-[ext_resource type="PackedScene" uid="uid://d07o2ymbkswk0" path="res://entities/shrapnel/shrapnel.tscn" id="2_n7msq"]
-[ext_resource type="Texture2D" uid="uid://ba5h3cdeh2nd2" path="res://entities/bomb/bomb-Sheet.png" id="3_2x8q3"]
-[ext_resource type="Resource" uid="uid://d2p1ip4r6w5sa" path="res://entities/bomb/explosion_sound.tres" id="3_3kfmh"]
+[ext_resource type="PackedScene" uid="uid://d07o2ymbkswk0" path="res://entities/bomb/shrapnel/shrapnel.tscn" id="2_n7msq"]
+[ext_resource type="Texture2D" uid="uid://ba5h3cdeh2nd2" path="res://entities/bomb/sprites/bomb-Sheet.png" id="3_2x8q3"]
+[ext_resource type="Resource" uid="uid://d2p1ip4r6w5sa" path="res://entities/bomb/sounds/explosion_sound.tres" id="3_3kfmh"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_e13fg"]
 atlas = ExtResource("3_2x8q3")

@@ -1,0 +1,60 @@
+[gd_scene load_steps=9 format=3 uid="uid://b6m3xrtoqqyff"]
+
+[ext_resource type="Script" path="res://resources/abilities/split_shot/split_shot_bullet/split_shot_bullet.gd" id="1_8gh3x"]
+[ext_resource type="Resource" uid="uid://qpf1svadvk46" path="res://entities/bullet/sounds/ricochet_sound.tres" id="2_ngwjt"]
+[ext_resource type="Texture2D" uid="uid://bajs7cuvgxg6" path="res://resources/abilities/splitshot.png" id="3_tuxet"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vxs1m"]
+atlas = ExtResource("3_tuxet")
+region = Rect2(1, 0, 16, 17)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pbhfy"]
+atlas = ExtResource("3_tuxet")
+region = Rect2(17, 0, 16, 17)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ovnnb"]
+atlas = ExtResource("3_tuxet")
+region = Rect2(33, 0, 16, 17)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ftd4h"]
+atlas = ExtResource("3_tuxet")
+region = Rect2(49, 0, 16, 17)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_jl0yi"]
+animations = [{
+"frames": [{
+"duration": 0.6,
+"texture": SubResource("AtlasTexture_vxs1m")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pbhfy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ovnnb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ftd4h")
+}],
+"loop": true,
+"name": &"flying",
+"speed": 5.0
+}]
+
+[node name="BulletRicochet" type="CharacterBody2D"]
+modulate = Color(0.74902, 1, 0.945098, 1)
+z_index = 1
+collision_mask = 6
+script = ExtResource("1_8gh3x")
+_ricochet_sound = ExtResource("2_ngwjt")
+
+[node name="Collider" type="CollisionPolygon2D" parent="."]
+position = Vector2(1, 0)
+polygon = PackedVector2Array(1, 2.5, 3, 2.5, 3, 1.5, 4, 1.5, 4, 0.5, 5, 0.5, 5, -0.5, 4, -0.5, 4, -1.5, 3, -1.5, 3, -2.5, 1, -2.5)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(-2, 0)
+sprite_frames = SubResource("SpriteFrames_jl0yi")
+animation = &"flying"
+frame = 3
+frame_progress = 0.898589
