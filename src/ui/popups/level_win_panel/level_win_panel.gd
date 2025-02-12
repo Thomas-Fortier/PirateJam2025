@@ -36,7 +36,7 @@ func _on_next_level_button_pressed():
 	else:
 		UiManager.show_ui(GAME_COMPLETE_SCENE)
 	
-	_on_close_button_pressed()
+	close_window()
 
 ## Toggles the visibility of the sections with the cooresponding flag.
 func _toggle_section_visibility(make_visible: bool) -> void:
@@ -66,4 +66,4 @@ func _on_timer_timeout() -> void:
 
 func _on_quit_button_pressed():
 	GameManager.quit_game()
-	_on_close_button_pressed()
+	close_window()

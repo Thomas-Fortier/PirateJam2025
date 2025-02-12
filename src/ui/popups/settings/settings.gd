@@ -9,4 +9,4 @@ func _ready():
 
 func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("ui_cancel"):
-		_on_close_button_pressed()
+		close_window()

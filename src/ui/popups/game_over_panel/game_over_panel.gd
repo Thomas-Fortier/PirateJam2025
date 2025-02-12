@@ -33,7 +33,7 @@ func _process(_delta: float) -> void:
 ## Logic to execute when the "New Run" button is pressed.
 func _on_new_run_button_pressed():
 	GameManager.reset_run()
-	_on_close_button_pressed()
+	close_window()
 
 ## Toggles the visibility of the sections with the cooresponding flag.
 func _toggle_section_visibility(make_visible: bool) -> void:
@@ -66,4 +66,4 @@ func _on_timer_timeout() -> void:
 
 func _on_quit_button_pressed():
 	GameManager.quit_game()
-	_on_close_button_pressed()
+	close_window()

@@ -112,4 +112,4 @@ Motivation ........................................... Started strong, faded fas
 Technical Issues ............................... Why is it doing this?
 Game Design ...................................... Seemed like a good idea at 2 AM"
 
-[connection signal="pressed" from="Panel/Margin/Viewport/CloseButton" to="." method="_on_close_button_pressed"]
+[connection signal="pressed" from="Panel/Margin/Viewport/CloseButton" to="." method="close_window"]

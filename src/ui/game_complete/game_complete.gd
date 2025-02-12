@@ -6,8 +6,8 @@ func _ready() -> void:
 
 func _on_replay_button_pressed():
 	GameManager.reset_run()
-	_on_close_button_pressed()
+	close_window()
 
 func _on_quit_button_pressed():
 	GameManager.quit_game()
-	_on_close_button_pressed()
+	close_window()

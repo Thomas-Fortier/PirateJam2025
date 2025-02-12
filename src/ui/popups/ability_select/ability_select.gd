@@ -55,4 +55,4 @@ func _on_skip_button_pressed():
 
 func _continue() -> void:
 	GameManager.next_level()
-	_on_close_button_pressed()
+	close_window()
