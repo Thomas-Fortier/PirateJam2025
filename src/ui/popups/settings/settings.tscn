@@ -13,7 +13,7 @@ border_width_right = 2
 border_width_bottom = 2
 border_color = Color(0.74902, 1, 0.945098, 1)
 
-[node name="Settings" type="Control"]
+[node name="Settings" type="Control" node_paths=PackedStringArray("_default_focused_item")]
 z_index = 999
 layout_mode = 3
 anchors_preset = 15
@@ -22,6 +22,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_ctqin")
+_default_focused_item = NodePath("Panel/Margin/Viewport/CloseButton")
 
 [node name="Panel" type="Panel" parent="."]
 layout_mode = 1

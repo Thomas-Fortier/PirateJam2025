@@ -46,8 +46,7 @@ func _process(delta: float) -> void:
 		
 		game_paused.emit()
 		_is_paused = true
-		_pause_menu_instance = PAUSE_SCENE.instantiate()
-		game_root.add_child(_pause_menu_instance)
+		UiManager.show_ui(PAUSE_SCENE)
 
 func _on_all_enemies_defeated() -> void:
 	handle_game_over(true)

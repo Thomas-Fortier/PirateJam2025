@@ -12,8 +12,7 @@ func _ready():
 	_all_abilities = GameManager.config.abilities
 
 func show_ability_select() -> void:
-	var ability_select = ABILITY_SELECT.instantiate()
-	GameManager.game_root.add_child(ability_select)
+	UiManager.show_ui(ABILITY_SELECT)
 
 func add_ability(ability: Ability) -> void:
 	_current_abilities.append(ability)

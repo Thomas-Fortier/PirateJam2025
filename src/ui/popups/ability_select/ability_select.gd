@@ -1,5 +1,5 @@
 class_name AbilitySelect
-extends Control
+extends UserInterface
 
 @onready var _panel_1: AbilityPanel = %AbilityPanel1
 @onready var _panel_2: AbilityPanel = %AbilityPanel2
@@ -55,4 +55,4 @@ func _on_skip_button_pressed():
 
 func _continue() -> void:
 	GameManager.next_level()
-	queue_free()
+	_on_close_button_pressed()

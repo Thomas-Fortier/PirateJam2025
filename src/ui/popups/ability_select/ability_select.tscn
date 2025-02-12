@@ -8,7 +8,7 @@
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_twkip"]
 bg_color = Color(0.00392157, 0.109804, 0.152941, 1)
 
-[node name="AbilitySelect" type="Panel"]
+[node name="AbilitySelect" type="Panel" node_paths=PackedStringArray("_default_focused_item")]
 z_index = 100
 anchors_preset = 15
 anchor_right = 1.0
@@ -17,6 +17,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_twkip")
 script = ExtResource("1_pbvqa")
+_default_focused_item = NodePath("Margin/Viewport/SkipButton")
 
 [node name="Margin" type="MarginContainer" parent="."]
 layout_mode = 1

@@ -7,7 +7,7 @@
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_08kkg"]
 bg_color = Color(0.00392157, 0.109804, 0.152941, 1)
 
-[node name="Credits" type="Control"]
+[node name="Credits" type="Control" node_paths=PackedStringArray("_default_focused_item")]
 z_index = 100
 layout_mode = 3
 anchors_preset = 15
@@ -16,6 +16,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_vc8rj")
+_default_focused_item = NodePath("Panel/Margin/Viewport/CloseButton")
 
 [node name="Panel" type="Panel" parent="."]
 layout_mode = 1

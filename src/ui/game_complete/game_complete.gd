@@ -1,4 +1,4 @@
-extends Control
+extends UserInterface
 
 func _ready() -> void:
 	size.x = 640
@@ -6,8 +6,8 @@ func _ready() -> void:
 
 func _on_replay_button_pressed():
 	GameManager.reset_run()
-	queue_free()
+	_on_close_button_pressed()
 
 func _on_quit_button_pressed():
 	GameManager.quit_game()
-	queue_free()
+	_on_close_button_pressed()

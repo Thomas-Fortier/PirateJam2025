@@ -43,7 +43,7 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="TilteScreen" type="Control"]
+[node name="TilteScreen" type="Control" node_paths=PackedStringArray("_default_focused_item")]
 z_index = 99
 layout_mode = 3
 anchors_preset = 15
@@ -52,6 +52,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_4egoi")
+_default_focused_item = NodePath("Margin/Viewport/Buttons/PlayButton")
 
 [node name="Margin" type="MarginContainer" parent="."]
 layout_mode = 1
@@ -101,6 +102,7 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="PlayButton" parent="Margin/Viewport/Buttons" instance=ExtResource("2_e2snu")]
+unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -113,7 +115,6 @@ offset_right = 58.0
 offset_bottom = -8.0
 grow_horizontal = 2
 grow_vertical = 2
-_focus = true
 
 [node name="SettingsButton" parent="Margin/Viewport/Buttons" instance=ExtResource("2_e2snu")]
 layout_mode = 1

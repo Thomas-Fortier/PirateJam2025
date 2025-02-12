@@ -1,5 +1,5 @@
 class_name GameOverPanel
-extends Panel
+extends UserInterface
 
 @export_category("Sounds")
 @export var _appear_sound: Sound
@@ -33,8 +33,7 @@ func _process(_delta: float) -> void:
 ## Logic to execute when the "New Run" button is pressed.
 func _on_new_run_button_pressed():
 	GameManager.reset_run()
-	# TODO: Implement animation / transition or whatever else
-	queue_free()
+	_on_close_button_pressed()
 
 ## Toggles the visibility of the sections with the cooresponding flag.
 func _toggle_section_visibility(make_visible: bool) -> void:
@@ -67,4 +66,4 @@ func _on_timer_timeout() -> void:
 
 func _on_quit_button_pressed():
 	GameManager.quit_game()
-	queue_free()
+	_on_close_button_pressed()

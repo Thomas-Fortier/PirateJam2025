@@ -1,5 +1,5 @@
 class_name LevelWinPanel
-extends Panel
+extends UserInterface
 
 @export_category("Sounds")
 @export var _appear_sound: Sound
@@ -34,10 +34,9 @@ func _on_next_level_button_pressed():
 	if LevelManager.are_there_levels_remaining():
 		AbilityManager.show_ability_select()
 	else:
-		var game_complete = GAME_COMPLETE_SCENE.instantiate()
-		GameManager.game_root.add_child(game_complete)
+		UiManager.show_ui(GAME_COMPLETE_SCENE)
 	
-	queue_free()
+	_on_close_button_pressed()
 
 ## Toggles the visibility of the sections with the cooresponding flag.
 func _toggle_section_visibility(make_visible: bool) -> void:
@@ -67,4 +66,4 @@ func _on_timer_timeout() -> void:
 
 func _on_quit_button_pressed():
 	GameManager.quit_game()
-	queue_free()
+	_on_close_button_pressed()

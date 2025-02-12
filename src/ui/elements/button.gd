@@ -12,6 +12,7 @@ func _on_mouse_entered():
 
 func _on_mouse_exited():
 	_focus_elements.visible = false
+	focus_mode = FocusMode.FOCUS_NONE
 
 func _on_focus_entered():
 	_handle_focused()
