@@ -95,6 +95,7 @@ grow_vertical = 2
 text = "RESUME"
 
 [node name="SettingsButton" parent="Panel/Margin/Viewport/Buttons" instance=ExtResource("3_ko7sq")]
+unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5

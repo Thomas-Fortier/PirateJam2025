@@ -14,18 +14,18 @@ const DEFAULT_Z_INDEX: int = 900
 ## Displays the correct UI panel when the game ends.
 func show_game_over(did_win: bool) -> void:
 	if did_win:
-		show_ui(_level_win_scene)
+		show_ui(_level_win_scene, false, null)
 		return
 	
-	show_ui(_game_over_scene)
+	show_ui(_game_over_scene, false, null)
 
 ## Shows the settings screen.
 func show_settings_screen(previous_element_to_focus: Control = null) -> SettingsMenu:
-	var instance = show_ui(_settings_scene, previous_element_to_focus) as SettingsMenu
+	var instance = show_ui(_settings_scene, true, previous_element_to_focus) as SettingsMenu
 	return instance
 
 ## Shows a given UI scene.
-func show_ui(scene: PackedScene, previous_element_to_focus: Control = null) -> UserInterface:
+func show_ui(scene: PackedScene, focus_on_item: bool = true, previous_element_to_focus: Control = null) -> UserInterface:
 	var user_interface: UserInterface = scene.instantiate() as UserInterface
 	assert(user_interface != null, "The specified scene to show is not a UserInterface.")
 	
@@ -39,7 +39,9 @@ func show_ui(scene: PackedScene, previous_element_to_focus: Control = null) -> U
 	user_interface.close_button_pressed.connect(hide_ui)
 	
 	get_tree().root.add_child(user_interface)
-	_focus_on_default_item(user_interface.get_default_focused_item())
+	
+	if focus_on_item:
+		_focus_on_default_item(user_interface.get_default_focused_item())
 	
 	return user_interface
 

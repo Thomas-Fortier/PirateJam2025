@@ -191,6 +191,7 @@ grow_horizontal = 2
 grow_vertical = 0
 
 [node name="NextLevelButton" parent="Margin/Viewport/Buttons" instance=ExtResource("4_v5lm4")]
+unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5

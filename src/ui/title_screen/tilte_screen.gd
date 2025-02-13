@@ -20,7 +20,11 @@ func _on_play_button_pressed():
 	close_window()
 
 func _on_credits_button_pressed():
-	UiManager.show_ui(CREDITS_SCENE, _credits_button)
+	UiManager.show_ui(CREDITS_SCENE, true, _credits_button)
 
 func _on_settings_button_pressed():
 	UiManager.show_settings_screen(_settings_button)
+
+func _on_quit_button_pressed():
+	# TODO: Call save method and other logic. Should be extracted into GameManager.
+	get_tree().quit()

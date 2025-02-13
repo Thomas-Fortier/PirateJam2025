@@ -3,6 +3,8 @@ extends UserInterface
 
 var is_sub_menu_opened: bool = false
 
+@onready var _settings_button: Button = %SettingsButton
+
 func _ready():
 	size.x = 640
 	size.y = 360
@@ -19,7 +21,7 @@ func _on_resume_button_pressed() -> void:
 	close_window()
 
 func _on_settings_button_pressed():
-	var instance = UiManager.show_settings_screen() as SettingsMenu
+	var instance = UiManager.show_settings_screen(_settings_button) as SettingsMenu
 	instance.settings_menu_closed.connect(_on_settings_menu_closed)
 	is_sub_menu_opened = true
 
