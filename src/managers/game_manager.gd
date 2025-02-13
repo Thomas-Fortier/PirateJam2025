@@ -13,6 +13,7 @@ signal game_resumed
 var config: GameConfig = load("res://resources/game_config.tres") as GameConfig
 @onready var game_root: Node2D = $"../GameRoot"
 
+var GAME_SIZE: Vector2 = Vector2(640, 360)
 var TITLE_SCREEN: PackedScene = load("res://ui/title_screen/tilte_screen.tscn")
 var BULLET_SCENE: PackedScene = load("res://entities/bullet/bullet.tscn")
 var OVERLAY_SCENE: PackedScene = load("res://ui/overlay/overlay.tscn")
@@ -35,7 +36,7 @@ func _ready() -> void:
 	# Display title screen
 	UiManager.call_deferred("show_ui", TITLE_SCREEN)
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if Input.is_action_just_pressed("pause") and _game_started:
 		if _is_paused and is_instance_valid(_pause_menu_instance):
 			if _pause_menu_instance.is_sub_menu_opened:
@@ -65,8 +66,7 @@ func start_game() -> void:
 	reset_run()
 	
 	var overlay: Overlay = OVERLAY_SCENE.instantiate()
-	overlay.size.x = 640
-	overlay.size.y = 360
+	overlay.set_size(GAME_SIZE)
 	game_root.add_child(overlay)
 
 func quit_game() -> void:

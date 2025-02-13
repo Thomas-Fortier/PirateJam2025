@@ -51,6 +51,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+size_flags_horizontal = 4
 script = ExtResource("1_4egoi")
 _default_focused_item = NodePath("Margin/Viewport/Buttons/PlayButton")
 
@@ -65,6 +66,7 @@ theme_override_constants/margin_left = 12
 theme_override_constants/margin_top = 12
 theme_override_constants/margin_right = 12
 theme_override_constants/margin_bottom = 12
+metadata/_edit_use_anchors_ = true
 
 [node name="Viewport" type="Control" parent="Margin"]
 layout_mode = 2

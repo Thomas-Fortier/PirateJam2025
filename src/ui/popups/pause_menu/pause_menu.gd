@@ -6,8 +6,7 @@ var is_sub_menu_opened: bool = false
 @onready var _settings_button: Button = %SettingsButton
 
 func _ready():
-	size.x = 640
-	size.y = 360
+	set_size(GameManager.GAME_SIZE)
 
 func _process(_delta: float) -> void:
 	if is_sub_menu_opened:

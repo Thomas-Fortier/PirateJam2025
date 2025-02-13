@@ -7,11 +7,9 @@ var CREDITS_SCENE: PackedScene = load("res://ui/credits/credits.tscn")
 @onready var _credits_button: Button = %CreditsButton
 
 func _ready() -> void:
-	size.x = 640
-	size.y = 360
 	_play_button.grab_focus()
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	var animated_sprite = %EnemyAnimation
 	animated_sprite.play("idle")
 

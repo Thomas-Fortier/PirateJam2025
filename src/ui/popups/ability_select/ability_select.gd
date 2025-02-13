@@ -13,8 +13,7 @@ extends UserInterface
 var _ability_pool: Array[Ability] = []
 
 func _ready():
-	size.x = 640
-	size.y = 360
+	set_size(GameManager.GAME_SIZE)
 	
 	if AbilityManager.has_no_more_space_for_abilities():
 		_abilities.visible = false
