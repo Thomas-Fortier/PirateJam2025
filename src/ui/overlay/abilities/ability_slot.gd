@@ -26,7 +26,6 @@ func _ready() -> void:
 		return
 	
 	_key_bind_label.visible = true
-	
 
 func _on_game_over(_did_win: bool) -> void:
 	_pause = true
@@ -61,3 +60,4 @@ func _set_properties(ability_to_set: Ability) -> void:
 func remove_ability() -> void:
 	ability = null
 	_icon.texture = null
+	_key_bind_label.visible = false

@@ -18,6 +18,7 @@ var splitter: BulletSplitter = BulletSplitter.new()
 var _is_selecting_direction: bool = true
 var _is_paused: bool = false
 var _overriden_direction: Vector2 = Vector2.ZERO
+var _last_rotation: Vector2 = Vector2.ZERO
 
 func _ready() -> void:
 	LevelManager.level_changed.connect(_on_level_changed)
@@ -31,7 +32,10 @@ func _physics_process(delta: float) -> void:
 		return
 	
 	if _is_selecting_direction:
-		_follow_cursor()
+		if InputManager.is_using_keyboard:
+			_follow_cursor()
+		else:
+			_follow_joystick()
 		return
 	
 	if _overriden_direction != Vector2.ZERO:
@@ -91,11 +95,28 @@ func _bounce_off_wall(collision: KinematicCollision2D) -> void:
 	AudioManager.play_sound(_ricochet_sound)
 	bounced_off_wall.emit()
 
+func _follow_joystick() -> void:	
+	var x: float = Input.get_joy_axis(0, JOY_AXIS_LEFT_X)
+	var y: float = Input.get_joy_axis(0, JOY_AXIS_LEFT_Y)
+	
+	var direction: Vector2 = Vector2(x, y)
+	
+	if direction.length() < 0.2:  # Deadzone to prevent jitter
+		direction = _last_rotation
+	
+	direction = direction.normalized()
+	_last_rotation = direction
+	rotation = direction.angle()
+	
+	_handle_firing()
+
 ## Follows the cursor and resumes moving in that direction when left click is pressed.
 func _follow_cursor() -> void:
-	_trajectory_line.update_trajectory(global_position, rotation)
-	
 	look_at(get_global_mouse_position())
+	_handle_firing()
+
+func _handle_firing() -> void:
+	_trajectory_line.update_trajectory(global_position, rotation)
 	
 	if Input.is_action_just_pressed("fire") and not _is_paused:
 		_is_selecting_direction = false
