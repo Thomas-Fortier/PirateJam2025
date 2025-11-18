@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=4 uid="uid://dnutprpxk521t"]
 
-[ext_resource type="Script" path="res://levels/level.gd" id="1_7uitr"]
+[ext_resource type="Script" uid="uid://bwlhbimvu7bp7" path="res://levels/level.gd" id="1_7uitr"]
 [ext_resource type="Texture2D" uid="uid://c851uxpa0eutx" path="res://assets/tilemaps/walls.png" id="2_1dtcu"]
 [ext_resource type="PackedScene" uid="uid://dvvs8ou2s3603" path="res://entities/enemies/stationary/stationary_enemy.tscn" id="3_gim4v"]
 

@@ -27,9 +27,9 @@ func _ready():
 	if StatsManager.new_high_score:
 		_high_score_text_label.text = "New High Score:"
 		StatsManager.new_high_score = false
-
 	else:
 		_high_score_text_label.text = "High Score:"
+		
 	_high_score_label.text = str(StatsManager.high_score)
 	_total_points_label.text = str(StatsManager.total_points)
 	_enemies_killed_label.text = str(StatsManager.total_kills)

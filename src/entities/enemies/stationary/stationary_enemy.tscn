@@ -1,6 +1,6 @@
 [gd_scene load_steps=9 format=3 uid="uid://dvvs8ou2s3603"]
 
-[ext_resource type="Script" path="res://entities/enemies/stationary/stationary_enemy.gd" id="1_ma8hv"]
+[ext_resource type="Script" uid="uid://d27w7ojurs2po" path="res://entities/enemies/stationary/stationary_enemy.gd" id="1_ma8hv"]
 [ext_resource type="Texture2D" uid="uid://8j5a0qq8t0ye" path="res://entities/enemies/ghoul_48px-Sheet-export.png" id="2_43avv"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5r20h"]

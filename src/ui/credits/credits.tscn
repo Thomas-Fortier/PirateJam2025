@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://bj44tl3i4ph38"]
 
 [ext_resource type="Theme" uid="uid://dfureb8blyilx" path="res://ui/themes/default_theme.tres" id="1_12nqg"]
-[ext_resource type="Script" path="res://ui/credits/credits.gd" id="1_vc8rj"]
+[ext_resource type="Script" uid="uid://wlm6h3j0ubb7" path="res://ui/credits/credits.gd" id="1_vc8rj"]
 [ext_resource type="PackedScene" uid="uid://cy8otjo413bqb" path="res://ui/elements/button.tscn" id="2_oe4y2"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_08kkg"]
@@ -103,10 +103,10 @@ scale = Vector2(0.986147, 1)
 theme = ExtResource("1_12nqg")
 theme_override_constants/line_spacing = 12
 theme_override_font_sizes/font_size = 16
-text = "Developer 1 ........................................ MrBixbite
-Developer 2 ........................................ kingofseas
-Developer 3 ........................................ Stiel
-Artist ................................................... The Losers
+text = "Developer 1 ........................................ Thomas Fortier
+Developer 2 ........................................ Jonathan Caro
+Developer 3 ........................................ Nicholas Vitsentzatos
+Artist ................................................... Us
 QA Testers ........................................ Also Us (We hope it works)
 Sleep Schedule Management ........... Non-existent
 Motivation ........................................... Started strong, faded fast

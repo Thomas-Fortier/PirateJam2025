@@ -26,6 +26,7 @@ func _ready():
 		StatsManager.new_high_score = false
 	else:
 		_high_score_text_label.text = "High Score:"
+		
 	_high_score_label.text = str(StatsManager.high_score)
 	_total_points_label.text = str(StatsManager.total_points)
 	_points_label.text = str(StatsManager.points)
