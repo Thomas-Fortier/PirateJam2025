@@ -189,7 +189,37 @@ offset_left = 16.0
 offset_right = 56.0
 offset_bottom = 23.0
 theme = ExtResource("1_26s2w")
-text = "1.0.0"
+text = "1.0.1"
+
+[node name="HighScore" type="Control" parent="Margin/Viewport"]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 247.0
+offset_top = -19.0
+offset_right = 378.0
+grow_vertical = 0
+
+[node name="Label" type="Label" parent="Margin/Viewport/HighScore"]
+texture_filter = 1
+layout_mode = 0
+offset_right = 15.0
+offset_bottom = 23.0
+theme = ExtResource("1_26s2w")
+text = "High Score:"
+
+[node name="HighScoreLabel" type="Label" parent="Margin/Viewport/HighScore"]
+unique_name_in_owner = true
+texture_filter = 1
+layout_mode = 0
+offset_left = 83.0
+offset_top = 1.0
+offset_right = 123.0
+offset_bottom = 24.0
+theme = ExtResource("1_26s2w")
+text = "0000"
+horizontal_alignment = 2
 
 [node name="ExplosiveIcon" type="Sprite2D" parent="."]
 modulate = Color(0.74902, 1, 0.945098, 1)

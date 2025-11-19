@@ -85,6 +85,11 @@ func handle_game_over(did_win: bool) -> void:
 	_game_started = false
 	BulletManager.bullet.toggle_pause()
 
+	if StatsManager.new_high_score:
+		StatsManager.high_score = StatsManager.total_points
+		StatsManager.save_data.high_score = StatsManager.high_score
+		StatsManager.save_data.save()
+
 	if did_win:
 		StatsManager.levels_completed += 1
 		AudioManager.play_sound(LEVEL_WON_SOUND)
