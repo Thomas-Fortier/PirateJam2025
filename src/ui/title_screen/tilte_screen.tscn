@@ -1,6 +1,6 @@
 [gd_scene load_steps=12 format=3 uid="uid://wqou0ibwbfku"]
 
-[ext_resource type="Script" path="res://ui/title_screen/tilte_screen.gd" id="1_4egoi"]
+[ext_resource type="Script" uid="uid://df5djw5bw2ref" path="res://ui/title_screen/tilte_screen.gd" id="1_4egoi"]
 [ext_resource type="Theme" uid="uid://dfureb8blyilx" path="res://ui/themes/default_theme.tres" id="1_26s2w"]
 [ext_resource type="PackedScene" uid="uid://cy8otjo413bqb" path="res://ui/elements/button.tscn" id="2_e2snu"]
 [ext_resource type="Texture2D" uid="uid://ll0bvgdt5gvu" path="res://entities/bullet/abilities/explosive/explosive_icon.tres" id="4_ycf6w"]
@@ -161,9 +161,11 @@ unique_name_in_owner = true
 texture_filter = 2
 layout_mode = 0
 offset_left = 361.0
-offset_top = 287.0
+offset_top = 294.0
 offset_right = 401.0
-offset_bottom = 310.0
+offset_bottom = 317.0
+theme = ExtResource("1_26s2w")
+text = "00"
 
 [node name="ExplosiveIcon" type="Sprite2D" parent="."]
 modulate = Color(0.74902, 1, 0.945098, 1)
