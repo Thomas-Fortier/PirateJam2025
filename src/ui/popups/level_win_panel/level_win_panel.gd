@@ -4,12 +4,17 @@ extends UserInterface
 @export_category("Sounds")
 @export var _appear_sound: Sound
 
+@onready var _high_score_section: Control = %HighScore
 @onready var _points_section: Control = %Points
+@onready var _total_points_section: Control = %TotalPoints
 @onready var _enemies_killed_section: Control = %EnemiesKilled
 @onready var _ricochets_section: Control = %Ricochets
 @onready var _buttons_section: Control = %Buttons
 @onready var _next_level_button: Button = %NextLevelButton
 
+@onready var _high_score_text_label: Label = %HighScoreTextLabel
+@onready var _high_score_label: Label = %HighScoreLabel
+@onready var _total_points_label: Label = %TotalPointsLabel
 @onready var _points_label: Label = %PointsLabel
 @onready var _enemies_killed_label: Label = %EnemiesKilledLabel
 @onready var _ricochets_label: Label = %RicochetsLabel
@@ -22,6 +27,14 @@ var GAME_COMPLETE_SCENE: PackedScene = load("res://ui/game_complete/game_complet
 func _ready():
 	_toggle_section_visibility(false)
 	
+	if StatsManager.new_high_score:
+		_high_score_text_label.text = "New High Score:"
+		StatsManager.new_high_score = false
+	else:
+		_high_score_text_label.text = "High Score:"
+		
+	_high_score_label.text = str(StatsManager.high_score)
+	_total_points_label.text = str(StatsManager.total_points)
 	_points_label.text = str(StatsManager.points)
 	_enemies_killed_label.text = str(StatsManager.kills)
 	_ricochets_label.text = str(StatsManager.total_ricochets)
@@ -46,7 +59,9 @@ func _on_next_level_button_pressed():
 
 ## Toggles the visibility of the sections with the cooresponding flag.
 func _toggle_section_visibility(make_visible: bool) -> void:
+	_high_score_section.visible = make_visible
 	_points_section.visible = make_visible
+	_total_points_section.visible = make_visible
 	_enemies_killed_section.visible = make_visible
 	_ricochets_section.visible = make_visible
 	_buttons_section.visible = make_visible
@@ -58,9 +73,12 @@ func _toggle_section_visibility(make_visible: bool) -> void:
 func _on_timer_timeout() -> void:
 	if _skip_animation:
 		return
-	
-	if not _points_section.visible:
+	if not _high_score_section.visible:
+		_high_score_section.visible = true
+	elif not _points_section.visible:
 		_points_section.visible = true
+	elif not _total_points_section.visible:
+		_total_points_section.visible = true
 	elif not _enemies_killed_section.visible:
 		_enemies_killed_section.visible = true
 	elif not _ricochets_section.visible:

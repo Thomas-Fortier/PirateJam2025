@@ -5,9 +5,11 @@ var CREDITS_SCENE: PackedScene = load("res://ui/credits/credits.tscn")
 @onready var _play_button: Button = %PlayButton
 @onready var _settings_button: Button = %SettingsButton
 @onready var _credits_button: Button = %CreditsButton
+@onready var _high_score_label: Label = %HighScoreLabel
 
 func _ready() -> void:
 	_play_button.grab_focus()
+	_high_score_label.text = str(StatsManager.high_score)
 
 func _process(_delta: float) -> void:
 	var animated_sprite = %EnemyAnimation

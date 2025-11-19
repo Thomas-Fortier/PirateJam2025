@@ -103,9 +103,10 @@ grow_vertical = 2
 theme = ExtResource("1_12nqg")
 theme_override_constants/line_spacing = 12
 theme_override_font_sizes/font_size = 16
-text = "Developer 1 ........................................ MrBixbite
-Developer 2 ........................................ kingofseas
-Artist ................................................... Both of us
+text = "Developer 1 ........................................ Thomas Fortier
+Developer 2 ........................................ Jonathan Caro
+Developer 3 ........................................ Nicholas Vitsentzatos
+Artist ................................................... Us
 QA Testers ........................................ Also Us (We hope it works)
 Sleep Schedule Management ........... Non-existent
 Motivation ........................................... Started strong, faded fast
